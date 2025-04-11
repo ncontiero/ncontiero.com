@@ -6,9 +6,20 @@ const nextConfig = {
   images: {
     remotePatterns: [{ hostname: "github.com" }],
   },
+  turbopack: {
+    resolveExtensions: [
+      ".mdx",
+      ".md",
+      ".tsx",
+      ".ts",
+      ".jsx",
+      ".js",
+      ".mjs",
+      ".json",
+    ],
+  },
   experimental: {
     webpackBuildWorker: true,
-    turbo: {},
   },
   trailingSlash: true,
 };
