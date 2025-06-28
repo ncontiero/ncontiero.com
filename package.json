@@ -45,7 +45,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "@ncontiero/eslint-config": "5.2.0",
+    "@ncontiero/eslint-config": "6.0.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.15.33",
     "@types/react": "^19.1.8",
