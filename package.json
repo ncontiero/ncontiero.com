@@ -40,7 +40,7 @@
     "shiki": "^3.11.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^4.0.17"
+    "zod": "^4.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
