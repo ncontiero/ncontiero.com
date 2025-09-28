@@ -28,7 +28,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "contentlayer2": "^0.5.8",
-    "framer-motion": "^12.23.16",
+    "framer-motion": "^12.23.22",
     "lucide-react": "^0.544.0",
     "next": "15.5.4",
     "next-contentlayer2": "^0.5.8",
