@@ -23,8 +23,8 @@ const projectsContainer = {
   },
 };
 const projectsItem = {
-  hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1 },
+  hidden: { y: 20, opacity: 0, filter: "blur(10px)" },
+  visible: { y: 0, opacity: 1, filter: "blur(0px)" },
 };
 
 export default function ProjectsPage() {

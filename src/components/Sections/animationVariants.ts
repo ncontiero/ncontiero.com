@@ -8,8 +8,8 @@ const aboutContent = {
   visible: { opacity: 1 },
 };
 const aboutItem = {
-  hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1 },
+  hidden: { y: 20, opacity: 0, filter: "blur(10px)" },
+  visible: { y: 0, opacity: 1, filter: "blur(0px)" },
 };
 
 const homeContainer = {
@@ -28,14 +28,14 @@ const homeContainer = {
   },
 };
 const homeItem = {
-  hidden: { y: 60, opacity: 0 },
-  visible: { y: 0, opacity: 1 },
+  hidden: { y: 60, opacity: 0, filter: "blur(10px)" },
+  visible: { y: 0, opacity: 1, filter: "blur(0px)" },
 };
 
 const projectsContainer = {
   hidden: {
     opacity: 0,
-    y: 100,
+    y: 500,
     transition: {
       when: "afterChildren",
     },
@@ -50,8 +50,8 @@ const projectsContainer = {
   },
 };
 const projectsItem = {
-  hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1 },
+  hidden: { y: 20, opacity: 0, filter: "blur(10px)" },
+  visible: { y: 0, opacity: 1, filter: "blur(0px)" },
 };
 
 export const homeAnimation = {

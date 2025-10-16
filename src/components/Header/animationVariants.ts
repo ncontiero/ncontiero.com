@@ -14,8 +14,8 @@ const list = {
   },
 };
 const item = {
-  hidden: { y: -80, opacity: 0 },
-  visible: { y: 0, opacity: 1 },
+  hidden: { y: -80, opacity: 0, filter: "blur(50px)" },
+  visible: { y: 0, opacity: 1, filter: "blur(0px)" },
 };
 
 export const animation = {
