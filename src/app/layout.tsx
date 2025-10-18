@@ -76,21 +76,22 @@ export default function RootLayout({
             autoClose={3000}
             limit={3}
             theme="dark"
-            className="z-[99999] bg-background font-merriweatherSans text-foreground"
-            toastClassName="bg-background font-merriweatherSans font-medium text-foreground backdrop-blur-sm"
+            className="bg-background font-merriweather-sans text-foreground z-99999"
+            toastClassName="bg-background font-merriweather-sans font-medium text-foreground backdrop-blur-xs"
             closeOnClick
             stacked
           />
           <Header />
           <div
             className={`
-              absolute inset-0 -z-10 size-full bg-[radial-gradient(hsl(var(--secondary)/0.15)_1px,transparent_1px)]
-              [background-size:16px_16px] dark:bg-[radial-gradient(hsl(var(--secondary)/0.1)_1px,transparent_1px)]
+              from-secondary/15 absolute inset-0 -z-10 size-full bg-radial from-10% to-transparent to-10%
+              bg-size-[16px_16px] dark:from-secondary/10
             `}
           />
           <div
             className={`
-              absolute inset-0 -z-10 mx-auto hidden size-full max-w-[1690px] border-x-2 border-dashed px-4 md:flex
+              dark:border-border/40 absolute inset-0 -z-10 mx-auto hidden size-full max-w-[1690px] border-x-2
+              border-dashed px-4 md:flex
             `}
           />
           {children}

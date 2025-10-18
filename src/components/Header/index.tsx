@@ -21,7 +21,7 @@ export function Header() {
   return (
     <header
       className={`
-        sticky inset-x-0 top-0 z-[9999] h-16 border-b-2 border-dashed border-border backdrop-blur-md md:h-[72px]
+        dark:border-border/40 sticky inset-x-0 top-0 z-9999 h-16 border-b-2 border-dashed backdrop-blur-md md:h-[72px]
       `}
     >
       <nav className="flex h-full items-center justify-between px-4 sm:px-6 md:px-12">
@@ -34,8 +34,8 @@ export function Header() {
           <Link
             href={`/#${sections.home.id}`}
             className={`
-              group flex items-center space-x-2 rounded-full underline-offset-4 ring-ring duration-300 hover:underline
-              hover:brightness-200 focus-visible:outline-none focus-visible:ring-2 active:opacity-70 md:pr-3
+              group ring-ring flex items-center space-x-2 rounded-full underline-offset-4 duration-300 hover:underline
+              hover:brightness-200 focus-visible:ring-2 focus-visible:outline-hidden active:opacity-70 md:pr-3
             `}
           >
             <Image
@@ -67,8 +67,8 @@ export function Header() {
               >
                 <Link
                   className={`
-                    rounded-full p-4 underline-offset-4 ring-ring duration-200 hover:text-primary hover:underline
-                    focus:outline-none focus-visible:opacity-100 focus-visible:ring-2 active:opacity-60
+                    ring-ring rounded-full p-4 underline-offset-4 duration-200 hover:text-primary hover:underline
+                    focus:outline-hidden focus-visible:opacity-100 focus-visible:ring-2 active:opacity-60
                   `}
                   href={`/#${value.id}`}
                 >
@@ -95,7 +95,7 @@ export function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 className={`
-                  border-border/60 bg-background/60 shadow-xl shadow-secondary/10 backdrop-blur-md dark:bg-background/80
+                  border-border/60 bg-background/60 shadow-secondary/10 shadow-xl backdrop-blur-md dark:bg-background/80
                   md:w-48
                 `}
               >

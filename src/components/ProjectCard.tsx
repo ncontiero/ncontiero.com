@@ -45,7 +45,7 @@ export function ProjectCard({
                 <span>Site</span>
                 <ArrowUpRight
                   size={20}
-                  className="duration-300 group-hover/demo:-translate-y-0.5 group-hover/demo:translate-x-0.5"
+                  className="duration-300 group-hover/demo:translate-x-0.5 group-hover/demo:-translate-y-0.5"
                 />
               </a>
             </Button>

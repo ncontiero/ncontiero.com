@@ -32,8 +32,8 @@ export function ContactSection({
             variants={homeAnimation.container}
             transition={{ duration: 0.5 }}
             className={`
-              mx-auto w-full max-w-4xl overflow-hidden rounded-md border border-border/60 bg-background/25 p-6 shadow-xl
-              shadow-primary/10 md:p-10
+              border-border/60 bg-background/25 shadow-primary/10 mx-auto w-full max-w-4xl overflow-hidden rounded-md
+              border p-6 shadow-xl md:p-10
             `}
           >
             <ContactForm />

@@ -44,9 +44,9 @@ const SectionTitle = forwardRef<HTMLHeadingElement, SectionTitleProps>(
       <Comp
         className={cn(
           `
-            relative mb-10 block text-center text-4xl font-bold tracking-wide after:absolute after:left-1/2
-            after:top-[calc(100%+1rem)] after:h-[5px] after:w-12 after:-translate-x-1/2 after:rounded-md
-            after:bg-primary after:content-['']
+            after:bg-primary after:absolute after:top-[calc(100%+1rem)] after:left-1/2 after:h-[5px] after:w-12
+            after:-translate-x-1/2 after:rounded-md after:content-[''] relative mb-10 block text-center text-4xl
+            font-bold tracking-wide
           `,
           className,
         )}
@@ -68,7 +68,7 @@ const SectionDescription = forwardRef<
   return (
     <p
       className={cn(
-        "mx-auto mb-16 block max-w-xl text-center text-lg font-normal text-foreground/80 md:mb-20",
+        "text-foreground/80 mx-auto mb-16 block max-w-xl text-center text-lg font-normal md:mb-20",
         className,
       )}
       ref={ref}

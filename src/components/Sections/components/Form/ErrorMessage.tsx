@@ -16,7 +16,7 @@ export function ErrorMessage({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="text-sm text-destructive"
+          className="text-destructive text-sm"
         >
           {error}
         </motion.span>

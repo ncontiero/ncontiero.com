@@ -35,7 +35,7 @@ export function ProjectsSection({
         <SectionContainer>
           <SectionTitle>{title}</SectionTitle>
           <SectionDescription>{description}</SectionDescription>
-          <div className="grid gap-6 px-2 md:px-10 mdlg:grid-cols-2 mdlg:px-0">
+          <div className="mdlg:grid-cols-2 mdlg:px-0 grid gap-6 px-2 md:px-10">
             {projects.map((project) => (
               <MotionDiv
                 key={project._id}
@@ -59,7 +59,7 @@ export function ProjectsSection({
                 <span>View more projects</span>
                 <ArrowUpRight
                   size={20}
-                  className="duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  className="duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 />
               </Link>
             </Button>

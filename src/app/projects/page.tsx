@@ -55,12 +55,12 @@ export default function ProjectsPage() {
         <MotionP
           variants={projectsItem}
           transition={{ duration: 0.5 }}
-          className="mt-4 text-foreground/70"
+          className="text-foreground/70 mt-4"
         >
           Here you will find some of the personal projects I created.
         </MotionP>
       </div>
-      <div className="h-px w-full bg-border" />
+      <div className="bg-border h-px w-full" />
       <div className="mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 lg:mx-0">
         <div className="grid h-fit grid-cols-1 gap-4">
           {projects

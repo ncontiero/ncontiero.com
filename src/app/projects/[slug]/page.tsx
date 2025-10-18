@@ -1,4 +1,3 @@
-import "./mdx.css";
 import type { Metadata, ResolvingMetadata } from "next";
 
 import { allProjects } from "contentlayer/generated";
@@ -71,12 +70,12 @@ export default async function ProjectPage(props: Props) {
       <div className="relative mx-auto max-w-5xl">
         <div className="flex flex-col items-center px-6 text-center lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight">{project.title}</h1>
-          <p className="mt-4 leading-8 text-foreground/80">
+          <p className="text-foreground/80 mt-4 leading-8">
             {project.description}
           </p>
           <time
             dateTime={project.lastModified}
-            className="mt-2 text-sm text-foreground/60"
+            className="text-foreground/60 mt-2 text-sm"
           >
             Last updated:{" "}
             {Intl.DateTimeFormat("en-US", {
@@ -96,7 +95,7 @@ export default async function ProjectPage(props: Props) {
             Github
             <ArrowUpRight
               size={20}
-              className="duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              className="duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
           </Link>
           {project.siteUrl ? (
@@ -109,13 +108,13 @@ export default async function ProjectPage(props: Props) {
               Site
               <ArrowUpRight
                 size={20}
-                className="duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                className="duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
             </Link>
           ) : null}
         </div>
-        <div className="mt-16 h-px w-full bg-border" />
-        <div className="prose prose-quoteless mx-auto px-4 pb-28 pt-6 dark:prose-invert sm:pt-10">
+        <div className="bg-border mt-16 h-px w-full" />
+        <div className="prose prose-quoteless dark:prose-invert mx-auto px-4 pt-6 pb-28 sm:pt-10">
           <Mdx code={project.body.code} />
         </div>
         <div className="my-10 flex justify-center gap-2">

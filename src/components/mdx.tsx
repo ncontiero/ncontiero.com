@@ -47,9 +47,9 @@ function HeadingLinked({
         href={`#${id}`}
         aria-label="Link to section"
         className={`
-          group flex w-fit items-center rounded-md no-underline underline-offset-4 ring-offset-background duration-200
-          hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
-          focus-visible:ring-offset-2 active:opacity-70
+          group ring-offset-background flex w-fit items-center rounded-md no-underline underline-offset-4 duration-200
+          focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden
+          hover:underline active:opacity-70
         `}
       >
         {children}
@@ -79,7 +79,7 @@ export const components = {
     <HeadingLinked
       as="h2"
       className={cn(
-        "mt-10 w-full scroll-m-20 border-b border-b-border pb-1 text-3xl font-semibold tracking-tight first:mt-0",
+        "border-b-border mt-10 w-full scroll-m-20 border-b pb-1 text-3xl font-semibold tracking-tight first:mt-0",
         className,
       )}
       {...props}
@@ -129,10 +129,7 @@ export const components = {
     <AnchorLink {...props} />
   ),
   p: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (
-    <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
-      {...props}
-    />
+    <p className={cn("leading-7 not-first:mt-6", className)} {...props} />
   ),
   ul: ({ className, ...props }: HTMLAttributes<HTMLUListElement>) => (
     <ul className={cn("my-6 list-disc pl-8", className)} {...props} />
@@ -142,14 +139,14 @@ export const components = {
   ),
   li: ({ className, ...props }: HTMLAttributes<HTMLLIElement>) => (
     <li
-      className={cn("my-1 marker:text-foreground/80", className)}
+      className={cn("marker:text-foreground/80 my-1", className)}
       {...props}
     />
   ),
   blockquote: ({ className, ...props }: HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
       className={cn(
-        "mt-6 border-l-2 border-border pl-3 font-normal text-foreground/60 [&>*]:text-foreground/60",
+        "border-border text-foreground/60 mt-6 border-l-2 pl-3 font-normal *:text-foreground/60",
         className,
       )}
       {...props}
@@ -159,7 +156,7 @@ export const components = {
     // eslint-disable-next-line nextjs/no-img-element
     <img
       className={cn(
-        "my-0 rounded-md border border-border shadow-xl shadow-primary/10",
+        "border-border shadow-primary/10 my-0 rounded-md border shadow-xl",
         className,
       )}
       alt={alt}
@@ -167,7 +164,7 @@ export const components = {
     />
   ),
   hr: ({ ...props }) => (
-    <hr className="my-4 border-border md:my-8" {...props} />
+    <hr className="border-border my-4 md:my-8" {...props} />
   ),
   table: ({ className, ...props }: HTMLAttributes<HTMLTableElement>) => (
     <div className="w-full overflow-y-auto">
@@ -177,7 +174,7 @@ export const components = {
   tr: ({ className, ...props }: HTMLAttributes<HTMLTableRowElement>) => (
     <tr
       className={cn(
-        "border-b border-border duration-200 even:bg-primary/5 focus-within:bg-primary/30 hover:bg-primary/20",
+        "border-border border-b duration-200 even:bg-primary/5 focus-within:bg-primary/30 hover:bg-primary/20",
         className,
       )}
       {...props}
@@ -204,7 +201,7 @@ export const components = {
   pre: ({ className, ...props }: HTMLAttributes<HTMLPreElement>) => (
     <pre
       className={cn(
-        "mb-4 mt-6 overflow-x-auto rounded-lg bg-background/80 px-0 py-4",
+        "bg-background/80 mt-6 mb-4 overflow-x-auto rounded-lg px-0 py-4",
         className,
       )}
       {...props}
@@ -213,7 +210,7 @@ export const components = {
   code: ({ className, ...props }: HTMLAttributes<HTMLPreElement>) => (
     <code
       className={cn(
-        "relative rounded bg-secondary/20 px-1.5 py-1 font-mono text-inherit",
+        "bg-secondary/20 relative rounded-sm px-1.5 py-1 font-mono text-inherit",
         className,
       )}
       {...props}

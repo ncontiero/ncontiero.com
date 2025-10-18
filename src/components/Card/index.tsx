@@ -23,7 +23,7 @@ interface CardRootProps extends HTMLAttributes<HTMLDivElement> {
 
 const CardRoot: FC<CardRootProps> = ({
   className,
-  radialColor = "hsl(var(--primary)/0.5)",
+  radialColor = "oklch(var(--primary-value)/0.5)",
   radialWidth = 240,
   children,
   ...props
@@ -58,19 +58,19 @@ const CardRoot: FC<CardRootProps> = ({
       ref={ref}
       className={cn(
         `
-          group relative h-full overflow-hidden rounded-xl border border-border/60 bg-background/60 duration-700
+          group border-border/60 bg-background/60 relative h-full overflow-hidden rounded-xl border duration-700
           focus-within:border-ring focus-within:bg-background/10 hover:border-ring/60 hover:bg-background/30
-          dark:border-border/40 md:gap-8
+          dark:border-border/15 md:gap-8
         `,
         className,
       )}
       {...props}
     >
       <div className="pointer-events-none">
-        <div className="absolute inset-0 z-0 duration-1000 [mask-image:linear-gradient(black,transparent)]" />
+        <div className="absolute inset-0 z-0 mask-[linear-gradient(black,transparent)] duration-1000" />
         <motion.div
           className={`
-            absolute inset-0 z-10 bg-gradient-to-br via-primary/30 opacity-70 duration-1000 group-hover:opacity-60
+            via-primary/30 absolute inset-0 z-10 bg-linear-to-br opacity-70 duration-1000 group-hover:opacity-60
             dark:opacity-50 dark:group-hover:opacity-40
           `}
           style={style}
@@ -127,7 +127,7 @@ const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
     return (
       <Comp
         className={cn(
-          "text-xl font-bold text-foreground/80 duration-200 group-hover:text-foreground",
+          "text-foreground/80 text-xl font-bold duration-200 group-hover:text-foreground",
           className,
         )}
         ref={ref}
@@ -145,7 +145,7 @@ const CardDescription = forwardRef<HTMLParagraphElement, CardDescriptionProps>(
     return (
       <p
         className={cn(
-          "mt-2 leading-8 text-foreground/60 duration-200 group-hover:text-foreground/80",
+          "text-foreground/60 mt-2 leading-8 duration-200 group-hover:text-foreground/80",
           className,
         )}
         ref={ref}

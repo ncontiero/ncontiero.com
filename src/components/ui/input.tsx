@@ -11,10 +11,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         type={type}
         className={cn(
           `
-            flex w-full rounded-md border border-border bg-background/50 p-3 text-base ring-offset-background
-            duration-200 placeholder:text-foreground/60 focus-visible:outline-none focus-visible:ring-2
-            focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50
-            hover:[:not(:focus-visible)&]:border-primary
+            border-border bg-background/50 ring-offset-background flex w-full rounded-md border p-3 text-base
+            duration-200 placeholder:text-foreground/60 focus-visible:ring-ring focus-visible:ring-2
+            focus-visible:ring-offset-2 focus-visible:outline-hidden hover:[:not(:focus-visible)&]:border-primary
+            disabled:cursor-not-allowed disabled:opacity-50
           `,
           className,
         )}

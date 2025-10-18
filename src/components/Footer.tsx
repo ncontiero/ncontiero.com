@@ -7,12 +7,14 @@ export function Footer() {
 
   return (
     <footer
-      className={`mt-10 flex w-full items-center justify-center border-t-2 border-dashed border-border bg-background/40`}
+      className={`
+        dark:border-border/40 bg-background/40 mt-10 flex w-full items-center justify-center border-t-2 border-dashed
+      `}
     >
       <div className="mx-auto w-[92%] max-w-7xl">
         <div className="flex flex-col justify-between py-16 md:flex-row md:py-24">
           <div className="mb-12 md:order-2 md:mb-0">
-            <h2 className="text-xl font-bold uppercase leading-5">Social</h2>
+            <h2 className="text-xl leading-5 font-bold uppercase">Social</h2>
             <div className="mt-5 flex space-x-1.5">
               {social.map(([key, value]) => (
                 <Button key={key} size="icon" variant="outline" asChild>
@@ -28,7 +30,7 @@ export function Footer() {
                       alt={key}
                       width={24}
                       height={24}
-                      className="size-6 rounded-full bg-foreground dark:bg-transparent"
+                      className="bg-foreground size-6 rounded-full dark:bg-transparent"
                     />
                   </a>
                 </Button>
@@ -36,18 +38,18 @@ export function Footer() {
             </div>
           </div>
           <div className="w-full max-w-3xl md:order-1 md:w-1/2">
-            <h2 className="text-xl font-bold leading-5">{data.name}</h2>
-            <p className="mt-5 text-base text-foreground/80">
+            <h2 className="text-xl leading-5 font-bold">{data.name}</h2>
+            <p className="text-foreground/80 mt-5 text-base">
               {data.description}
             </p>
           </div>
         </div>
-        <div className="border-t border-border py-7 md:py-10">
-          <p className="text-center align-middle text-base text-foreground/80">
+        <div className="border-border border-t py-7 md:py-10">
+          <p className="text-foreground/80 text-center align-middle text-base">
             <span className="mr-1 align-middle">&copy;</span>
             {data.name} {new Date().getFullYear()}
           </p>
-          <p className="text-center text-base text-foreground/80">
+          <p className="text-foreground/80 text-center text-base">
             All rights reserved.
           </p>
         </div>
