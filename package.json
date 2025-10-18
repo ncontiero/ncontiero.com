@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "concurrently --kill-others --names \"contentlayer,next\" -c \"magenta,black\" \"contentlayer2 dev\" \"next dev --turbopack\"",
-    "build": "next build",
+    "build": "contentlayer2 build && next build --turbopack",
     "start": "next start",
     "lint": "eslint .",
     "lint:fix": "pnpm lint --fix",
