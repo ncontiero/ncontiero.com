@@ -1,6 +1,6 @@
 "use client";
 
-import { type ButtonHTMLAttributes, type MouseEvent, forwardRef } from "react";
+import type { ComponentProps, MouseEvent } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { type VariantProps, cva } from "class-variance-authority";
 
@@ -68,34 +68,29 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
+  extends ComponentProps<"button">,
     VariantProps<typeof buttonVariants> {
   readonly asChild?: boolean;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (props, ref) => {
-    const {
-      className,
-      variant,
-      size,
-      radius,
-      onMouseDown,
-      asChild = false,
-      ...rest
-    } = props;
-    const Comp = asChild ? Slot : "button";
+export function Button({
+  className,
+  variant,
+  size,
+  radius,
+  onMouseDown,
+  asChild = false,
+  ...props
+}: ButtonProps) {
+  const Comp = asChild ? Slot : "button";
 
-    return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, radius, className }))}
-        onMouseDown={(e) =>
-          createRipple(e as MouseEvent<HTMLButtonElement>, onMouseDown)
-        }
-        ref={ref}
-        {...rest}
-      />
-    );
-  },
-);
-Button.displayName = "Button";
+  return (
+    <Comp
+      className={cn(buttonVariants({ variant, size, radius, className }))}
+      onMouseDown={(e) =>
+        createRipple(e as MouseEvent<HTMLButtonElement>, onMouseDown)
+      }
+      {...props}
+    />
+  );
+}

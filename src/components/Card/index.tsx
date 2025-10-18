@@ -1,11 +1,9 @@
 "use client";
 
 import {
-  type FC,
-  type HTMLAttributes,
+  type ComponentProps,
   type MouseEvent,
   type ReactNode,
-  forwardRef,
   useEffect,
   useRef,
 } from "react";
@@ -15,19 +13,19 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
-interface CardRootProps extends HTMLAttributes<HTMLDivElement> {
+interface CardRootProps extends ComponentProps<"div"> {
   readonly children?: ReactNode;
   readonly radialColor?: string;
   readonly radialWidth?: number;
 }
 
-const CardRoot: FC<CardRootProps> = ({
+function CardRoot({
   className,
   radialColor = "oklch(var(--primary-value)/0.5)",
   radialWidth = 240,
   children,
   ...props
-}) => {
+}: CardRootProps) {
   const ref = useRef<HTMLDivElement>(null);
   const mouseX = useSpring(0, { stiffness: 500, damping: 100 });
   const mouseY = useSpring(0, { stiffness: 500, damping: 100 });
@@ -83,20 +81,19 @@ const CardRoot: FC<CardRootProps> = ({
       {children}
     </div>
   );
-};
-CardRoot.displayName = "Card.Root";
+}
 
-interface CardContainerProps extends HTMLAttributes<HTMLDivElement> {
+interface CardContainerProps extends ComponentProps<"div"> {
   readonly projectUrl: string;
   readonly children?: ReactNode;
 }
 
-const CardContainer: FC<CardContainerProps> = ({
+function CardContainer({
   className,
   projectUrl,
   children,
   ...props
-}) => {
+}: CardContainerProps) {
   return (
     <div
       className={cn(
@@ -113,47 +110,38 @@ const CardContainer: FC<CardContainerProps> = ({
       {children}
     </div>
   );
-};
-CardContainer.displayName = "Card.Container";
+}
 
-interface CardTitleProps extends HTMLAttributes<HTMLHeadingElement> {
+interface CardTitleProps extends ComponentProps<"h1"> {
   readonly asChild?: boolean;
 }
 
-const CardTitle = forwardRef<HTMLHeadingElement, CardTitleProps>(
-  ({ className, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "h3";
+function CardTitle({ className, asChild, ...props }: CardTitleProps) {
+  const Comp = asChild ? Slot : "h3";
 
-    return (
-      <Comp
-        className={cn(
-          "text-foreground/80 text-xl font-bold duration-200 group-hover:text-foreground",
-          className,
-        )}
-        ref={ref}
-        {...props}
-      />
-    );
-  },
-);
-CardTitle.displayName = "Card.Title";
+  return (
+    <Comp
+      className={cn(
+        "text-foreground/80 text-xl font-bold duration-200 group-hover:text-foreground",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
 
-interface CardDescriptionProps extends HTMLAttributes<HTMLParagraphElement> {}
+interface CardDescriptionProps extends ComponentProps<"p"> {}
 
-const CardDescription = forwardRef<HTMLParagraphElement, CardDescriptionProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <p
-        className={cn(
-          "text-foreground/60 mt-2 leading-8 duration-200 group-hover:text-foreground/80",
-          className,
-        )}
-        ref={ref}
-        {...props}
-      />
-    );
-  },
-);
-CardDescription.displayName = "Card.Description";
+function CardDescription({ className, ...props }: CardDescriptionProps) {
+  return (
+    <p
+      className={cn(
+        "text-foreground/60 mt-2 leading-8 duration-200 group-hover:text-foreground/80",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
 
 export { CardContainer, CardDescription, CardRoot, CardTitle };
