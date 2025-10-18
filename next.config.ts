@@ -5,6 +5,7 @@ import { withContentlayer } from "next-contentlayer2";
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [{ hostname: "github.com" }],
+    qualities: [100],
   },
   turbopack: {
     resolveExtensions: [
