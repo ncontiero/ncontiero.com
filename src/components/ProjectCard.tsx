@@ -25,7 +25,7 @@ export function ProjectCard({
         </div>
         <div className="mt-4 flex h-1/2 items-end space-x-4">
           <Button
-            className="z-20 flex items-center space-x-2"
+            className="z-20 flex items-center gap-2"
             variant="outline"
             asChild
           >
@@ -35,7 +35,7 @@ export function ProjectCard({
             </a>
           </Button>
           {siteUrl ? (
-            <Button className="z-20 flex items-center space-x-1" asChild>
+            <Button className="z-20 flex items-center gap-1" asChild>
               <a
                 href={siteUrl}
                 target="_blank"

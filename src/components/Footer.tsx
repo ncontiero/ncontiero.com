@@ -30,7 +30,7 @@ export function Footer() {
                       alt={key}
                       width={24}
                       height={24}
-                      className="bg-foreground size-6 rounded-full dark:bg-transparent"
+                      className={`size-6 rounded-full ${!key.startsWith("linkedin") ? "invert dark:invert-0" : ""}`}
                     />
                   </a>
                 </Button>
