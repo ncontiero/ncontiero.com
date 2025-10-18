@@ -34,7 +34,12 @@ export default function ProjectsPage() {
   const otherProjects = allProjects.filter(
     (project) => !topProjects.includes(project),
   );
-  const projects = [...topProjects, ...otherProjects];
+  const sortedProjects = otherProjects.sort((a, b) => {
+    return (
+      new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime()
+    );
+  });
+  const projects = [...topProjects, ...sortedProjects];
 
   return (
     <MotionDiv
