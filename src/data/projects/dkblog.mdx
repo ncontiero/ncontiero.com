@@ -3,7 +3,7 @@ title: "DkBlog"
 description: A dynamic blog using markdown with Next.Js.
 githubUrl: https://github.com/ncontiero/dkblog
 siteUrl: https://blog.ncontiero.com
-lastModified: "2025-03-31"
+lastModified: "2025-10-18"
 ---
 
 DkBlog is a project using [Next.Js](https://nextjs.org/) to create a dynamic blog with [markdown](https://www.markdownguide.org/).
@@ -21,7 +21,7 @@ DkBlog is a project using [Next.Js](https://nextjs.org/) to create a dynamic blo
 
 You need to have a main dependency installed:
 
-- Node.js LTS v18 (or any higher version)
+- Node.js LTS v20 (or any higher version)
 
 Do you use `nvm`? Then you can run `nvm install` in the project folder to install and use the most appropriate version of Node.js.
 
@@ -41,7 +41,7 @@ pnpm install
 
 ### Environment variables
 
-Create a `.env` file similar to [`.env.example`](https://github.com/ncontiero/dkblog/blob/master/.env.example).
+Create a `.env` file similar to [`.env.example`](https://github.com/ncontiero/dkblog/blob/main/.env.example).
 
 Change [Clerk](https://dashboard.clerk.com/) variables according to your project.
 
@@ -51,7 +51,6 @@ Change [Clerk](https://dashboard.clerk.com/) variables according to your project
 # Clerk Keys
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="YOUR_CLERK_PUBLISHABLE_KEY"
 CLERK_SECRET_KEY="YOUR_CLERK_SECRET_KEY"
-# Only PROD
 CLERK_WEBHOOK_SIGNING_SECRET="YOUR_CLERK_WEBHOOK_SIGNING_SECRET"
 
 # Clerk Routes
@@ -59,6 +58,12 @@ NEXT_PUBLIC_CLERK_SIGN_IN_URL="/sign-in"
 NEXT_PUBLIC_CLERK_SIGN_UP_URL="/sign-up"
 NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL="/"
 NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL="/"
+
+# Google Storage (Only PROD)
+GS_BUCKET_NAME="YOUR_BUCKET_NAME"
+GS_PROJECT_ID="YOUR_PROJECT_ID"
+GS_CLIENT_EMAIL="YOUR_CLIENT_EMAIL"
+GS_PRIVATE_KEY="YOUR_PRIVATE_KEY"
 
 # ...
 ```
@@ -75,4 +80,4 @@ pnpm run dev
 
 ## License
 
-This project is licensed under the **MIT** License - see the [LICENSE](https://github.com/ncontiero/dkblog/blob/master/LICENSE) file for details
+This project is licensed under the **MIT** License - see the [LICENSE](https://github.com/ncontiero/dkblog/blob/main/LICENSE) file for details

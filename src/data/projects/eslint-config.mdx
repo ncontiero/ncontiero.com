@@ -3,7 +3,7 @@ title: "ESLint Config"
 description: Nicolas's ESLint config preset for JavaScript, TypeScript, and Prettier.
 githubUrl: https://github.com/ncontiero/eslint-config
 siteUrl: https://eslint-config.ncontiero.com
-lastModified: "2025-03-31"
+lastModified: "2025-10-18"
 ---
 
 [![Version](https://img.shields.io/npm/v/@ncontiero/eslint-config)](https://www.npmjs.com/package/@ncontiero/eslint-config)
@@ -16,7 +16,7 @@ lastModified: "2025-03-31"
 - Sort imports, `package.json`, `tsconfig.json`...
 - Reasonable defaults, best practices, only one line of config.
 - Designed to work with TypeScript out-of-box.
-- Support JSON(5), YAML, TOML, Markdown...
+- Support JSON(5), YAML, TOML, Markdown, HTML with [HTML Eslint](https://html-eslint.org/)...
 - [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
 - Ignores common files like `dist`, `node_modules`, `coverage`, and files in `.gitignore`.
 - Optional [React](https://react.dev/), [NextJs](https://nextjs.org/), [TailwindCSS](https://tailwindcss.com/), [TanStack Query](https://tanstack.com/query/) support.
@@ -30,11 +30,11 @@ lastModified: "2025-03-31"
 npm i -D eslint @ncontiero/eslint-config
 ```
 
-> Require Node.js >= 18.18, and ESLint >= 9.20.0.
+> Require Node.js >= 20.11.0, and ESLint >= 9.20.0.
 
 2. Create `eslint.config.mjs` in your project root:
 
-```js
+```mjs
 // eslint.config.mjs
 import { ncontiero } from "@ncontiero/eslint-config";
 
@@ -46,7 +46,7 @@ export default ncontiero(
     react: true, // auto detection
     nextjs: false, // auto detection
     tailwindcss: false, // auto detection
-    reactQuery: false,  // auto detection
+    reactQuery: false, // auto detection
   },
   {
     /* your custom config */
@@ -107,8 +107,6 @@ Add the following settings to your `.vscode/settings.json`:
 ```
 
 ## Customization
-
-Since v2.2, we migrated to [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new). It provides much better organization and composition.
 
 Normally you only need to import the `ncontiero` preset:
 
@@ -195,6 +193,7 @@ export default ncontiero({
 ### Optional Configs
 
 We provide some optional configs for specific use cases, that we don't include their dependencies by default.
+
 > React, Next.js and Tailwind CSS have their dependencies by default.
 
 #### TanStack Query
