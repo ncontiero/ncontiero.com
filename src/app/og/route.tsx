@@ -45,7 +45,7 @@ export async function GET(request: Request) {
             >
               {title}
             </h1>
-            <div tw="mx-auto flex max-w-(--breakpoint-xl)">
+            <div tw="mx-auto flex max-w-[1280px]">
               <p
                 tw={`${
                   isProject ? "text-4xl" : "text-5xl"
