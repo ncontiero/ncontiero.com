@@ -19,7 +19,11 @@ export function Header() {
   const { name, sections } = data;
 
   return (
-    <header className="sticky inset-x-0 top-0 z-[9999] h-16 border-b-2 border-dashed border-border backdrop-blur-md md:h-[72px]">
+    <header
+      className={`
+        sticky inset-x-0 top-0 z-[9999] h-16 border-b-2 border-dashed border-border backdrop-blur-md md:h-[72px]
+      `}
+    >
       <nav className="flex h-full items-center justify-between px-4 sm:px-6 md:px-12">
         <MotionDiv
           variants={animation.item}
@@ -29,7 +33,10 @@ export function Header() {
         >
           <Link
             href={`/#${sections.home.id}`}
-            className="group flex items-center space-x-2 rounded-full underline-offset-4 ring-ring duration-300 hover:underline hover:brightness-200 focus-visible:outline-none focus-visible:ring-2 active:opacity-70 md:pr-3"
+            className={`
+              group flex items-center space-x-2 rounded-full underline-offset-4 ring-ring duration-300 hover:underline
+              hover:brightness-200 focus-visible:outline-none focus-visible:ring-2 active:opacity-70 md:pr-3
+            `}
           >
             <Image
               src="/icon/"
@@ -59,7 +66,10 @@ export function Header() {
                 transition={{ duration: 0.6 }}
               >
                 <Link
-                  className="rounded-full p-4 underline-offset-4 ring-ring duration-200 hover:text-primary hover:underline focus:outline-none focus-visible:opacity-100 focus-visible:ring-2 active:opacity-60"
+                  className={`
+                    rounded-full p-4 underline-offset-4 ring-ring duration-200 hover:text-primary hover:underline
+                    focus:outline-none focus-visible:opacity-100 focus-visible:ring-2 active:opacity-60
+                  `}
                   href={`/#${value.id}`}
                 >
                   {value.id}
@@ -83,7 +93,12 @@ export function Header() {
                   <Menu size={24} />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="border-border/60 bg-background/60 shadow-xl shadow-secondary/10 backdrop-blur-md dark:bg-background/80 md:w-48">
+              <DropdownMenuContent
+                className={`
+                  border-border/60 bg-background/60 shadow-xl shadow-secondary/10 backdrop-blur-md dark:bg-background/80
+                  md:w-48
+                `}
+              >
                 {Object.entries(sections).map(([key, value], i) => (
                   <DropdownMenuItem
                     key={key}

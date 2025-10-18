@@ -46,7 +46,11 @@ function HeadingLinked({
       <NextLink
         href={`#${id}`}
         aria-label="Link to section"
-        className="group flex w-fit items-center rounded-md no-underline underline-offset-4 ring-offset-background duration-200 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:opacity-70"
+        className={`
+          group flex w-fit items-center rounded-md no-underline underline-offset-4 ring-offset-background duration-200
+          hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
+          focus-visible:ring-offset-2 active:opacity-70
+        `}
       >
         {children}
         <LinkIcon
@@ -60,6 +64,7 @@ function HeadingLinked({
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const components = {
   h1: ({ className, ...props }: HTMLAttributes<HTMLHeadingElement>) => (
     <HeadingLinked
@@ -225,6 +230,7 @@ export function Mdx({ code }: MdxProps) {
 
   return (
     <div>
+      {/* eslint-disable-next-line react-hooks/static-components */}
       <Component components={components} />
     </div>
   );

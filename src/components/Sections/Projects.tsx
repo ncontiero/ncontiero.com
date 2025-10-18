@@ -6,7 +6,12 @@ import { MotionDiv } from "../motion/div";
 import { ProjectCard } from "../ProjectCard";
 import { Button } from "../ui/button";
 import { projectsAnimation } from "./animationVariants";
-import { Section } from "./components";
+import {
+  SectionContainer,
+  SectionDescription,
+  SectionRoot,
+  SectionTitle,
+} from "./components";
 
 export function ProjectsSection({
   title,
@@ -19,7 +24,7 @@ export function ProjectsSection({
   ) as Project[];
 
   return (
-    <Section.Root id={id}>
+    <SectionRoot id={id}>
       <MotionDiv
         variants={projectsAnimation.container}
         initial="hidden"
@@ -27,9 +32,9 @@ export function ProjectsSection({
         viewport={{ once: true }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        <Section.Container>
-          <Section.Title>{title}</Section.Title>
-          <Section.Description>{description}</Section.Description>
+        <SectionContainer>
+          <SectionTitle>{title}</SectionTitle>
+          <SectionDescription>{description}</SectionDescription>
           <div className="grid gap-6 px-2 md:px-10 mdlg:grid-cols-2 mdlg:px-0">
             {projects.map((project) => (
               <MotionDiv
@@ -59,8 +64,8 @@ export function ProjectsSection({
               </Link>
             </Button>
           </MotionDiv>
-        </Section.Container>
+        </SectionContainer>
       </MotionDiv>
-    </Section.Root>
+    </SectionRoot>
   );
 }

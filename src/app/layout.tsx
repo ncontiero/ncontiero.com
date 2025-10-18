@@ -82,8 +82,17 @@ export default function RootLayout({
             stacked
           />
           <Header />
-          <div className="absolute inset-0 -z-10 size-full bg-[radial-gradient(hsl(var(--secondary)/0.15)_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(hsl(var(--secondary)/0.1)_1px,transparent_1px)]" />
-          <div className="absolute inset-0 -z-10 mx-auto hidden size-full max-w-[1690px] border-x-2 border-dashed px-4 md:flex" />
+          <div
+            className={`
+              absolute inset-0 -z-10 size-full bg-[radial-gradient(hsl(var(--secondary)/0.15)_1px,transparent_1px)]
+              [background-size:16px_16px] dark:bg-[radial-gradient(hsl(var(--secondary)/0.1)_1px,transparent_1px)]
+            `}
+          />
+          <div
+            className={`
+              absolute inset-0 -z-10 mx-auto hidden size-full max-w-[1690px] border-x-2 border-dashed px-4 md:flex
+            `}
+          />
           {children}
           <Footer />
         </ThemeProvider>

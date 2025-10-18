@@ -43,7 +43,11 @@ const SectionTitle = forwardRef<HTMLHeadingElement, SectionTitleProps>(
     return (
       <Comp
         className={cn(
-          "relative mb-10 block text-center text-4xl font-bold tracking-wide after:absolute after:left-1/2 after:top-[calc(100%+1rem)] after:h-[5px] after:w-12 after:-translate-x-1/2 after:rounded-md after:bg-primary after:content-['']",
+          `
+            relative mb-10 block text-center text-4xl font-bold tracking-wide after:absolute after:left-1/2
+            after:top-[calc(100%+1rem)] after:h-[5px] after:w-12 after:-translate-x-1/2 after:rounded-md
+            after:bg-primary after:content-['']
+          `,
           className,
         )}
         ref={ref}
@@ -74,11 +78,6 @@ const SectionDescription = forwardRef<
 });
 SectionDescription.displayName = "Section.Description";
 
-export const Section = {
-  Root: SectionRoot,
-  Container: SectionContainer,
-  Title: SectionTitle,
-  Description: SectionDescription,
-};
+export { SectionContainer, SectionDescription, SectionRoot, SectionTitle };
 export { AboutParagraph } from "./AboutParagraph";
 export { Form } from "./Form";

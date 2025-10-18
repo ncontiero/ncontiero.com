@@ -4,7 +4,13 @@ import { Button } from "@/components/ui/button";
 import { MotionDiv } from "../motion/div";
 import { MotionH3 } from "../motion/h3";
 import { aboutAnimation as animation } from "./animationVariants";
-import { AboutParagraph, Section } from "./components";
+import {
+  AboutParagraph,
+  SectionContainer,
+  SectionDescription,
+  SectionRoot,
+  SectionTitle,
+} from "./components";
 
 interface AboutSectionProps extends AboutMeSectionTypes {
   readonly btnSectionId: string;
@@ -20,7 +26,7 @@ export function AboutSection({
   const { getToKnowMe, mySkills } = content;
 
   return (
-    <Section.Root id={id}>
+    <SectionRoot id={id}>
       <MotionDiv
         variants={animation.container}
         initial="hidden"
@@ -28,9 +34,9 @@ export function AboutSection({
         viewport={{ once: true }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        <Section.Container>
-          <Section.Title>{title}</Section.Title>
-          <Section.Description>{description}</Section.Description>
+        <SectionContainer>
+          <SectionTitle>{title}</SectionTitle>
+          <SectionDescription>{description}</SectionDescription>
           <MotionDiv
             variants={animation.content}
             initial="hidden"
@@ -93,8 +99,8 @@ export function AboutSection({
               </div>
             </div>
           </MotionDiv>
-        </Section.Container>
+        </SectionContainer>
       </MotionDiv>
-    </Section.Root>
+    </SectionRoot>
   );
 }

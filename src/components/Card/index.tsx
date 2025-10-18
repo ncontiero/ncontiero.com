@@ -57,7 +57,11 @@ const CardRoot: FC<CardRootProps> = ({
       onMouseMove={(e) => onMouseMove(e)}
       ref={ref}
       className={cn(
-        "group relative h-full overflow-hidden rounded-xl border border-border/60 bg-background/60 duration-700 focus-within:border-ring focus-within:bg-background/10 hover:border-ring/60 hover:bg-background/30 dark:border-border/40 md:gap-8",
+        `
+          group relative h-full overflow-hidden rounded-xl border border-border/60 bg-background/60 duration-700
+          focus-within:border-ring focus-within:bg-background/10 hover:border-ring/60 hover:bg-background/30
+          dark:border-border/40 md:gap-8
+        `,
         className,
       )}
       {...props}
@@ -65,7 +69,10 @@ const CardRoot: FC<CardRootProps> = ({
       <div className="pointer-events-none">
         <div className="absolute inset-0 z-0 duration-1000 [mask-image:linear-gradient(black,transparent)]" />
         <motion.div
-          className="absolute inset-0 z-10 bg-gradient-to-br via-primary/30 opacity-70 duration-1000 group-hover:opacity-60 dark:opacity-50 dark:group-hover:opacity-40"
+          className={`
+            absolute inset-0 z-10 bg-gradient-to-br via-primary/30 opacity-70 duration-1000 group-hover:opacity-60
+            dark:opacity-50 dark:group-hover:opacity-40
+          `}
           style={style}
         />
         <motion.div

@@ -3,7 +3,12 @@ import NextLink from "next/link";
 import { Button } from "@/components/ui/button";
 import { MotionDiv } from "../motion/div";
 import { homeAnimation } from "./animationVariants";
-import { Section } from "./components";
+import {
+  SectionContainer,
+  SectionDescription,
+  SectionRoot,
+  SectionTitle,
+} from "./components";
 
 interface HomeSectionProps extends HomeSectionTypes {
   readonly btnSectionId: string;
@@ -15,33 +20,33 @@ export function HomeSection({
   btnSectionId,
 }: HomeSectionProps) {
   return (
-    <Section.Root className="relative h-screen">
+    <SectionRoot className="relative h-screen">
       <MotionDiv
         variants={homeAnimation.container}
         initial="hidden"
         animate="visible"
         transition={{ duration: 0.5 }}
       >
-        <Section.Container>
+        <SectionContainer>
           <MotionDiv
             variants={homeAnimation.item}
             transition={{ duration: 0.5 }}
           >
-            <Section.Title
+            <SectionTitle
               asChild
               className="text-center text-6xl font-extrabold tracking-wide"
             >
               <h1>{title}</h1>
-            </Section.Title>
+            </SectionTitle>
           </MotionDiv>
           <MotionDiv
             variants={homeAnimation.item}
             transition={{ duration: 0.5 }}
             className="mx-auto mt-10 max-w-4xl"
           >
-            <Section.Description className="mb-0 text-center text-xl tracking-wide text-inherit">
+            <SectionDescription className="mb-0 text-center text-xl tracking-wide text-inherit">
               {description}
-            </Section.Description>
+            </SectionDescription>
           </MotionDiv>
           <MotionDiv
             variants={homeAnimation.item}
@@ -52,8 +57,8 @@ export function HomeSection({
               <NextLink href={`#${btnSectionId}`}>{btnSectionId}</NextLink>
             </Button>
           </MotionDiv>
-        </Section.Container>
+        </SectionContainer>
       </MotionDiv>
-    </Section.Root>
+    </SectionRoot>
   );
 }

@@ -6,7 +6,9 @@ export function Footer() {
   const social = Object.entries(data.social);
 
   return (
-    <footer className="mt-10 flex w-full items-center justify-center border-t-2 border-dashed border-border bg-background/40">
+    <footer
+      className={`mt-10 flex w-full items-center justify-center border-t-2 border-dashed border-border bg-background/40`}
+    >
       <div className="mx-auto w-[92%] max-w-7xl">
         <div className="flex flex-col justify-between py-16 md:flex-row md:py-24">
           <div className="mb-12 md:order-2 md:mb-0">

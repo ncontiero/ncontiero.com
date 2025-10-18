@@ -5,15 +5,22 @@ import { type VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const linkVariants = cva(
-  "inline-flex items-center justify-center font-medium underline-offset-4 ring-offset-background duration-200 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 active:opacity-70",
+  `
+    inline-flex items-center justify-center font-medium underline-offset-4 ring-offset-background duration-200
+    hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
+    active:opacity-70
+  `,
   {
     variants: {
       variant: {
         default: "text-primary",
         destructive:
           "text-destructive hover:text-destructive/90 focus-visible:ring-destructive",
-        ghost:
-          "px-0.5 shadow-[hsl(var(--primary))_0_-2px_0_0_inset] hover:no-underline hover:shadow-[hsl(var(--primary))_0_-30px_0_-1px_inset] focus-visible:shadow-[hsl(var(--primary))_0_-30px_0_-1px_inset] focus-visible:ring-transparent",
+        ghost: `
+          px-0.5 shadow-[hsl(var(--primary))_0_-2px_0_0_inset] hover:no-underline
+          hover:shadow-[hsl(var(--primary))_0_-30px_0_-1px_inset]
+          focus-visible:shadow-[hsl(var(--primary))_0_-30px_0_-1px_inset] focus-visible:ring-transparent
+        `,
       },
       size: {
         sm: "text-sm",
@@ -47,7 +54,7 @@ export interface LinkProps
   readonly asChild?: boolean;
 }
 
-const Link = forwardRef<HTMLAnchorElement, LinkProps>(
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   ({ className, variant, size, radius, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "a";
     return (
@@ -60,5 +67,3 @@ const Link = forwardRef<HTMLAnchorElement, LinkProps>(
   },
 );
 Link.displayName = "Link";
-
-export { Link, linkVariants };
