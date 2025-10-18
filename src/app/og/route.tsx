@@ -1,10 +1,18 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/no-unknown-property */
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { z } from "zod";
-
 import { data } from "@/data";
 
-export const runtime = "edge";
+export const alt = "Open Graph Image";
+export const size = {
+  width: 1686,
+  height: 882,
+};
+
+export const contentType = "image/png";
 
 const ogSchema = z.object({
   title: z.string().optional().default(data.name),
@@ -16,9 +24,10 @@ const ogSchema = z.object({
 });
 
 export async function GET(request: Request) {
-  const fontData = await fetch(
-    new URL("../../../public/fonts/Inter-SemiBold.ttf", import.meta.url),
-  ).then((res) => res.arrayBuffer());
+  // Font loading, process.cwd() is Next.js project directory
+  const interSemiBold = await readFile(
+    join(process.cwd(), "public/fonts/Inter-SemiBold.ttf"),
+  );
 
   try {
     const { searchParams } = new URL(request.url);
@@ -63,8 +72,9 @@ export async function GET(request: Request) {
         fonts: [
           {
             name: "Inter",
-            data: fontData,
+            data: interSemiBold,
             style: "normal",
+            weight: 400,
           },
         ],
       },
