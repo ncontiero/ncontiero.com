@@ -10,24 +10,23 @@ const buttonVariants = cva(
   `
     ring-offset-background relative inline-flex items-center justify-center overflow-hidden font-medium duration-200
     focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden
-    disabled:cursor-not-allowed disabled:opacity-50 active:[:not(:disabled)&]:scale-95
-    active:[:not(:disabled)&]:opacity-70
+    active:not-disabled:scale-95 active:not-disabled:opacity-70 disabled:cursor-not-allowed disabled:opacity-50
   `,
   {
     variants: {
       variant: {
         default:
-          "bg-primary/80 text-primary-foreground dark:bg-primary/60 hover:[:not(:disabled)&]:bg-primary",
+          "bg-primary/80 text-primary-foreground dark:bg-primary/60 hover:not-disabled:bg-primary",
         destructive: `
           bg-destructive focus-visible:ring-destructive [&>.ripple]:bg-background/20
-          hover:[:not(:disabled)&]:bg-destructive/90
+          hover:not-disabled:bg-destructive/90
         `,
         outline: `
           border-primary/80 border bg-transparent hover:text-primary-foreground focus-visible:bg-primary/80
-          focus-visible:text-primary-foreground hover:[:not(:disabled)&]:bg-primary/80
+          focus-visible:text-primary-foreground hover:not-disabled:bg-primary/80
         `,
         secondary:
-          "bg-secondary focus-visible:ring-ring hover:[:not(:disabled)&]:bg-secondary/80 [&>.ripple]:bg-white/20",
+          "bg-secondary focus-visible:ring-ring hover:not-disabled:bg-secondary/80 [&>.ripple]:bg-white/20",
         ghost:
           "not-disabled:hover:bg-accent not-disabled:hover:text-accent-foreground",
       },
