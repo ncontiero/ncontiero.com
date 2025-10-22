@@ -1,5 +1,4 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import type { ReactNode } from "react";
 
 import { data } from "@/data";
 import { env } from "@/env";
@@ -33,6 +32,6 @@ export async function generateMetadata(
   };
 }
 
-export default function ProjectsLayout({ children }: { children: ReactNode }) {
+export default function ProjectsLayout({ children }: LayoutProps<"/projects">) {
   return children;
 }

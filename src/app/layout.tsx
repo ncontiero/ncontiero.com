@@ -1,6 +1,5 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
 import { ThemeProvider } from "next-themes";
 import { Merriweather_Sans as MerriweatherSans } from "next/font/google";
@@ -63,13 +62,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  readonly children: ReactNode;
-}) {
+export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body className={merriweatherSans.variable}>
         <ThemeProvider attribute="class">
           <ToastContainer

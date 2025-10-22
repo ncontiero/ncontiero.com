@@ -1,5 +1,6 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable react/no-unknown-property */
+import type { NextRequest } from "next/server";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
@@ -23,7 +24,7 @@ const ogSchema = z.object({
     .transform((val) => val === "true"),
 });
 
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   // Font loading, process.cwd() is Next.js project directory
   const interSemiBold = await readFile(
     join(process.cwd(), "public/fonts/Inter-SemiBold.ttf"),

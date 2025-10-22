@@ -79,7 +79,7 @@ export const components = {
     <HeadingLinked
       as="h2"
       className={cn(
-        "border-b-border mt-10 w-full scroll-m-20 border-b pb-1 text-3xl font-semibold tracking-tight first:mt-0",
+        `border-b-border mt-10 w-full scroll-m-20 border-b pb-1 text-3xl font-semibold tracking-tight first:mt-0`,
         className,
       )}
       {...props}

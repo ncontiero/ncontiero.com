@@ -52,10 +52,7 @@ export function ProjectsSection({
             className="mt-10 flex items-center justify-center"
           >
             <Button asChild>
-              <Link
-                href="/projects"
-                className="group flex items-center space-x-1"
-              >
+              <Link href="/projects" className="group flex items-center gap-1">
                 <span>View more projects</span>
                 <ArrowUpRight
                   size={20}

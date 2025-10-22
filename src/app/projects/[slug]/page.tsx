@@ -10,9 +10,7 @@ import { Link } from "@/components/ui/link";
 
 export const revalidate = 60;
 
-type Props = {
-  readonly params: Promise<{ slug: string }>;
-};
+type Props = PageProps<"/projects/[slug]">;
 
 export function generateStaticParams() {
   return allProjects.map((project) => ({

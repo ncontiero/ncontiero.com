@@ -3,8 +3,7 @@
     // Compilation and Target Settings
     "incremental": false,
     "target": "ES2022",
-    "jsx": "preserve",
-
+    "jsx": "react-jsx",
     // Library Definitions
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
 
@@ -45,6 +44,7 @@
     "**/*.js",
     ".next/types/**/*.ts",
     ".contentlayer/generated",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

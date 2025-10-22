@@ -4,7 +4,7 @@ import { withContentlayer } from "next-contentlayer2";
 
 const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [{ hostname: "github.com" }],
+    remotePatterns: [{ protocol: "https", hostname: "github.com" }],
     qualities: [100],
   },
   turbopack: {
@@ -18,9 +18,6 @@ const nextConfig: NextConfig = {
       ".mjs",
       ".json",
     ],
-  },
-  experimental: {
-    webpackBuildWorker: true,
   },
   trailingSlash: true,
 };

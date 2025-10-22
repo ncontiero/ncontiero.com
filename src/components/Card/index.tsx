@@ -56,9 +56,10 @@ function CardRoot({
       ref={ref}
       className={cn(
         `
-          group border-border/60 bg-background/60 relative h-full overflow-hidden rounded-xl border duration-700
+          group border-border/80 bg-background/60 relative h-full overflow-hidden rounded-xl border duration-700
           focus-within:border-ring focus-within:bg-background/10 hover:border-ring/60 hover:bg-background/30
-          dark:border-border/15 md:gap-8
+          dark:border-border/15 dark:hover:border-ring/60 dark:focus-within:border-ring/80
+          dark:focus-within:bg-background/30 md:gap-8
         `,
         className,
       )}
