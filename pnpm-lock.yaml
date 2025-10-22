@@ -2112,8 +2112,8 @@ packages:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
     engines: {node: '>= 0.4'}
 
-  electron-to-chromium@1.5.238:
-    resolution: {integrity: sha512-khBdc+w/Gv+cS8e/Pbnaw/FXcBUeKrRVik9IxfXtgREOWyJhR4tj43n3amkVogJ/yeQUqzkrZcFhtIxIdqmmcQ==}
+  electron-to-chromium@1.5.239:
+    resolution: {integrity: sha512-1y5w0Zsq39MSPmEjHjbizvhYoTaulVtivpxkp5q5kaPmQtsK6/2nvAzGRxNMS9DoYySp9PkW0MAQDwU1m764mg==}
 
   emoji-regex@10.6.0:
     resolution: {integrity: sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A==}
@@ -3517,8 +3517,8 @@ packages:
   oniguruma-to-es@4.3.3:
     resolution: {integrity: sha512-rPiZhzC3wXwE59YQMRDodUwwT9FZ9nNBwQQfsd1wfdtlKEyCdRV0avrTcSZ5xlIvGRVPd/cx6ZN45ECmS39xvg==}
 
-  oo-ascii-tree@1.116.0:
-    resolution: {integrity: sha512-GI0n8coDIoZPywmZp5l2qPO1tqZxN40/tFPYBxWD2vpPeciKiB/nxZ7blDjp97ejxtmdkNouvAmtg4nCYgZihg==}
+  oo-ascii-tree@1.117.0:
+    resolution: {integrity: sha512-Kzl5NSpj1LzCFqsEpKaOKZCk1X/gTpfLAFXkbEpdKS1LLuhxgMaHIVHjpeJ5EdXudJWiA9+HRFb7UjFrO0a+UA==}
     engines: {node: '>= 14.17.0'}
 
   optionator@0.9.4:
@@ -4686,7 +4686,7 @@ snapshots:
       hash-wasm: 4.12.0
       inflection: 3.0.2
       memfs: 4.49.0
-      oo-ascii-tree: 1.116.0
+      oo-ascii-tree: 1.117.0
       ts-pattern: 5.8.0
       type-fest: 4.41.0
 
@@ -6177,7 +6177,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.8.19
       caniuse-lite: 1.0.30001751
-      electron-to-chromium: 1.5.238
+      electron-to-chromium: 1.5.239
       node-releases: 2.0.26
       update-browserslist-db: 1.1.4(browserslist@4.27.0)
 
@@ -6450,7 +6450,7 @@ snapshots:
       es-errors: 1.3.0
       gopd: 1.2.0
 
-  electron-to-chromium@1.5.238: {}
+  electron-to-chromium@1.5.239: {}
 
   emoji-regex@10.6.0: {}
 
@@ -8362,7 +8362,7 @@ snapshots:
       regex: 6.0.1
       regex-recursion: 6.0.2
 
-  oo-ascii-tree@1.116.0: {}
+  oo-ascii-tree@1.117.0: {}
 
   optionator@0.9.4:
     dependencies:
