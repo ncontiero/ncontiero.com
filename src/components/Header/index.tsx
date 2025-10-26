@@ -2,6 +2,7 @@ import type { Locale } from "@/i18n/types";
 import { Menu } from "lucide-react";
 import { getMessages, getTranslations } from "next-intl/server";
 import Image from "next/image";
+import NextLink from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -113,9 +114,11 @@ export async function Header({ locale }: { readonly locale: Locale }) {
                     asChild
                     className="p-2 text-base capitalize"
                   >
-                    <Link href={i === 0 ? "/" : `/#${value.id}`}>
+                    <NextLink
+                      href={i === 0 ? `/${locale}/` : `/${locale}/#${value.id}`}
+                    >
                       {value.navbarLabel}
-                    </Link>
+                    </NextLink>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
