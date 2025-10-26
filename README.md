@@ -7,7 +7,8 @@ My personal website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](h
 ## Technologies used
 
 - [Next.Js](https://nextjs.org/)
-- [TailwindCSS V3](https://v3.tailwindcss.com/)
+- [next-intl](https://github.com/amannn/next-intl)
+- [TailwindCSS](https://tailwindcss.com/)
 - [Contentlayer 2](https://github.com/timlrx/contentlayer2)
 
 ## Install and run the project
@@ -16,7 +17,7 @@ My personal website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](h
 
 You need to have a main dependency installed:
 
-- Node.js LTS v18 (or any higher version)
+- Node.js LTS v20 (or any higher version)
 
 Do you use `nvm`? Then you can run `nvm install` in the project folder to install and use the most appropriate version of Node.js.
 
@@ -39,15 +40,15 @@ pnpm install
 Create a `.env` file similar to [`.env.example`](./.env.example).
 
 - The required variable is the url to the [formspree](https://formspree.io/) form.
-- There are also variables for the site's SEO, see [`env.js`](./src/env.js) and [`layout.tsx`](./src/app/layout.tsx).
+- There are also variables for the site's SEO, see [`env.js`](./src/env.ts) and [`layout.tsx`](./src/app/[locale]/layout.tsx).
 
 ```env
-NEXT_PUBLIC_FORM_SEND_URL="https://formspree.io/f/<your_id>"
+FORM_SEND_URL="https://formspree.io/f/<your_id>"
 
 # SEO ENV
 # ------------------------------------------------
 # these variables are used for the site's SEO
-# and are located in the `next.config.js` and `Meta.tsx` component
+# and are located in the `./src/app/[locale]/layout.tsx` component
 SITE_NAME=YOUR_SITE_NAME
 SITE_BASEURL=http://localhost:3000
 ```
