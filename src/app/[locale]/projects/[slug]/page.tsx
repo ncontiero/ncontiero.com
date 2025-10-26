@@ -10,8 +10,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "@/components/ui/link";
 import { getLanguages } from "@/i18n/utils";
 
-export const revalidate = 60;
-
 type Props = PageProps<"/[locale]/projects/[slug]">;
 
 export function generateStaticParams() {
