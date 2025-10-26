@@ -8,6 +8,13 @@ export default {
   manifest: {
     description: "Site pessoal de Nicolas Contiero.",
   },
+  pageError: {
+    goBackToHome: "Voltar para a <link>página inicial</link>.",
+  },
+  pageNotFound: {
+    title: "Página não encontrada",
+    description: "A página solicitada não pode ser encontrada.",
+  },
   navbar: {
     logoAlt: "Imagem de {name}",
     toggleMenu: "Alternar menu de navegação",

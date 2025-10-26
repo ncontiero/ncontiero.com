@@ -6,6 +6,13 @@ export default {
   manifest: {
     description: "Nicolas Contiero's personal website.",
   },
+  pageError: {
+    goBackToHome: "Go back to the <link>home</link>.",
+  },
+  pageNotFound: {
+    title: "Page not found",
+    description: "The requested page cannot be found.",
+  },
   navbar: {
     logoAlt: "{name} Image",
     toggleMenu: "Toggle navigation menu",

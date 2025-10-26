@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import { PageError } from "@/components/PageError";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Page not found",
-};
+import Error from "next/error";
 
-export default function PageNotFound() {
-  const title = "Page not found";
-  const description = "The requested page cannot be found.";
-
-  return <PageError title={title} description={description} />;
+export default function GlobalNotFound() {
+  return (
+    <html lang="en">
+      <body>
+        <Error statusCode={404} />;
+      </body>
+    </html>
+  );
 }
