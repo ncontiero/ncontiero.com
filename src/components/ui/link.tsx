@@ -17,9 +17,9 @@ const linkVariants = cva(
         destructive:
           "text-destructive hover:text-destructive/90 focus-visible:ring-destructive",
         ghost: `
-          px-0.5 shadow-[hsl(var(--primary))_0_-2px_0_0_inset] hover:no-underline
-          hover:shadow-[hsl(var(--primary))_0_-30px_0_-1px_inset]
-          focus-visible:shadow-[hsl(var(--primary))_0_-30px_0_-1px_inset] focus-visible:ring-transparent
+          px-0.5 shadow-[var(--primary)_0_-2px_0_0_inset] hover:no-underline
+          hover:shadow-[var(--primary)_0_-30px_0_-1px_inset] focus-visible:shadow-[var(--primary)_0_-30px_0_-1px_inset]
+          focus-visible:ring-transparent
         `,
       },
       size: {

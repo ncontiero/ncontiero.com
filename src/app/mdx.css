@@ -28,7 +28,7 @@
   @apply relative;
 }
 [data-rehype-pretty-code-figure] [data-highlighted-chars] {
-  @apply rounded-sm bg-background/40 shadow-[0_0_0_4px_hsl(var(--background)/0.4)];
+  @apply rounded-sm bg-background/40 shadow-[0_0_0_4px_var(--background)/0.4];
 }
 [data-rehype-pretty-code-title] {
   @apply mt-4 px-4 py-2 text-sm font-medium;
