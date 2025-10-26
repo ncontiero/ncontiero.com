@@ -97,7 +97,7 @@ export default async function ProjectPage(props: Props) {
             rel="noopener noreferrer"
             className="group flex items-center space-x-2"
           >
-            Github
+            GitHub
             <ArrowUpRight
               size={20}
               className="duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

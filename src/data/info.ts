@@ -28,7 +28,7 @@ const skills = [
   "Django",
   "RESTful APIs",
   "GIT",
-  "Github",
+  "GitHub",
   "Docker",
 ];
 

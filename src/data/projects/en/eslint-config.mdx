@@ -16,10 +16,10 @@ lastModified: "2025-10-18"
 - Sort imports, `package.json`, `tsconfig.json`...
 - Reasonable defaults, best practices, only one line of config.
 - Designed to work with TypeScript out-of-box.
-- Support JSON(5), YAML, TOML, Markdown, HTML with [HTML Eslint](https://html-eslint.org/)...
+- Support JSON(5), YAML, TOML, Markdown, HTML with [HTML ESLint](https://html-eslint.org/)...
 - [ESLint Flat config](https://eslint.org/docs/latest/use/configure/configuration-files-new), compose easily!
 - Ignores common files like `dist`, `node_modules`, `coverage`, and files in `.gitignore`.
-- Optional [React](https://react.dev/), [NextJs](https://nextjs.org/), [TailwindCSS](https://tailwindcss.com/), [TanStack Query](https://tanstack.com/query/) support.
+- Optional [React](https://react.dev/), [Next.js](https://nextjs.org/), [TailwindCSS](https://tailwindcss.com/), [TanStack Query](https://tanstack.com/query/) support.
 - Requires ESLint v9.20.0+.
 
 ## Usage
@@ -124,7 +124,7 @@ And that's it! Or you can configure each integration individually, for example:
 import { ncontiero } from "@ncontiero/eslint-config";
 
 export default ncontiero({
-  // TypeScript, React, NextJs, TailwindCSS and TanStack Query are auto-detected,
+  // TypeScript, React, Next.js, TailwindCSS and TanStack Query are auto-detected,
   // you can also explicitly enable them:
   typescript: true,
   react: true,

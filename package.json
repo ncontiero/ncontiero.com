@@ -14,7 +14,9 @@
     "lint": "eslint .",
     "lint:fix": "pnpm lint --fix",
     "typecheck": "tsc --noEmit",
-    "check": "pnpm lint && pnpm typecheck",
+    "check:spell": "cspell",
+    "check:case": "case-police src/data/**/*.{ts,tsx,md,mdx,json} src/i18n/**/*.{ts,tsx,md,mdx,json}",
+    "check": "pnpm lint && pnpm typecheck && pnpm check:spell && pnpm check:case",
     "prepare": "husky",
     "commitlint": "commitlint --edit",
     "pre-commit": "lint-staged",
@@ -46,13 +48,16 @@
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
+    "@cspell/dict-pt-br": "^2.4.2",
     "@ncontiero/eslint-config": "6.4.0",
     "@tailwindcss/postcss": "^4.1.16",
     "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^24.9.1",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
+    "case-police": "2.0.0",
     "concurrently": "^9.2.1",
+    "cspell": "9.2.2",
     "eslint": "^9.38.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.6",
@@ -68,6 +73,6 @@
     "node": ">=20"
   },
   "lint-staged": {
-    "*": "pnpm lint:fix"
+    "*": "pnpm check:spell && pnpm check:case && pnpm lint:fix"
   }
 }
