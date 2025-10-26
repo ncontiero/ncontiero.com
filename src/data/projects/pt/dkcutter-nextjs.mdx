@@ -1,0 +1,123 @@
+---
+title: "DKCutter NextJs"
+description: "DKCutter NextJs é um framework para iniciar rapidamente projetos Next.Js."
+githubUrl: https://github.com/ncontiero/dkcutter-nextjs
+lastModified: "2025-10-18"
+---
+
+Desenvolvido por [DKCutter](https://github.com/ncontiero/dkcutter), o DKCutter NextJs é um framework para iniciar rapidamente projetos Next.Js.
+
+- Se você tiver problemas com o DKCutter NextJs, abra [issues](https://github.com/ncontiero/dkcutter-nextjs/issues/new).
+
+## Uso
+
+Para estruturar um aplicativo usando o [dkcutter](https://github.com/ncontiero/dkcutter), execute qualquer um dos quatro comandos a seguir e responda às perguntas do prompt de comando:
+
+### npm
+
+```bash
+npx dkcutter gh:ncontiero/dkcutter-nextjs.git
+```
+
+### yarn
+
+```bash
+yarn dlx dkcutter gh:ncontiero/dkcutter-nextjs.git
+```
+
+### pnpm
+
+```bash
+pnpm dlx dkcutter gh:ncontiero/dkcutter-nextjs.git
+```
+
+### bun
+
+```bash
+bunx dkcutter@latest gh:ncontiero/dkcutter-nextjs.git
+```
+
+Você será solicitado a fornecer alguns valores. Forneça-os e um projeto Next.Js será criado para você.
+
+**Aviso**: Após este ponto, altere 'Meu nome', etc. para suas próprias informações.
+
+Responda aos prompts com suas próprias [opções][options-url] desejadas. Por exemplo:
+
+```bash
+✔ Qual é o nome do projeto? … Meu Projeto Incrível
+✔ Qual é o slug do projeto? … meu-projeto-incrivel
+✔ Qual é a descrição do projeto? … Eis o Meu Projeto Incrível!
+✔ Qual é o nome do autor? … Nicolas Contiero <https://github.com/ncontiero>
+✔ Qual é a versão do projeto? … 0.1.0
+✔ Você quer usar o husky? … Não / Sim
+✔ Você quer usar o lint staged? … Não / Sim
+✔ Você quer usar o Commitlint? … Não / Sim
+✔ Você quer usar a pasta de aplicativos do Next.Js? … Não / Sim
+✔ Qual ORM de banco de dados você gostaria de usar? › Nenhum
+✔ Qual provedor de autenticação você gostaria de usar? › Nenhum
+✔ Qual atualizador de dependência automatizado você deseja usar? › Mend Renovate
+✔ Você quer que o projeto seja configurado? … Não / Sim
+Próximos passos:
+  cd meu-projeto-incrivel
+  pnpm install
+  git add .
+  git commit -m "commit inicial"
+  pnpm dev
+
+✔ Projeto criado!
+```
+
+Entre no projeto e dê uma olhada:
+
+```bash
+cd my-awesome-project/
+ls
+```
+
+Agora dê uma olhada no seu repositório. Não se esqueça de ler atentamente o README gerado.
+
+## Uso avançado
+
+Se você quiser começar mais rápido, pode usar as seguintes opções:
+
+| Flag | Descrição |
+| --- | --- |
+| `--projectName <string>` | O nome do projeto. |
+| `--projectSlug <string>` | O Slug do Projeto. |
+| `--description <string>` | A descrição do projeto. |
+| `--authorName <string>` | O nome do autor. |
+| `--projectVersion <string>` | A versão do projeto. |
+| `--useHusky [boolean]` | Inclui o [husky](https://github.com/typicode/husky) no projeto. |
+| `--useLintStaged [boolean]` | Inclui o [lint-staged](https://github.com/lint-staged/lint-staged) no projeto. |
+| `--useCommitlint [boolean]` | Inclui o [commitlint](https://commitlint.js.org/#/) no projeto. |
+| `--useAppFolder [boolean]` | Usa a estrutura da [pasta de aplicativos do Next.Js](https://nextjs.org/docs/app). |
+| `--database <string>` | Escolha um ORM de banco de dados. [Veja para mais informações][options-url]. |
+| `--useDockerCompose [boolean]` | Inclui o docker compose no projeto para o banco de dados. Se `database` for diferente de `none`. |
+| `--authProvider <string>` | Escolha um provedor de autenticação. [Veja para mais informações][options-url]. |
+| `--clerkWebhook [boolean]` | Inclui um endpoint para receber eventos do [Clerk](https://clerk.com/). |
+| `--automatedDepsUpdater <string>` | Escolha o Atualizador de Dependências Automatizado. [Veja para mais informações][options-url]. |
+| `--automaticStart [boolean]` | Esta opção instalará os pacotes do aplicativo, iniciará um repositório git e fará o commit inicial. |
+
+[Veja mais informações sobre as opções][options-url].
+
+### Exemplo
+
+A seguir, a estrutura de um aplicativo com o [Commitlint](https://commitlint.js.org/):
+
+```bash
+pnpm dlx dkcutter https://github.com/ncontiero/dkcutter-nextjs.git --useCommitlint
+```
+
+Se você quiser usar todos os valores padrão, com exceção de um ou mais, pode fazer da seguinte forma:
+
+```bash
+pnpm dlx dkcutter https://github.com/ncontiero/dkcutter-nextjs.git --useHusky --useLintStaged -y
+```
+
+Isso usará os valores padrão, com exceção das opções `--useHusky` e `--useLintStaged`.
+
+---
+
+Veja mais informações no repositório do github: [ncontiero/dkcutter-nextjs](https://github.com/ncontiero/dkcutter-nextjs).
+
+[options-url]: https://github.com/ncontiero/dkcutter-nextjs/blob/main/docs/project-generation-options.md

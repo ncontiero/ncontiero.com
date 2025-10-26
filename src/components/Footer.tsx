@@ -1,8 +1,10 @@
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { data } from "@/data";
 import { Button } from "./ui/button";
 
-export function Footer() {
+export async function Footer() {
+  const t = await getTranslations();
   const social = Object.entries(data.social);
 
   return (
@@ -40,7 +42,7 @@ export function Footer() {
           <div className="w-full max-w-3xl md:order-1 md:w-1/2">
             <h2 className="text-xl leading-5 font-bold">{data.name}</h2>
             <p className="text-foreground/80 mt-5 text-base">
-              {data.description}
+              {t("description")}
             </p>
           </div>
         </div>
@@ -50,7 +52,7 @@ export function Footer() {
             {data.name} {new Date().getFullYear()}
           </p>
           <p className="text-foreground/80 text-center text-base">
-            All rights reserved.
+            {t("footer.rightsReserved")}
           </p>
         </div>
       </div>

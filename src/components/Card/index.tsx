@@ -9,8 +9,9 @@ import {
 } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { motion, useMotionTemplate, useSpring } from "framer-motion";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
 
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
 interface CardRootProps extends ComponentProps<"div"> {
@@ -95,6 +96,8 @@ function CardContainer({
   children,
   ...props
 }: CardContainerProps) {
+  const t = useTranslations("sections.projects");
+
   return (
     <div
       className={cn(
@@ -106,7 +109,7 @@ function CardContainer({
       <Link
         href={projectUrl}
         className="absolute inset-0 z-10"
-        aria-label="View project"
+        aria-label={t("viewProject")}
       />
       {children}
     </div>

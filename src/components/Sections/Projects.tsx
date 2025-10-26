@@ -2,6 +2,7 @@ import type { ProjectsSectionTypes } from "@/utils/types";
 import { type Project, allProjects } from "contentlayer/generated";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import { data } from "@/data";
 import { MotionDiv } from "../motion/div";
 import { ProjectCard } from "../ProjectCard";
 import { Button } from "../ui/button";
@@ -14,13 +15,16 @@ import {
 } from "./components";
 
 export function ProjectsSection({
+  id,
   title,
   description,
-  tops,
-  id,
+  viewMore,
+  locale,
 }: ProjectsSectionTypes) {
-  const projects = tops.map((top) =>
-    allProjects.find((project) => project.slug === top),
+  const projects = data.topProjects.map((top) =>
+    allProjects.find(
+      (project) => project.slug === top && project.locale === locale,
+    ),
   ) as Project[];
 
   return (
@@ -52,8 +56,11 @@ export function ProjectsSection({
             className="mt-10 flex items-center justify-center"
           >
             <Button asChild>
-              <Link href="/projects" className="group flex items-center gap-1">
-                <span>View more projects</span>
+              <Link
+                href={`/${locale}/projects`}
+                className="group flex items-center gap-1"
+              >
+                <span>{viewMore}</span>
                 <ArrowUpRight
                   size={20}
                   className="duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"

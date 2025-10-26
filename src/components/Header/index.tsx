@@ -1,6 +1,7 @@
+import type { Locale } from "@/i18n/types";
 import { Menu } from "lucide-react";
+import { getMessages, getTranslations } from "next-intl/server";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,14 +10,18 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { data } from "@/data";
+import { Link } from "@/i18n/navigation";
 import { MotionDiv } from "../motion/div";
 import { MotionLi } from "../motion/li";
 import { MotionUl } from "../motion/ul";
 import { animation } from "./animationVariants";
+import { ChangeLocale } from "./ChangeLocale";
 import { ThemeToggle } from "./ThemeToggle";
 
-export function Header() {
-  const { name, sections } = data;
+export async function Header({ locale }: { readonly locale: Locale }) {
+  const t = await getTranslations({ locale });
+  const { sections, navbar } = await getMessages({ locale });
+  const { name } = data;
 
   return (
     <header
@@ -32,7 +37,7 @@ export function Header() {
           transition={{ delay: 0.1, duration: 0.5 }}
         >
           <Link
-            href={`/#${sections.home.id}`}
+            href={`/#${t("sections.home.id")}`}
             className={`
               group ring-ring flex items-center space-x-2 rounded-full underline-offset-4 duration-300 hover:underline
               hover:brightness-200 focus-visible:ring-2 focus-visible:outline-hidden active:opacity-70 md:pr-3
@@ -40,7 +45,7 @@ export function Header() {
           >
             <Image
               src="/icon/"
-              alt={`${name} Image`}
+              alt={t("navbar.logoAlt", { name })}
               className="size-[52px] rounded-full border-2"
               width={52}
               height={52}
@@ -72,12 +77,15 @@ export function Header() {
                   `}
                   href={`/#${value.id}`}
                 >
-                  {value.id}
+                  {value.navbarLabel}
                 </Link>
               </MotionLi>
             ))}
             <MotionLi variants={animation.item} transition={{ duration: 0.6 }}>
-              <ThemeToggle />
+              <ThemeToggle title={t("navbar.toggleTheme")} />
+            </MotionLi>
+            <MotionLi variants={animation.item} transition={{ duration: 0.6 }}>
+              <ChangeLocale navbarLocale={navbar.locale} locale={locale} />
             </MotionLi>
           </MotionUl>
           <div className="flex items-center gap-2 md:hidden">
@@ -88,7 +96,7 @@ export function Header() {
                   size="icon"
                   variant="ghost"
                   radius="full"
-                  aria-label="Toggle navigation menu"
+                  aria-label={t("navbar.toggleMenu")}
                 >
                   <Menu size={24} />
                 </Button>
@@ -106,13 +114,14 @@ export function Header() {
                     className="p-2 text-base capitalize"
                   >
                     <Link href={i === 0 ? "/" : `/#${value.id}`}>
-                      {value.id}
+                      {value.navbarLabel}
                     </Link>
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            <ThemeToggle />
+            <ThemeToggle title={t("navbar.toggleTheme")} />
+            <ChangeLocale navbarLocale={navbar.locale} locale={locale} />
           </div>
         </div>
       </nav>

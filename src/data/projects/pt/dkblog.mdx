@@ -1,0 +1,83 @@
+---
+title: "DkBlog"
+description: "Um blog dinâmico usando markdown com Next.Js."
+githubUrl: https://github.com/ncontiero/dkblog
+siteUrl: https://blog.ncontiero.com
+lastModified: "2025-10-18"
+---
+
+DkBlog é um projeto que usa [Next.Js](https://nextjs.org/) para criar um blog dinâmico com [markdown](https://www.markdownguide.org/).
+
+## Algumas tecnologias usadas
+
+- [Clerk](https://clerk.com/)
+- [Prisma](https://www.prisma.io/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+
+## Instale e execute o projeto
+
+### Dependências globais
+
+Você precisa ter uma dependência principal instalada:
+
+- Node.js LTS v20 (ou qualquer versão superior)
+
+Você usa `nvm`? Então você pode executar `nvm install` na pasta do projeto para instalar e usar a versão mais apropriada do Node.js.
+
+### Obtenha o repositório
+
+```bash
+git clone https://github.com/ncontiero/dkblog.git
+```
+
+### Dependências locais
+
+Então, depois de obter o repositório, não se esqueça de instalar as dependências locais do projeto:
+
+```bash
+pnpm install
+```
+
+### Variáveis de ambiente
+
+Crie um arquivo `.env` semelhante a [`.env.example`](https://github.com/ncontiero/dkblog/blob/main/.env.example).
+
+Altere as variáveis do [Clerk](https://dashboard.clerk.com/) de acordo com o seu projeto.
+
+```env
+# ...
+
+# Clerk Keys
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="YOUR_CLERK_PUBLISHABLE_KEY"
+CLERK_SECRET_KEY="YOUR_CLERK_SECRET_KEY"
+CLERK_WEBHOOK_SIGNING_SECRET="YOUR_CLERK_WEBHOOK_SIGNING_SECRET"
+
+# Clerk Routes
+NEXT_PUBLIC_CLERK_SIGN_IN_URL="/sign-in"
+NEXT_PUBLIC_CLERK_SIGN_UP_URL="/sign-up"
+NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL="/"
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL="/"
+
+# Google Storage (Only PROD)
+GS_BUCKET_NAME="YOUR_BUCKET_NAME"
+GS_PROJECT_ID="YOUR_PROJECT_ID"
+GS_CLIENT_EMAIL="YOUR_CLIENT_EMAIL"
+GS_PRIVATE_KEY="YOUR_PRIVATE_KEY"
+
+# ...
+```
+
+### Execute o projeto
+
+Para executar o projeto localmente, basta executar o comando abaixo:
+
+```bash
+pnpm run dev
+```
+
+- acesse http://localhost:3000 para ver o aplicativo.
+
+## Licença
+
+Este projeto está licenciado sob a Licença **MIT** - consulte o arquivo [LICENSE](https://github.com/ncontiero/dkblog/blob/main/LICENSE) para obter detalhes

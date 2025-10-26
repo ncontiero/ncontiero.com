@@ -1,5 +1,6 @@
 "use client";
 
+import type { ContactSectionTypes } from "@/utils/types";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -15,9 +16,27 @@ import { useFormState } from "@/hooks/useFormState";
 import { Form } from ".";
 import { homeAnimation } from "../animationVariants";
 
-export function ContactForm() {
+interface ContactFormProps {
+  readonly formTranslations: ContactSectionTypes["form"];
+}
+
+export function ContactForm({ formTranslations }: ContactFormProps) {
   const form = useForm({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(contactSchema, {
+      error: (iss) => {
+        const defaultError = formTranslations.invalidData;
+        const path = iss.path?.join(".");
+        if (!path) return { message: defaultError };
+
+        const message = {
+          name: formTranslations.name.error,
+          email: formTranslations.email.error,
+          message: formTranslations.message.error,
+        }[path];
+
+        return { message: message || defaultError };
+      },
+    }),
   });
 
   const contact = useFormState({
@@ -40,12 +59,12 @@ export function ContactForm() {
     <form onSubmit={form.handleSubmit(onSubmit)}>
       <Form.Fieldset>
         <Label className="text-base font-bold" htmlFor="name">
-          Name
+          {formTranslations.name.label}
         </Label>
         <Input
           id="name"
           type="text"
-          placeholder="Enter your name"
+          placeholder={formTranslations.name.placeholder}
           {...form.register("name")}
         />
 
@@ -56,12 +75,12 @@ export function ContactForm() {
 
       <Form.Fieldset>
         <Label className="text-base font-bold" htmlFor="email">
-          Email
+          {formTranslations.email.label}
         </Label>
         <Input
           id="email"
           type="email"
-          placeholder="Enter your email"
+          placeholder={formTranslations.email.placeholder}
           {...form.register("email")}
         />
 
@@ -72,11 +91,11 @@ export function ContactForm() {
 
       <Form.Fieldset>
         <Label className="text-base font-bold" htmlFor="message">
-          Message
+          {formTranslations.message.label}
         </Label>
         <Textarea
           id="message"
-          placeholder="Enter your message"
+          placeholder={formTranslations.message.placeholder}
           {...form.register("message")}
         />
 
@@ -91,7 +110,11 @@ export function ContactForm() {
         className="flex w-full justify-end"
       >
         <Button type="submit" size="xlg" disabled={contact.isPending}>
-          {contact.isPending ? <Loader className="animate-spin" /> : "Submit"}
+          {contact.isPending ? (
+            <Loader className="animate-spin" />
+          ) : (
+            formTranslations.submit
+          )}
         </Button>
       </motion.div>
     </form>

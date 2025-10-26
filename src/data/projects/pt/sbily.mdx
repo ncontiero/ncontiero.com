@@ -1,0 +1,121 @@
+---
+title: "Sbily"
+description: "Um projeto Django para um encurtador de links."
+githubUrl: https://github.com/ncontiero/sbily
+siteUrl: https://sbily.ncontiero.com
+lastModified: "2025-10-18"
+---
+
+[![Licença MIT](https://img.shields.io/badge/licence-MIT-blue)](https://github.com/ncontiero/sbily/blob/main/LICENSE)
+[![Estilo de código: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/format.json)](https://github.com/astral-sh/ruff)
+
+Um projeto Django para um encurtador de links.
+
+## Tecnologias Utilizadas
+
+- [Python](https://www.python.org/)
+- [Django](https://www.djangoproject.com/)
+- [Rspack](https://rspack.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Docker](https://www.docker.com/)
+
+## Como Executar o Projeto
+
+Para executar o projeto, você precisa ter o [Python](https://www.python.org/) e o [Node](https://nodejs.org/) (para executar o Rspack) instalados em sua máquina, ou você pode usar o [Docker](#com-docker).
+
+### Sem Docker
+
+Uma vez que o repositório é clonado e as dependências globais são instaladas, você pode instalar as dependências locais do projeto.
+
+#### 1. Instale as Dependências Locais
+
+Dependências do Python:
+
+```bash
+uv sync
+```
+
+Dependências do Node:
+
+```bash
+pnpm install
+```
+
+#### 2. Configure as variáveis de ambiente
+
+Copie o diretório `.envs.example` para o diretório `.envs` _(que será ignorado pelo Git)_:
+
+```bash
+cp -r .envs.example .envs
+```
+
+#### 3. Faça as migrações
+
+```bash
+uv run manage.py migrate
+```
+
+#### 4. Crie um superusuário
+
+```bash
+uv run manage.py createsuperuser
+```
+
+#### 5. Executando o aplicativo em modo de desenvolvimento
+
+Aplicação Django:
+
+```bash
+uv run manage.py runserver
+```
+
+Rspack:
+
+```bash
+pnpm dev
+```
+
+O comando Python iniciará o aplicativo Django em [http://localhost:8000](http://localhost:8000) e o Node iniciará o Rspack e um servidor proxy para recarregamento automático em [http://localhost:3000](http://localhost:3000).
+
+- Abra [http://localhost:3000](http://localhost:3000) para ver o aplicativo.
+- Na área administrativa, insira o nome de usuário e a senha criados na [etapa 4](#4-crie-um-superusuário).
+
+### Com Docker
+
+Uma vez que o repositório é clonado, as dependências globais são instaladas e as [variáveis definidas](#2-configure-as-variáveis-de-ambiente), vamos iniciar o contêiner:
+
+```bash
+docker compose -f docker-compose.local.yml up
+```
+
+Quando iniciado, o contêiner inicia o aplicativo Django!
+
+> **_Os passos abaixo só serão necessários se você ainda não tiver realizado as migrações e criado um superusuário! Se você já fez isso, o aplicativo pode ser acessado em: [http://localhost:3000](http://localhost:3000)_**
+
+Você precisará entrar no contêiner via CLI:
+
+```bash
+docker compose -f docker-compose.local.yml up exec django zsh
+```
+
+> Agora você está dentro do contêiner!
+
+Você precisará fazer as migrações:
+
+```bash
+uv run manage.py migrate
+```
+
+Criando um superusuário:
+
+```bash
+uv run manage.py createsuperuser
+```
+
+O comando Python iniciará o aplicativo Django em [http://localhost:8000](http://localhost:8000) e o Node iniciará o Rspack e um servidor proxy para carregamento automático em [http://localhost:3000](http://localhost:3000).
+
+- Abra [http://localhost:3000](http://localhost:3000) para ver o aplicativo.
+
+## Licença
+
+Este projeto está sob a [licença MIT](https://github.com/ncontiero/sbily/blob/main/LICENSE).

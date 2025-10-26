@@ -17,7 +17,6 @@ export const env = createEnv({
 
     // these variables are used for the site's SEO
     SITE_NAME: z.string().default("Nicolas Contiero"),
-    SITE_LOCALE: z.string().default("en_US"),
     // URLs
     SITE_BASEURL: z.string().url().default("http://localhost:3000"),
   },
@@ -34,7 +33,6 @@ export const env = createEnv({
     FORM_SEND_URL: process.env.FORM_SEND_URL,
     // SEO
     SITE_NAME: process.env.SITE_NAME,
-    SITE_LOCALE: process.env.SITE_LOCALE,
     SITE_BASEURL: process.env.SITE_BASEURL,
 
     // Client

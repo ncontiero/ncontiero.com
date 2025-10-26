@@ -17,7 +17,7 @@ export const contentType = "image/png";
 
 const ogSchema = z.object({
   title: z.string().optional().default(data.name),
-  description: z.string().optional().default(data.description),
+  description: z.string().optional(),
   isProject: z
     .string()
     .optional()

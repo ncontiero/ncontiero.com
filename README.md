@@ -49,7 +49,6 @@ NEXT_PUBLIC_FORM_SEND_URL="https://formspree.io/f/<your_id>"
 # these variables are used for the site's SEO
 # and are located in the `next.config.js` and `Meta.tsx` component
 SITE_NAME=YOUR_SITE_NAME
-SITE_LOCALE=en_US
 SITE_BASEURL=http://localhost:3000
 ```
 

@@ -1,4 +1,5 @@
 import { useState, useTransition } from "react";
+import { useTranslations } from "next-intl";
 import { type ZodType, z } from "zod";
 
 export interface FormState<T extends ZodType> {
@@ -19,6 +20,7 @@ export type UseFormStateProps<T extends ZodType> = {
 };
 
 export function useFormState<T extends ZodType>(props: UseFormStateProps<T>) {
+  const t = useTranslations("sections.contact.form");
   const [isPending, startTransition] = useTransition();
 
   const [formState, setFormState] = useState(
@@ -37,13 +39,13 @@ export function useFormState<T extends ZodType>(props: UseFormStateProps<T>) {
       if (!resultData.success) {
         setFormState({
           success: false,
-          message: "Invalid data",
+          message: t("invalidData"),
           errors: z.flattenError(resultData.error).fieldErrors,
           data: null,
         });
         if (props.onError) {
           props.onError(
-            "Invalid data",
+            t("invalidData"),
             z.flattenError(resultData.error).fieldErrors,
           );
         }
@@ -64,7 +66,7 @@ export function useFormState<T extends ZodType>(props: UseFormStateProps<T>) {
         } else {
           state = {
             success: false,
-            message: "An unknown error occurred",
+            message: t("unknownError"),
             errors: null,
             data: null,
           };

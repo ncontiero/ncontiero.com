@@ -1,0 +1,119 @@
+---
+title: "DKCutter Django"
+description: "DKCutter Django é um framework para iniciar rapidamente projetos Django prontos para produção."
+githubUrl: https://github.com/ncontiero/dkcutter-django
+lastModified: "2025-10-18"
+---
+
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ncontiero/dkcutter-django/ci.yml?branch=main)](https://github.com/ncontiero/dkcutter-django/actions/workflows/ci.yml?query=branch%3Amain)
+[![Licença MIT](https://img.shields.io/badge/licence-MIT-56BEB8)](https://github.com/ncontiero/dkcutter-django/blob/main/LICENSE)
+[![Estilo de código: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/format.json)](https://github.com/astral-sh/ruff)
+
+Desenvolvido por [DKCutter](https://github.com/ncontiero/dkcutter), o DKCutter Django é um framework para iniciar rapidamente projetos Django prontos para produção.
+
+- Se você tiver problemas com o DKCutter Django, abra [issues](https://github.com/ncontiero/dkcutter-django/issues/new).
+
+## Uso
+
+> [!NOTE]
+>
+> O Docker é recomendado para configurar seu projeto. Como alternativa, certifique-se de ter a versão mais recente do [uv](https://docs.astral.sh/uv/getting-started/installation/) instalada. Se você escolher um pipeline de frontend ou React Email, também precisará de um gerenciador de pacotes Node.js (npm, pnpm, yarn ou bun).
+
+Para estruturar um aplicativo usando o [dkcutter](https://github.com/ncontiero/dkcutter), execute qualquer um dos quatro comandos a seguir e responda às perguntas do prompt de comando:
+
+### npm
+
+```bash
+npx dkcutter@latest gh:ncontiero/dkcutter-django
+```
+
+### yarn
+
+```bash
+yarn dlx dkcutter@latest gh:ncontiero/dkcutter-django
+```
+
+### pnpm
+
+```bash
+pnpm dlx dkcutter@latest gh:ncontiero/dkcutter-django
+```
+
+### bun
+
+```bash
+bunx dkcutter@latest gh:ncontiero/dkcutter-django
+```
+
+Você será solicitado a fornecer alguns valores. Forneça-os e um projeto Django será criado para você.
+
+**Aviso**: Após este ponto, altere 'Nicolas Contiero', etc. para suas próprias informações.
+
+Responda aos prompts com suas próprias [opções][options-url] desejadas. Por exemplo:
+
+```bash
+# output
+```
+
+Entre no projeto e dê uma olhada:
+
+```bash
+cd my-awesome-project/
+ls
+```
+
+## Uso avançado
+
+Se você quiser começar mais rápido, pode usar as seguintes opções:
+
+| Flag | Descrição |
+| --- | --- |
+| `--projectName <string>` | O nome legível do seu projeto. |
+| `--projectSlug <string>` | O slug do seu projeto sem traços ou espaços. |
+| `--description <string>` | Descreve seu projeto. |
+| `--authorName <string>` | O nome do autor. |
+| `--domainName <string>` | O nome de domínio que você planeja usar para seu projeto quando ele for lançado. |
+| `--email <string>` | O endereço de e-mail que você deseja identificar no projeto. |
+| `--postgresqlVersion <string>` | Selecione uma versão do PostgreSQL para usar. |
+| `--cloudProvider <string>` | Selecione um provedor de nuvem para arquivos estáticos e de mídia. |
+| `--restFramework <string>` | Selecione um framework de API REST. |
+| `--mailService <string>` | Selecione um serviço de e-mail que o Django-Anymail fornece. |
+| `--frontendPipeline <string>` | Selecione um pipeline para compilar e otimizar ativos de frontend (JS, CSS, …). |
+| `--frontendPipelineLang <string>` | Selecione o idioma usado pelo Pipeline de Frontend. |
+| `--additionalTools <string>` | Selecione ferramentas adicionais para usar. |
+| `--useTailwindInReactEmail <boolean>` | Selecione se deseja usar o TailwindCSS no React Email. |
+| `--pkgManagerToUse <string>` | Selecione o gerenciador de pacotes para o Pipeline de Frontend. |
+| `--automatedDepsUpdater <string>` | Escolha o Atualizador de Dependências Automatizado. [Veja para mais informações][options-url]. |
+| `--installFrontendDeps <boolean>` | Instalar dependências de Frontend. |
+
+[Veja mais informações sobre as opções][options-url].
+
+### Exemplo
+
+A seguir, a estrutura de um aplicativo com o Sentry:
+
+```bash
+pnpm dlx dkcutter gh:ncontiero/dkcutter-django --additionalTools sentry
+```
+
+Se você quiser usar todos os valores padrão, com exceção de um ou mais, pode fazer da seguinte forma:
+
+```bash
+pnpm dlx dkcutter gh:ncontiero/dkcutter-django --additionalTools celery,sentry -y
+```
+
+Isso usará os valores padrão, exceto para `--additionalTools`.
+
+## Para desenvolvimento local, veja o seguinte
+
+- [Desenvolvendo localmente usando o docker](https://github.com/ncontiero/dkcutter-django/blob/main/docs/developing-locally-docker.md)
+
+[options-url]: https://github.com/ncontiero/dkcutter-django/blob/main/docs/project-generation-options.md
+
+## Referências e inspirações
+
+- [Cookiecutter Django](https://github.com/cookiecutter/cookiecutter-django) - Um framework para iniciar rapidamente projetos Django prontos para produção.
+
+## Licença
+
+Este projeto está licenciado sob a Licença **MIT** - consulte o arquivo [LICENSE](https://github.com/ncontiero/dkcutter-django/blob/main/LICENSE) para obter detalhes

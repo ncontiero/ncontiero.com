@@ -1,6 +1,7 @@
 import type { AboutMeSectionTypes } from "@/utils/types";
 import NextLink from "next/link";
 import { Button } from "@/components/ui/button";
+import { info } from "@/data/info";
 import { MotionDiv } from "../motion/div";
 import { MotionH3 } from "../motion/h3";
 import { aboutAnimation as animation } from "./animationVariants";
@@ -12,17 +13,14 @@ import {
   SectionTitle,
 } from "./components";
 
-interface AboutSectionProps extends AboutMeSectionTypes {
-  readonly btnSectionId: string;
-}
-
 export function AboutSection({
+  id,
   title,
   description,
   content,
-  id,
   btnSectionId,
-}: AboutSectionProps) {
+  btnSectionLabel,
+}: AboutMeSectionTypes) {
   const { getToKnowMe, mySkills } = content;
 
   return (
@@ -73,7 +71,9 @@ export function AboutSection({
                 transition={{ delay: 2, duration: 0.5 }}
               >
                 <Button size="xlg" asChild className="capitalize">
-                  <NextLink href={`#${btnSectionId}`}>{btnSectionId}</NextLink>
+                  <NextLink href={`#${btnSectionId}`}>
+                    {btnSectionLabel}
+                  </NextLink>
                 </Button>
               </MotionDiv>
             </div>
@@ -86,7 +86,7 @@ export function AboutSection({
                 {mySkills.title}
               </MotionH3>
               <div className="flex flex-wrap">
-                {mySkills.content.map((skill, i) => (
+                {info.skills.map((skill, i) => (
                   <MotionDiv
                     variants={animation.item}
                     transition={{ delay: i * 0.5, duration: 0.5 }}

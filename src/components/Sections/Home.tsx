@@ -10,17 +10,15 @@ import {
   SectionTitle,
 } from "./components";
 
-interface HomeSectionProps extends HomeSectionTypes {
-  readonly btnSectionId: string;
-}
-
 export function HomeSection({
+  id,
   title,
   description,
   btnSectionId,
-}: HomeSectionProps) {
+  btnSectionLabel,
+}: HomeSectionTypes) {
   return (
-    <SectionRoot className="relative h-screen">
+    <SectionRoot className="relative h-screen" id={id}>
       <MotionDiv
         variants={homeAnimation.container}
         initial="hidden"
@@ -54,7 +52,7 @@ export function HomeSection({
             className="mt-14 text-center md:mt-16"
           >
             <Button size="xlg" asChild className="capitalize">
-              <NextLink href={`#${btnSectionId}`}>{btnSectionId}</NextLink>
+              <NextLink href={`#${btnSectionId}`}>{btnSectionLabel}</NextLink>
             </Button>
           </MotionDiv>
         </SectionContainer>

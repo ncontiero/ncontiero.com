@@ -1,11 +1,16 @@
 import type { MetadataRoute } from "next";
+import { getTranslations } from "next-intl/server";
+import { cookies } from "next/headers";
 
-export default function manifest(): MetadataRoute.Manifest {
+export default async function manifest(): Promise<MetadataRoute.Manifest> {
+  const locale = (await cookies()).get("NEXT_LOCALE")?.value || "en";
+  const t = await getTranslations({ locale, namespace: "manifest" });
+
   return {
     name: "Nicolas Contiero",
     short_name: "Nicolas Contiero",
-    description: "Nicolas Contiero's personal website.",
-    lang: "en-US",
+    description: t("description"),
+    lang: locale,
     start_url: "/",
     display: "standalone",
     background_color: "#f9fafb",

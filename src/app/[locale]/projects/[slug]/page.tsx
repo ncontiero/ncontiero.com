@@ -1,35 +1,35 @@
-import type { Metadata, ResolvingMetadata } from "next";
+import type { Metadata } from "next";
 
 import { allProjects } from "contentlayer/generated";
 import { ArrowUpRight } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 import NextLink from "next/link";
 import { notFound } from "next/navigation";
 import { Mdx } from "@/components/mdx";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/components/ui/link";
+import { getLanguages } from "@/i18n/utils";
 
 export const revalidate = 60;
 
-type Props = PageProps<"/projects/[slug]">;
+type Props = PageProps<"/[locale]/projects/[slug]">;
 
 export function generateStaticParams() {
   return allProjects.map((project) => ({
     slug: project.slug,
+    locale: project.locale,
   }));
 }
 
-export async function generateMetadata(
-  props: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  const params = await props.params;
-  const project = allProjects.find((project) => project.slug === params.slug);
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const { slug, locale } = await props.params;
+  const project = allProjects.find(
+    (project) => project.slug === slug && project.locale === locale,
+  );
   if (!project) {
     notFound();
   }
 
-  const baseUrl = (await parent).metadataBase?.toString().slice(0, -1);
-  const projectUrl = `${baseUrl}${project.path}`;
   const image =
     project.image ||
     `/og?title=${project.title}&description=${project.description}&isProject=true`;
@@ -39,12 +39,13 @@ export async function generateMetadata(
     title: project.title,
     description: project.description,
     alternates: {
-      canonical: projectUrl,
+      canonical: project.path,
+      languages: getLanguages(project.path),
     },
     openGraph: {
       title: project.title,
       description: project.description,
-      url: projectUrl,
+      url: project.path,
       images: { url: image, alt: imageAlt },
     },
     twitter: {
@@ -57,11 +58,16 @@ export async function generateMetadata(
 }
 
 export default async function ProjectPage(props: Props) {
-  const params = await props.params;
-  const project = allProjects.find((project) => project.slug === params.slug);
+  const { slug, locale } = await props.params;
+  const project = allProjects.find(
+    (project) => project.slug === slug && project.locale === locale,
+  );
+
   if (!project) {
     notFound();
   }
+
+  const t = await getTranslations("sections.projects");
 
   return (
     <div className="min-h-screen pt-16">
@@ -75,12 +81,13 @@ export default async function ProjectPage(props: Props) {
             dateTime={project.lastModified}
             className="text-foreground/60 mt-2 text-sm"
           >
-            Last updated:{" "}
-            {Intl.DateTimeFormat("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            }).format(new Date(project.lastModified))}
+            {t("lastUpdated", {
+              date: Intl.DateTimeFormat(locale, {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }).format(new Date(project.lastModified)),
+            })}
           </time>
         </div>
         <div className="mt-10 flex justify-center space-x-3">
@@ -116,8 +123,10 @@ export default async function ProjectPage(props: Props) {
           <Mdx code={project.body.code} />
         </div>
         <div className="my-10 flex justify-center gap-2">
-          <Button aria-label="Go to projects page" asChild>
-            <NextLink href="/projects">Go to projects page</NextLink>
+          <Button aria-label={t("goToProjects")} asChild>
+            <NextLink href={`/${locale}/projects`}>
+              {t("goToProjects")}
+            </NextLink>
           </Button>
         </div>
       </div>

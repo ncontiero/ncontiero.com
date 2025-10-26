@@ -1,4 +1,5 @@
 import { type Project, allProjects } from "contentlayer/generated";
+import { getTranslations } from "next-intl/server";
 import { MotionDiv } from "@/components/motion/div";
 import { MotionH1 } from "@/components/motion/h1";
 import { MotionP } from "@/components/motion/p";
@@ -27,12 +28,20 @@ const projectsItem = {
   visible: { y: 0, opacity: 1, filter: "blur(0px)" },
 };
 
-export default function ProjectsPage() {
-  const topProjects = data.sections.projects.tops.map((top) =>
-    allProjects.find((project) => project.slug === top),
+export default async function ProjectsPage({
+  params,
+}: PageProps<"/[locale]/projects">) {
+  const { locale } = await params;
+
+  const t = await getTranslations("sections.projects");
+
+  const topProjects = data.topProjects.map((top) =>
+    allProjects.find(
+      (project) => project.slug === top && project.locale === locale,
+    ),
   ) as Project[];
   const otherProjects = allProjects.filter(
-    (project) => !topProjects.includes(project),
+    (project) => !topProjects.includes(project) && project.locale === locale,
   );
   const sortedProjects = otherProjects.sort((a, b) => {
     return (
@@ -55,14 +64,14 @@ export default function ProjectsPage() {
           transition={{ duration: 0.5 }}
           className="text-4xl font-bold tracking-tight"
         >
-          Projects
+          {t("title")}
         </MotionH1>
         <MotionP
           variants={projectsItem}
           transition={{ duration: 0.5 }}
           className="text-foreground/70 mt-4"
         >
-          Here you will find some of the personal projects I created.
+          {t("description")}
         </MotionP>
       </div>
       <div className="bg-border h-px w-full" />

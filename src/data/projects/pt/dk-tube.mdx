@@ -1,0 +1,79 @@
+---
+title: "DkTube"
+description: "Um projeto de clone do YouTube."
+githubUrl: https://github.com/ncontiero/dk-tube
+siteUrl: https://tube.ncontiero.com
+lastModified: "2025-10-18"
+---
+
+DkTube é um projeto que visa recriar a funcionalidade e a interface do Youtube.
+
+## Tecnologias utilizadas
+
+- [Next.Js](https://nextjs.org/)
+- [next-safe-action](https://next-safe-action.dev/)
+- [Clerk](https://clerk.com/)
+- [react-player](https://github.com/CookPete/react-player)
+
+## Instale e execute o projeto
+
+### Dependências globais
+
+Você precisa ter uma dependência principal instalada:
+
+- [Node.js](https://nodejs.dev/) LTS v20 (ou qualquer versão superior)
+
+Você usa `nvm`? Então você pode executar `nvm install` na pasta do projeto para instalar e usar a versão mais apropriada do Node.js.
+
+### Obtenha o repositório
+
+```bash
+git clone https://github.com/ncontiero/dk-tube.git
+```
+
+### Dependências locais
+
+Então, depois de obter o repositório, não se esqueça de instalar as dependências locais do projeto:
+
+```bash
+pnpm install
+```
+
+### Variáveis de ambiente
+
+Crie um arquivo `.env` semelhante a [`.env.example`](https://github.com/ncontiero/dk-tube/blob/main/.env.example).
+
+Altere as variáveis do [Clerk](https://dashboard.clerk.com/) e [GCP](https://cloud.google.com/) de acordo com o seu projeto.
+
+```env
+# ...
+
+# Google Cloud
+GC_API_KEY="YOUR_GC_API_KEY"
+
+# Clerk Keys
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="YOUR_CLERK_PUBLISHABLE_KEY"
+CLERK_SECRET_KEY="YOUR_CLERK_SECRET_KEY"
+# Only PROD
+CLERK_WEBHOOK_SIGNING_SECRET="YOUR_CLERK_WEBHOOK_SIGNING_SECRET"
+
+# Clerk Routes
+NEXT_PUBLIC_CLERK_SIGN_IN_URL="/sign-in"
+NEXT_PUBLIC_CLERK_SIGN_UP_URL="/sign-up"
+
+# ...
+```
+
+### Execute o projeto
+
+Para executar o projeto localmente, basta executar o comando abaixo:
+
+```bash
+pnpm dev
+```
+
+- acesse [http://localhost:3000](http://localhost:3000) para ver o aplicativo.
+
+## Licença
+
+Este projeto está licenciado sob a Licença **MIT** - consulte o arquivo [LICENSE](https://github.com/ncontiero/dk-tube/blob/main/LICENSE) para obter detalhes

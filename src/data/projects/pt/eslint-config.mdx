@@ -1,0 +1,227 @@
+---
+title: "ESLint Config"
+description: "Preset de configuração do ESLint de Nicolas para JavaScript, TypeScript e Prettier."
+githubUrl: https://github.com/ncontiero/eslint-config
+siteUrl: https://eslint-config.ncontiero.com
+lastModified: "2025-10-18"
+---
+
+[![Versão](https://img.shields.io/npm/v/@ncontiero/eslint-config)](https://www.npmjs.com/package/@ncontiero/eslint-config)
+[![Licença](https://img.shields.io/badge/licence-MIT-blue)](https://github.com/ncontiero/eslint-config/blob/master/LICENSE)
+
+## Recursos
+
+- Aspas duplas, com ponto e vírgula.
+- Formato com Prettier.
+- Ordenar importações, `package.json`, `tsconfig.json`...
+- Padrões razoáveis, melhores práticas, apenas uma linha de configuração.
+- Projetado para funcionar com TypeScript pronto para uso.
+- Suporte para JSON(5), YAML, TOML, Markdown, HTML com [HTML Eslint](https://html-eslint.org/)...
+- [Configuração plana do ESLint](https://eslint.org/docs/latest/use/configure/configuration-files-new), componha facilmente!
+- Ignora arquivos comuns como `dist`, `node_modules`, `coverage` e arquivos em `.gitignore`.
+- Suporte opcional para [React](https://react.dev/), [NextJs](https://nextjs.org/), [TailwindCSS](https://tailwindcss.com/), [TanStack Query](https://tanstack.com/query/).
+- Requer ESLint v9.20.0+.
+
+## Uso
+
+1. Instale as dependências:
+
+```bash
+npm i -D eslint @ncontiero/eslint-config
+```
+
+> Requer Node.js >= 20.11.0 e ESLint >= 9.20.0.
+
+2. Crie `eslint.config.mjs` na raiz do seu projeto:
+
+```mjs
+// eslint.config.mjs
+import { ncontiero } from "@ncontiero/eslint-config";
+
+export default ncontiero(
+  // Recursos: ele detectará a dependência instalada e ativará os recursos necessários automaticamente
+  {
+    prettier: true,
+    markdown: true,
+    react: true, // detecção automática
+    nextjs: false, // detecção automática
+    tailwindcss: false, // detecção automática
+    reactQuery: false, // detecção automática
+  },
+  {
+    /* sua configuração personalizada */
+  },
+);
+```
+
+3. Adicione o script no package.json:
+
+```json
+{
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  }
+}
+```
+
+## Suporte ao VS Code (correção automática ao salvar)
+
+Instale a [extensão VS Code ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+Adicione as seguintes configurações ao seu `.vscode/settings.json`:
+
+```json
+{
+  // Desative o formatador padrão, use o eslint em vez disso
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+
+  // Correção automática
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+
+  // Ative o eslint para todos os idiomas suportados
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "toml",
+    "gql",
+    "graphql",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
+  ]
+}
+```
+
+## Personalização
+
+Normalmente, você só precisa importar o preset `ncontiero`:
+
+```js
+// eslint.config.js
+import { ncontiero } from "@ncontiero/eslint-config";
+
+export default ncontiero();
+```
+
+E é isso! Ou você pode configurar cada integração individualmente, por exemplo:
+
+```js
+// eslint.config.js
+import { ncontiero } from "@ncontiero/eslint-config";
+
+export default ncontiero({
+  // TypeScript, React, NextJs, TailwindCSS e TanStack Query são detectados automaticamente,
+  // você também pode ativá-los explicitamente:
+  typescript: true,
+  react: true,
+  nextjs: true,
+  tailwindcss: true,
+  reactQuery: true,
+
+  // Desative o suporte a jsonc, yaml e toml
+  jsonc: false,
+  yaml: false,
+  toml: false,
+
+  // `.eslintignore` não é mais compatível com a configuração Flat, use `ignores` em vez disso
+  ignores: [
+    "**/fixtures",
+    // ...globs
+  ],
+});
+```
+
+A função de fábrica `ncontiero` também aceita qualquer número de substituições de configuração personalizadas arbitrárias:
+
+```js
+// eslint.config.js
+import { ncontiero } from "@ncontiero/eslint-config";
+
+export default ncontiero(
+  {
+    // Configurações para a configuração do ncontiero
+  },
+
+  // A partir do segundo argumento, eles são ESLint Flat Configs
+  // você pode ter várias configurações
+  {
+    files: ["**/*.ts"],
+    rules: {},
+  },
+  {
+    rules: {},
+  },
+);
+```
+
+### Substituições de regras
+
+Certas regras seriam ativadas apenas em arquivos específicos, por exemplo, as regras `ts/*` seriam ativadas apenas em `.ts`. Também fornecemos as opções de substituição em cada integração para facilitar:
+
+```js
+// eslint.config.js
+import { ncontiero } from "@ncontiero/eslint-config";
+
+export default ncontiero({
+  typescript: {
+    overrides: {
+      "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    },
+  },
+  yaml: {
+    overrides: {
+      // ...
+    },
+  },
+});
+```
+
+### Configurações opcionais
+
+Fornecemos algumas configurações opcionais para casos de uso específicos, que não incluem suas dependências por padrão.
+
+> React, Next.js e Tailwind CSS têm suas dependências por padrão.
+
+#### TanStack Query
+
+Para ativar o suporte ao TanStack Query, você precisa ter o pacote instalado ou ativá-lo explicitamente:
+
+```js
+// eslint.config.js
+import { ncontiero } from "@ncontiero/eslint-config";
+
+export default ncontiero({
+  reactQuery: true,
+});
+```
+
+Para funcionar, o pacote [`@tanstack/eslint-plugin-query`](https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query) deve ser instalado:
+
+```bash
+npm i -D @tanstack/eslint-plugin-query
+```
+
+> Requer @tanstack/eslint-plugin-query >= 5.50.0
+
+## Referências e inspirações
+
+- [@antfu/eslint-config](https://github.com/antfu/eslint-config) - Preset de configuração do ESLint de Anthony.
+- [@sxzz/eslint-config](https://github.com/sxzz/eslint-config) - Um preset de configuração opinativo do ESLint.
+
+## Licença
+
+Este projeto está licenciado sob a Licença **MIT** - consulte o arquivo [LICENSE](https://github.com/ncontiero/ncontiero.me/blob/master/LICENSE) para obter detalhes

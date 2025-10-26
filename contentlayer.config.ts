@@ -12,11 +12,18 @@ import { MDX_CODE_THEME } from "./src/data";
 const computedFields: ComputedFields = {
   path: {
     type: "string",
-    resolve: (doc) => `/${doc._raw.flattenedPath}`,
+    resolve: (doc) => {
+      const path = doc._raw.flattenedPath.split("/");
+      return ["", path[0], path[2]].join("/");
+    },
   },
   slug: {
     type: "string",
-    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+    resolve: (doc) => doc._raw.sourceFileName.split(".").slice(0, -1).join("."),
+  },
+  locale: {
+    type: "string",
+    resolve: (doc) => doc._raw.sourceFileDir.split("/")[1],
   },
 };
 

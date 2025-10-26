@@ -12,9 +12,10 @@ import { ContactForm } from "./components/ContactForm";
 interface ContactSectionProps extends ContactSectionTypes {}
 
 export function ContactSection({
+  id,
   title,
   description,
-  id,
+  form: formTranslations,
 }: ContactSectionProps) {
   return (
     <SectionRoot id={id}>
@@ -36,7 +37,7 @@ export function ContactSection({
               border p-6 shadow-xl dark:border-border/25 md:p-10
             `}
           >
-            <ContactForm />
+            <ContactForm formTranslations={formTranslations} />
           </MotionDiv>
         </SectionContainer>
       </MotionDiv>
