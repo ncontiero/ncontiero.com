@@ -13,12 +13,12 @@ export const env = createEnv({
       .default("development"),
 
     // Formspree
-    FORM_SEND_URL: z.string().url(),
+    FORM_SEND_URL: z.url(),
 
     // these variables are used for the site's SEO
     SITE_NAME: z.string().default("Nicolas Contiero"),
     // URLs
-    SITE_BASEURL: z.string().url().default("http://localhost:3000"),
+    SITE_BASEURL: z.url().default("http://localhost:3000"),
   },
   /**
    * Specify your client-side environment variables schema here. This way you can ensure the app
