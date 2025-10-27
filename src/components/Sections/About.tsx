@@ -90,7 +90,10 @@ export function AboutSection({
                   <MotionDiv
                     variants={animation.item}
                     transition={{ delay: i * 0.5, duration: 0.5 }}
-                    className="bg-secondary/10 mr-4 mb-4 rounded-md px-5 py-2.5 duration-200 hover:bg-secondary/15"
+                    className={`
+                      bg-foreground/5 mr-4 mb-4 rounded-md px-5 py-2.5 duration-200 hover:bg-foreground/10
+                      dark:bg-secondary/20 dark:hover:bg-secondary/40
+                    `}
                     key={skill}
                   >
                     {skill}

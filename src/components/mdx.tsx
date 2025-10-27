@@ -156,7 +156,7 @@ export const components = {
     // eslint-disable-next-line nextjs/no-img-element
     <img
       className={cn(
-        "border-border shadow-primary/10 my-0 rounded-md border shadow-xl",
+        "border-border shadow-primary/10 my-0 rounded-md border shadow-xl dark:border-border/40",
         className,
       )}
       alt={alt}
@@ -183,7 +183,7 @@ export const components = {
   th: ({ className, ...props }: HTMLAttributes<HTMLTableCellElement>) => (
     <th
       className={cn(
-        "h-12 border p-4 text-left align-middle font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
+        "h-12 border p-4 text-left align-middle font-bold [[align=center]]:text-center [[align=right]]:text-right",
         className,
       )}
       {...props}
@@ -192,7 +192,7 @@ export const components = {
   td: ({ className, ...props }: HTMLAttributes<HTMLTableCellElement>) => (
     <td
       className={cn(
-        "border p-4 text-left align-middle font-medium [&[align=center]]:text-center [&[align=right]]:text-right",
+        "border p-4 text-left align-middle font-medium [[align=center]]:text-center [[align=right]]:text-right",
         className,
       )}
       {...props}

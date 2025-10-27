@@ -37,7 +37,11 @@ export function ChangeLocale({ navbarLocale, locale }: ChangeLocaleProps) {
           <p className="sr-only">{navbarLocale.changeLocale}</p>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent
+        className={`
+          border-border/60 bg-background/60 shadow-secondary/20 shadow-xl backdrop-blur-md dark:bg-background/80
+        `}
+      >
         <DropdownMenuRadioGroup
           value={locale}
           onValueChange={(value) => {

@@ -33,8 +33,8 @@ export function ContactSection({
             variants={homeAnimation.container}
             transition={{ duration: 0.5 }}
             className={`
-              border-border/50 bg-background/25 shadow-primary/10 mx-auto w-full max-w-4xl overflow-hidden rounded-md
-              border p-6 shadow-xl dark:border-border/25 md:p-10
+              border-border/50 bg-background/40 shadow-primary/10 mx-auto w-full max-w-4xl overflow-hidden rounded-md
+              border p-6 shadow-xl dark:bg-background/60 dark:border-border/25 md:p-10
             `}
           >
             <ContactForm formTranslations={formTranslations} />

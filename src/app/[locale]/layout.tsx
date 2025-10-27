@@ -112,8 +112,8 @@ export default async function RootLayout({
             <Header locale={locale} />
             <div
               className={`
-                from-secondary/15 absolute inset-0 -z-10 size-full bg-radial from-10% to-transparent to-10%
-                bg-size-[16px_16px] dark:from-secondary/10
+                from-foreground/10 absolute inset-0 -z-10 size-full bg-radial from-10% to-transparent to-10%
+                bg-size-[16px_16px] dark:from-secondary/30
               `}
             />
             <div
