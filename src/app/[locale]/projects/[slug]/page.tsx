@@ -117,10 +117,10 @@ export default async function ProjectPage(props: Props) {
           ) : null}
         </div>
         <div className="bg-border mt-16 h-px w-full" />
-        <div className="prose prose-quoteless dark:prose-invert mx-auto px-4 pt-6 pb-28 sm:pt-10">
+        <div className="prose prose-quoteless dark:prose-invert mx-auto px-4 pt-6 sm:pt-10">
           <Mdx code={project.body.code} />
         </div>
-        <div className="my-10 flex justify-center gap-2">
+        <div className="my-20 flex justify-center gap-2">
           <Button aria-label={t("goToProjects")} asChild>
             <NextLink href={`/${locale}/projects`}>
               {t("goToProjects")}
