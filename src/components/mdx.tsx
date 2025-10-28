@@ -7,12 +7,14 @@ import {
   FileJson,
   Info,
   Link as LinkIcon,
+  MessageSquareWarning,
   Settings,
   Terminal,
 } from "lucide-react";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import Image, { type ImageProps } from "next/image";
 import NextLink from "next/link";
+import DockerIcon from "public/icons/langs/docker.svg";
 import JavascriptIcon from "public/icons/langs/javascript.svg";
 import TypescriptIcon from "public/icons/langs/typescript.svg";
 import { cn } from "@/lib/utils";
@@ -116,6 +118,7 @@ function CodeTitleOrCaption({
   const langIsTs = ["ts", "typescript"].includes(language);
   const languageIsJson = language === "json";
   const languageIsEnv = language === "env";
+  const langIsDockerfile = language === "dockerfile";
 
   return (
     <Comp
@@ -128,6 +131,8 @@ function CodeTitleOrCaption({
         <LangImage alt="Javascript Icon" src={JavascriptIcon} />
       ) : langIsTs ? (
         <LangImage alt="Typescript Icon" src={TypescriptIcon} />
+      ) : langIsDockerfile ? (
+        <LangImage alt="Docker Icon" src={DockerIcon} className="dark:invert" />
       ) : languageIsJson ? (
         <FileJson size={18} />
       ) : languageIsEnv ? (
@@ -315,23 +320,32 @@ export const components = {
     className,
     level = "INFO",
     ...props
-  }: HTMLAttributes<HTMLDivElement> & { readonly level: "INFO" }) => (
+  }: HTMLAttributes<HTMLDivElement> & {
+    readonly level: "INFO" | "IMPORTANT";
+    readonly levelLabel: string;
+  }) => (
     <div
       {...props}
       className={cn(
         "[&_p]:not-first:text-foreground/80 [&_p]:not-first:my-0! my-7 gap-6 rounded-lg border p-6",
-        level === "INFO" ? "border-blue-600 bg-blue-600/10" : "",
+        level === "INFO" && "border-blue-600 bg-blue-600/10",
+        level === "IMPORTANT" && "border-primary bg-primary/10",
         className,
       )}
     >
       <div className="mb-2 flex items-center gap-2">
-        {level === "INFO" ? <Info className="text-blue-600" /> : null}
+        {level === "INFO" ? (
+          <Info className="text-blue-600" />
+        ) : level === "IMPORTANT" ? (
+          <MessageSquareWarning className="text-primary" />
+        ) : null}
         <p
           className={cn(
-            level === "INFO" ? "text-blue-600! dark:text-blue-400!" : "",
+            level === "INFO" && "text-blue-600! dark:text-blue-400!",
+            level === "IMPORTANT" && "text-primary! dark:text-primary!",
           )}
         >
-          {level}
+          {props.levelLabel || level}
         </p>
       </div>
       {children}
