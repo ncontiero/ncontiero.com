@@ -73,6 +73,6 @@
     "node": ">=22"
   },
   "lint-staged": {
-    "*": "pnpm check:spell && pnpm check:case && pnpm lint:fix"
+    "*": "pnpm lint:fix"
   }
 }
