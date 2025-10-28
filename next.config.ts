@@ -8,18 +8,6 @@ const nextConfig: NextConfig = {
     remotePatterns: [{ protocol: "https", hostname: "github.com" }],
     qualities: [100],
   },
-  turbopack: {
-    resolveExtensions: [
-      ".mdx",
-      ".md",
-      ".tsx",
-      ".ts",
-      ".jsx",
-      ".js",
-      ".mjs",
-      ".json",
-    ],
-  },
   trailingSlash: true,
 };
 
