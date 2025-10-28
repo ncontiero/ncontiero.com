@@ -2,48 +2,48 @@
 title: "DKCutter Next.js"
 description: DKCutter Next.js is a framework for quickly starting Next.js projects.
 githubUrl: https://github.com/ncontiero/dkcutter-nextjs
-lastModified: "2025-10-18"
+lastModified: "2025-10-28"
 ---
 
-Powered by [DKCutter](https://github.com/ncontiero/dkcutter), DKCutter Next.js is a framework for quickly starting Next.Js projects.
+Powered by [DKCutter](https://dkcutter.ncontiero.com/), DKCutter Next.js is a framework for quickly starting Next.Js projects.
 
 - If you have problems with DKCutter Next.js, please open [issues](https://github.com/ncontiero/dkcutter-nextjs/issues/new).
 
 ## Usage
 
-To scaffold an application using [dkcutter](https://github.com/ncontiero/dkcutter), run any of the following four commands and answer the command prompt questions:
+To scaffold an application using [dkcutter](https://dkcutter.ncontiero.com/), run any of the following four commands and answer the command prompt questions:
 
 ### npm
 
-```bash
+```bash title="terminal"
 npx dkcutter gh:ncontiero/dkcutter-nextjs.git
 ```
 
 ### yarn
 
-```bash
+```bash title="terminal"
 yarn dlx dkcutter gh:ncontiero/dkcutter-nextjs.git
 ```
 
 ### pnpm
 
-```bash
+```bash title="terminal"
 pnpm dlx dkcutter gh:ncontiero/dkcutter-nextjs.git
 ```
 
 ### bun
 
-```bash
+```bash title="terminal"
 bunx dkcutter@latest gh:ncontiero/dkcutter-nextjs.git
 ```
 
 You'll be prompted for some values. Provide them, then a Next.Js project will be created for you.
 
-**Warning**: After this point, change 'My name', etc to your own information.
+**Warning**: After this point, change "author name", etc to your own information.
 
 Answer the prompts with your own desired [options][options-url]. For example:
 
-```bash
+```bash title="terminal"
 ✔ What is the project name? … My Awesome Project
 ✔ What is the project slug? … my-awesome-project
 ✔ What is the project description? … Behold My Awesome Project!
@@ -69,7 +69,7 @@ Next steps:
 
 Enter the project and take a look around:
 
-```bash
+```bash title="terminal"
 cd my-awesome-project/
 ls
 ```
@@ -104,13 +104,13 @@ If you want to start faster, you can use the following options:
 
 The following would be the structure of an application with [Commitlint](https://commitlint.js.org/):
 
-```bash
+```bash title="terminal"
 pnpm dlx dkcutter https://github.com/ncontiero/dkcutter-nextjs.git --useCommitlint
 ```
 
 If you want to use all the default values with the exception of one or more, you can do it as follows:
 
-```bash
+```bash title="terminal"
 pnpm dlx dkcutter https://github.com/ncontiero/dkcutter-nextjs.git --useHusky --useLintStaged -y
 ```
 

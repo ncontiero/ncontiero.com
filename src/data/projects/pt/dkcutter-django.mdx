@@ -2,46 +2,49 @@
 title: "DKCutter Django"
 description: "DKCutter Django é um framework para iniciar rapidamente projetos Django prontos para produção."
 githubUrl: https://github.com/ncontiero/dkcutter-django
-lastModified: "2025-10-18"
+lastModified: "2025-10-27"
 ---
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ncontiero/dkcutter-django/ci.yml?branch=main)](https://github.com/ncontiero/dkcutter-django/actions/workflows/ci.yml?query=branch%3Amain)
 [![Licença MIT](https://img.shields.io/badge/licence-MIT-56BEB8)](https://github.com/ncontiero/dkcutter-django/blob/main/LICENSE)
 [![Estilo de código: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/format.json)](https://github.com/astral-sh/ruff)
 
-Desenvolvido por [DKCutter](https://github.com/ncontiero/dkcutter), o DKCutter Django é um framework para iniciar rapidamente projetos Django prontos para produção.
+Desenvolvido por [DKCutter](https://dkcutter.ncontiero.com/), o DKCutter Django é um framework para iniciar rapidamente projetos Django prontos para produção.
 
-- Se você tiver problemas com o DKCutter Django, abra [issues](https://github.com/ncontiero/dkcutter-django/issues/new).
+- Se você tiver problemas com o DKCutter Django, abra uma [issue](https://github.com/ncontiero/dkcutter-django/issues/new).
 
 ## Uso
 
-> [!NOTE]
->
-> O Docker é recomendado para configurar seu projeto. Como alternativa, certifique-se de ter a versão mais recente do [uv](https://docs.astral.sh/uv/getting-started/installation/) instalada. Se você escolher um pipeline de frontend ou React Email, também precisará de um gerenciador de pacotes Node.js (npm, pnpm, yarn ou bun).
+<Notes level="INFO">
+O Docker é recomendado para configurar seu projeto. Como alternativa, certifique-se de ter a versão mais recente do
+<Link href="https://docs.astral.sh/uv/getting-started/installation/" variant="ghost" className="no-underline">uv</Link>
+instalada. Se você escolher um pipeline de frontend ou React Email, também precisará de um gerenciador de
+pacotes Node.js (npm, pnpm, yarn ou bun).
+</Notes>
 
-Para estruturar um aplicativo usando o [dkcutter](https://github.com/ncontiero/dkcutter), execute qualquer um dos quatro comandos a seguir e responda às perguntas do prompt de comando:
+Para estruturar um aplicativo usando o [dkcutter](https://dkcutter.ncontiero.com/), execute qualquer um dos quatro comandos a seguir e responda às perguntas do prompt de comando:
 
 ### npm
 
-```bash
+```bash title="terminal"
 npx dkcutter@latest gh:ncontiero/dkcutter-django
 ```
 
 ### yarn
 
-```bash
+```bash title="terminal"
 yarn dlx dkcutter@latest gh:ncontiero/dkcutter-django
 ```
 
 ### pnpm
 
-```bash
+```bash title="terminal"
 pnpm dlx dkcutter@latest gh:ncontiero/dkcutter-django
 ```
 
 ### bun
 
-```bash
+```bash title="terminal"
 bunx dkcutter@latest gh:ncontiero/dkcutter-django
 ```
 
@@ -51,13 +54,13 @@ Você será solicitado a fornecer alguns valores. Forneça-os e um projeto Djang
 
 Responda aos prompts com suas próprias [opções][options-url] desejadas. Por exemplo:
 
-```bash
+```bash title="terminal"
 # output
 ```
 
 Entre no projeto e dê uma olhada:
 
-```bash
+```bash title="terminal"
 cd my-awesome-project/
 ls
 ```
@@ -92,13 +95,13 @@ Se você quiser começar mais rápido, pode usar as seguintes opções:
 
 A seguir, a estrutura de um aplicativo com o Sentry:
 
-```bash
+```bash title="terminal"
 pnpm dlx dkcutter gh:ncontiero/dkcutter-django --additionalTools sentry
 ```
 
 Se você quiser usar todos os valores padrão, com exceção de um ou mais, pode fazer da seguinte forma:
 
-```bash
+```bash title="terminal"
 pnpm dlx dkcutter gh:ncontiero/dkcutter-django --additionalTools celery,sentry -y
 ```
 

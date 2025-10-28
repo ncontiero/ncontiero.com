@@ -3,19 +3,23 @@ import type {
   HTMLAttributes,
   ImgHTMLAttributes,
 } from "react";
-import { Link as LinkIcon } from "lucide-react";
+import {
+  FileJson,
+  Info,
+  Link as LinkIcon,
+  Settings,
+  Terminal,
+} from "lucide-react";
 import { useMDXComponent } from "next-contentlayer2/hooks";
+import Image, { type ImageProps } from "next/image";
 import NextLink from "next/link";
+import JavascriptIcon from "public/icons/langs/javascript.svg";
+import TypescriptIcon from "public/icons/langs/typescript.svg";
 import { cn } from "@/lib/utils";
 import { CopyCodeButton } from "./ui/button";
-import { Link } from "./ui/link";
+import { type LinkProps, Link } from "./ui/link";
 
-function AnchorLink({
-  href,
-  children,
-  className,
-  ...props
-}: AnchorHTMLAttributes<HTMLAnchorElement>) {
+function AnchorLink({ href, children, className, ...props }: LinkProps) {
   const isInside = href ? href.startsWith("#") || href.startsWith("/") : false;
 
   return (
@@ -23,6 +27,8 @@ function AnchorLink({
       href={href}
       asChild={!!isInside}
       className={cn("no-underline [&>code]:py-0", className)}
+      target={isInside ? undefined : "_blank"}
+      rel={isInside ? undefined : "noopener noreferrer"}
       {...props}
     >
       {isInside ? <NextLink href={href!}>{children}</NextLink> : children}
@@ -62,6 +68,73 @@ function HeadingLinked({
     </Comp>
   ) : (
     <Comp id={id} {...props} />
+  );
+}
+
+function LangImage({ className, ...props }: ImageProps) {
+  return (
+    <Image
+      width={18}
+      height={18}
+      className={cn("m-0!", className)}
+      {...props}
+    />
+  );
+}
+
+function CodeTitleOrCaption({
+  className,
+  children,
+  as = "figcaption",
+  ...props
+}: HTMLAttributes<HTMLElement> & { readonly as: "div" | "figcaption" }) {
+  const language = (props as any)["data-language"] as string | undefined;
+  const Comp = as;
+
+  if (!language) {
+    return (
+      <Comp className={className} {...props}>
+        {children}
+      </Comp>
+    );
+  }
+
+  const isTitle = (props as any)["data-rehype-pretty-code-title"] === "";
+
+  const baseClassName =
+    "text-secondary-foreground bg-secondary mt-0 px-4 py-3 text-sm font-medium";
+  if (!isTitle && as === "figcaption") {
+    return (
+      <Comp {...props} className={cn(baseClassName, className)}>
+        {children}
+      </Comp>
+    );
+  }
+
+  const languageIsBash = language === "bash";
+  const langIsJs = ["mjs", "js", "javascript"].includes(language);
+  const langIsTs = ["ts", "typescript"].includes(language);
+  const languageIsJson = language === "json";
+  const languageIsEnv = language === "env";
+
+  return (
+    <Comp
+      {...props}
+      className={cn(baseClassName, "flex items-center gap-1.5", className)}
+    >
+      {languageIsBash ? (
+        <Terminal size={18} />
+      ) : langIsJs ? (
+        <LangImage alt="Javascript Icon" src={JavascriptIcon} />
+      ) : langIsTs ? (
+        <LangImage alt="Typescript Icon" src={TypescriptIcon} />
+      ) : languageIsJson ? (
+        <FileJson size={18} />
+      ) : languageIsEnv ? (
+        <Settings size={18} />
+      ) : null}
+      {children}
+    </Comp>
   );
 }
 
@@ -160,7 +233,7 @@ export const components = {
     // eslint-disable-next-line nextjs/no-img-element
     <img
       className={cn(
-        "border-border shadow-primary/10 my-0 rounded-md border shadow-xl dark:border-border/40",
+        "border-border shadow-primary/10 my-0! rounded-md border shadow-xl dark:border-border/40",
         className,
       )}
       alt={alt}
@@ -231,6 +304,40 @@ export const components = {
       {...props}
     />
   ),
+  figcaption: (props: HTMLAttributes<HTMLElement>) => (
+    <CodeTitleOrCaption as="figcaption" {...props} />
+  ),
+  div: (props: HTMLAttributes<HTMLDivElement>) => (
+    <CodeTitleOrCaption as="div" {...props} />
+  ),
+  Notes: ({
+    children,
+    className,
+    level = "INFO",
+    ...props
+  }: HTMLAttributes<HTMLDivElement> & { readonly level: "INFO" }) => (
+    <div
+      {...props}
+      className={cn(
+        "[&_p]:not-first:text-foreground/80 [&_p]:not-first:my-0! my-7 gap-6 rounded-lg border p-6",
+        level === "INFO" ? "border-blue-600 bg-blue-600/10" : "",
+        className,
+      )}
+    >
+      <div className="mb-2 flex items-center gap-2">
+        {level === "INFO" ? <Info className="text-blue-600" /> : null}
+        <p
+          className={cn(
+            level === "INFO" ? "text-blue-600! dark:text-blue-400!" : "",
+          )}
+        >
+          {level}
+        </p>
+      </div>
+      {children}
+    </div>
+  ),
+  Link: AnchorLink,
 };
 
 interface MdxProps {

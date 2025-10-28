@@ -2,45 +2,48 @@
 title: "DKCutter Django"
 description: DKCutter Django is a framework for jumpstarting production-ready Django projects quickly.
 githubUrl: https://github.com/ncontiero/dkcutter-django
-lastModified: "2025-10-18"
+lastModified: "2025-10-27"
 ---
 
 [![Build Status](https://img.shields.io/github/actions/workflow/status/ncontiero/dkcutter-django/ci.yml?branch=main)](https://github.com/ncontiero/dkcutter-django/actions/workflows/ci.yml?query=branch%3Amain)
 [![license mit](https://img.shields.io/badge/licence-MIT-56BEB8)](https://github.com/ncontiero/dkcutter-django/blob/main/LICENSE)
 [![Code style: Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/format.json)](https://github.com/astral-sh/ruff)
 
-Powered by [DKCutter](https://github.com/ncontiero/dkcutter), DKCutter Django is a framework for jumpstarting production-ready Django projects quickly.
+Powered by [DKCutter](https://dkcutter.ncontiero.com/), DKCutter Django is a framework for jumpstarting production-ready Django projects quickly.
 
 - If you have problems with DKCutter Django, please open [issues](https://github.com/ncontiero/dkcutter-django/issues/new).
 
 ## Usage
 
-> [!NOTE]
-> Docker is recommended for setting up your project. Alternatively, ensure you have the latest version of [uv](https://docs.astral.sh/uv/getting-started/installation/) installed. If you choose a frontend pipeline or React Email, you will also need a Node.js package manager (npm, pnpm, yarn, or bun).
-
-To scaffold an application using [dkcutter](https://github.com/ncontiero/dkcutter), run any of the following four commands and answer the command prompt questions:
+<Notes level="INFO">
+Docker is recommended for setting up your project. Alternatively, ensure you have the latest version of
+<Link href="https://docs.astral.sh/uv/getting-started/installation/" variant="ghost" className="no-underline">uv</Link>
+installed.
+If you choose a frontend pipeline or React Email, you will also need a Node.js
+package manager (npm, pnpm, yarn, or bun).
+</Notes>
 
 ### npm
 
-```bash
+```bash title="terminal"
 npx dkcutter@latest gh:ncontiero/dkcutter-django
 ```
 
 ### yarn
 
-```bash
+```bash title="terminal"
 yarn dlx dkcutter@latest gh:ncontiero/dkcutter-django
 ```
 
 ### pnpm
 
-```bash
+```bash title="terminal"
 pnpm dlx dkcutter@latest gh:ncontiero/dkcutter-django
 ```
 
 ### bun
 
-```bash
+```bash title="terminal"
 bunx dkcutter@latest gh:ncontiero/dkcutter-django
 ```
 
@@ -50,13 +53,13 @@ You'll be prompted for some values. Provide them, then a Django project will be 
 
 Answer the prompts with your own desired [options][options-url]. For example:
 
-```bash
+```bash title="terminal"
 # output
 ```
 
 Enter the project and take a look around:
 
-```bash
+```bash title="terminal"
 cd my-awesome-project/
 ls
 ```
@@ -91,13 +94,13 @@ If you want to start faster, you can use the following options:
 
 The following would be the structure of an application with Sentry:
 
-```bash
+```bash title="terminal"
 pnpm dlx dkcutter gh:ncontiero/dkcutter-django --additionalTools sentry
 ```
 
 If you want to use all the default values with the exception of one or more, you can do it as follows:
 
-```bash
+```bash title="terminal"
 pnpm dlx dkcutter gh:ncontiero/dkcutter-django --additionalTools celery,sentry -y
 ```
 

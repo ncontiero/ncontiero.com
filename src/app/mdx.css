@@ -16,6 +16,11 @@ code[data-theme] span {
 [data-rehype-pretty-code-figure] .line {
   @apply w-fit px-1.5 py-1;
 }
+[data-rehype-pretty-code-figure]
+  code[data-language="bash"]
+  > [data-line]::before {
+  @apply content-['$'] inline-block text-primary w-4;
+}
 /* [data-rehype-pretty-code-figure] code > [data-line]::before {
   counter-increment: line;
   content: counter(line);
@@ -33,8 +38,4 @@ code[data-theme] span {
 }
 [data-rehype-pretty-code-figure] [data-highlighted-chars] {
   @apply rounded-sm bg-secondary shadow-[0_0_0_4px_var(--secondary)];
-}
-[data-rehype-pretty-code-title],
-[data-rehype-pretty-code-caption] {
-  @apply mt-0 px-4 py-3 text-sm font-medium text-secondary-foreground bg-secondary;
 }

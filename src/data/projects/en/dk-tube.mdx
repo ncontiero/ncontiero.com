@@ -3,7 +3,7 @@ title: "DkTube"
 description: A YouTube clone project.
 githubUrl: https://github.com/ncontiero/dk-tube
 siteUrl: https://tube.ncontiero.com
-lastModified: "2025-10-18"
+lastModified: "2025-10-27"
 ---
 
 DkTube is a project that aims to recreate the functionality and interface of YouTube.
@@ -13,6 +13,8 @@ DkTube is a project that aims to recreate the functionality and interface of You
 - [Next.Js](https://nextjs.org/)
 - [next-safe-action](https://next-safe-action.dev/)
 - [Clerk](https://clerk.com/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Prisma](https://www.prisma.io/)
 - [react-player](https://github.com/CookPete/react-player)
 
 ## Install and run the project
@@ -27,7 +29,7 @@ Do you use `nvm`? Then you can run `nvm install` in the project folder to instal
 
 ### Get the repository
 
-```bash
+```bash title="terminal"
 git clone https://github.com/ncontiero/dk-tube.git
 ```
 
@@ -35,7 +37,7 @@ git clone https://github.com/ncontiero/dk-tube.git
 
 So after getting the repository, don't forget to install the project's local dependencies:
 
-```bash
+```bash title="terminal"
 pnpm install
 ```
 
@@ -45,7 +47,7 @@ Create a `.env` file similar to [`.env.example`](https://github.com/ncontiero/dk
 
 Change [Clerk](https://dashboard.clerk.com/) and [GCP](https://cloud.google.com/) variables according to your project.
 
-```env
+```env title=".env"
 # ...
 
 # Google Cloud
@@ -68,7 +70,7 @@ NEXT_PUBLIC_CLERK_SIGN_UP_URL="/sign-up"
 
 To run the project locally, just run the command below:
 
-```bash
+```bash title="terminal"
 pnpm dev
 ```
 
@@ -76,4 +78,4 @@ pnpm dev
 
 ## License
 
-This project is licensed under the **MIT** License - see the [LICENSE](https://github.com/ncontiero/dk-tube/blob/main/LICENSE) file for details
+This project is licensed under the **MIT** License - see the [LICENSE](https://github.com/ncontiero/dk-tube/blob/main/LICENSE) file for details.

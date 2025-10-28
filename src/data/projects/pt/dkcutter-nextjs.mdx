@@ -2,48 +2,48 @@
 title: "DKCutter Next.js"
 description: "DKCutter Next.js é um framework para iniciar rapidamente projetos Next.js."
 githubUrl: https://github.com/ncontiero/dkcutter-nextjs
-lastModified: "2025-10-18"
+lastModified: "2025-10-28"
 ---
 
-Desenvolvido por [DKCutter](https://github.com/ncontiero/dkcutter), o DKCutter Next.js é um framework para iniciar rapidamente projetos Next.Js.
+Desenvolvido por [DKCutter](https://dkcutter.ncontiero.com/), o DKCutter Next.js é um framework para iniciar rapidamente projetos Next.Js.
 
-- Se você tiver problemas com o DKCutter Next.js, abra [issues](https://github.com/ncontiero/dkcutter-nextjs/issues/new).
+- Se você tiver problemas com o DKCutter Next.js, abra uma [issue](https://github.com/ncontiero/dkcutter-nextjs/issues/new).
 
 ## Uso
 
-Para estruturar um aplicativo usando o [dkcutter](https://github.com/ncontiero/dkcutter), execute qualquer um dos quatro comandos a seguir e responda às perguntas do prompt de comando:
+Para estruturar um aplicativo usando o [dkcutter](https://dkcutter.ncontiero.com/), execute qualquer um dos quatro comandos a seguir e responda às perguntas do prompt de comando:
 
 ### npm
 
-```bash
+```bash title="terminal"
 npx dkcutter gh:ncontiero/dkcutter-nextjs.git
 ```
 
 ### yarn
 
-```bash
+```bash title="terminal"
 yarn dlx dkcutter gh:ncontiero/dkcutter-nextjs.git
 ```
 
 ### pnpm
 
-```bash
+```bash title="terminal"
 pnpm dlx dkcutter gh:ncontiero/dkcutter-nextjs.git
 ```
 
 ### bun
 
-```bash
+```bash title="terminal"
 bunx dkcutter@latest gh:ncontiero/dkcutter-nextjs.git
 ```
 
 Você será solicitado a fornecer alguns valores. Forneça-os e um projeto Next.Js será criado para você.
 
-**Aviso**: Após este ponto, altere 'Meu nome', etc. para suas próprias informações.
+**Aviso**: Após este ponto, altere "author name", etc. para suas próprias informações.
 
 Responda aos prompts com suas próprias [opções][options-url] desejadas. Por exemplo:
 
-```bash
+```bash title="terminal"
 ✔ What is the project name? … My Awesome Project
 ✔ What is the project slug? … my-awesome-project
 ✔ What is the project description? … Behold My Awesome Project!
@@ -69,7 +69,7 @@ Next steps:
 
 Entre no projeto e dê uma olhada:
 
-```bash
+```bash title="terminal"
 cd my-awesome-project/
 ls
 ```
@@ -104,13 +104,13 @@ Se você quiser começar mais rápido, pode usar as seguintes opções:
 
 A seguir, a estrutura de um aplicativo com o [Commitlint](https://commitlint.js.org/):
 
-```bash
+```bash title="terminal"
 pnpm dlx dkcutter https://github.com/ncontiero/dkcutter-nextjs.git --useCommitlint
 ```
 
 Se você quiser usar todos os valores padrão, com exceção de um ou mais, pode fazer da seguinte forma:
 
-```bash
+```bash title="terminal"
 pnpm dlx dkcutter https://github.com/ncontiero/dkcutter-nextjs.git --useHusky --useLintStaged -y
 ```
 

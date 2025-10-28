@@ -3,7 +3,7 @@ title: "Sbily"
 description: "Um projeto Django para um encurtador de links."
 githubUrl: https://github.com/ncontiero/sbily
 siteUrl: https://sbily.ncontiero.com
-lastModified: "2025-10-18"
+lastModified: "2025-10-27"
 ---
 
 [![Licença MIT](https://img.shields.io/badge/licence-MIT-blue)](https://github.com/ncontiero/sbily/blob/main/LICENSE)
@@ -31,13 +31,13 @@ Uma vez que o repositório é clonado e as dependências globais são instaladas
 
 Dependências do Python:
 
-```bash
+```bash title="terminal"
 uv sync
 ```
 
 Dependências do Node:
 
-```bash
+```bash title="terminal"
 pnpm install
 ```
 
@@ -45,19 +45,19 @@ pnpm install
 
 Copie o diretório `.envs.example` para o diretório `.envs` _(que será ignorado pelo Git)_:
 
-```bash
+```bash title="terminal"
 cp -r .envs.example .envs
 ```
 
 #### 3. Faça as migrações
 
-```bash
+```bash title="terminal"
 uv run manage.py migrate
 ```
 
 #### 4. Crie um superusuário
 
-```bash
+```bash title="terminal"
 uv run manage.py createsuperuser
 ```
 
@@ -65,13 +65,13 @@ uv run manage.py createsuperuser
 
 Aplicação Django:
 
-```bash
+```bash title="terminal"
 uv run manage.py runserver
 ```
 
 Rspack:
 
-```bash
+```bash title="terminal"
 pnpm dev
 ```
 
@@ -84,7 +84,7 @@ O comando Python iniciará o aplicativo Django em [http://localhost:8000](http:/
 
 Uma vez que o repositório é clonado, as dependências globais são instaladas e as [variáveis definidas](#2-configure-as-variáveis-de-ambiente), vamos iniciar o contêiner:
 
-```bash
+```bash title="terminal"
 docker compose -f docker-compose.local.yml up
 ```
 
@@ -94,7 +94,7 @@ Quando iniciado, o contêiner inicia o aplicativo Django!
 
 Você precisará entrar no contêiner via CLI:
 
-```bash
+```bash title="terminal"
 docker compose -f docker-compose.local.yml up exec django zsh
 ```
 
@@ -102,13 +102,13 @@ docker compose -f docker-compose.local.yml up exec django zsh
 
 Você precisará fazer as migrações:
 
-```bash
+```bash title="terminal"
 uv run manage.py migrate
 ```
 
 Criando um superusuário:
 
-```bash
+```bash title="terminal"
 uv run manage.py createsuperuser
 ```
 

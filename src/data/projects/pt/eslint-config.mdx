@@ -3,7 +3,7 @@ title: "ESLint Config"
 description: "Preset de configuração do ESLint de Nicolas para JavaScript, TypeScript e Prettier."
 githubUrl: https://github.com/ncontiero/eslint-config
 siteUrl: https://eslint-config.ncontiero.com
-lastModified: "2025-10-18"
+lastModified: "2025-10-27"
 ---
 
 [![Versão](https://img.shields.io/npm/v/@ncontiero/eslint-config)](https://www.npmjs.com/package/@ncontiero/eslint-config)
@@ -17,7 +17,7 @@ lastModified: "2025-10-18"
 - Padrões razoáveis, melhores práticas, apenas uma linha de configuração.
 - Projetado para funcionar com TypeScript pronto para uso.
 - Suporte para JSON(5), YAML, TOML, Markdown, HTML com [HTML ESLint](https://html-eslint.org/)...
-- [Configuração plana do ESLint](https://eslint.org/docs/latest/use/configure/configuration-files-new), componha facilmente!
+- [Configuração Flat do ESLint](https://eslint.org/docs/latest/use/configure/configuration-files-new), componha facilmente!
 - Ignora arquivos comuns como `dist`, `node_modules`, `coverage` e arquivos em `.gitignore`.
 - Suporte opcional para [React](https://react.dev/), [Next.js](https://nextjs.org/), [TailwindCSS](https://tailwindcss.com/), [TanStack Query](https://tanstack.com/query/).
 - Requer ESLint v9.20.0+.
@@ -26,7 +26,7 @@ lastModified: "2025-10-18"
 
 1. Instale as dependências:
 
-```bash
+```bash title="terminal"
 npm i -D eslint @ncontiero/eslint-config
 ```
 
@@ -34,8 +34,7 @@ npm i -D eslint @ncontiero/eslint-config
 
 2. Crie `eslint.config.mjs` na raiz do seu projeto:
 
-```mjs
-// eslint.config.mjs
+```mjs title="eslint.config.mjs"
 import { ncontiero } from "@ncontiero/eslint-config";
 
 export default ncontiero(
@@ -56,7 +55,7 @@ export default ncontiero(
 
 3. Adicione o script no package.json:
 
-```json
+```json title="package.json"
 {
   "scripts": {
     "lint": "eslint .",
@@ -71,7 +70,7 @@ Instale a [extensão VS Code ESLint](https://marketplace.visualstudio.com/items?
 
 Adicione as seguintes configurações ao seu `.vscode/settings.json`:
 
-```json
+```json title=".vscode/settings.json"
 {
   // Desative o formatador padrão, use o eslint em vez disso
   "prettier.enable": false,
@@ -110,8 +109,7 @@ Adicione as seguintes configurações ao seu `.vscode/settings.json`:
 
 Normalmente, você só precisa importar o preset `ncontiero`:
 
-```js
-// eslint.config.js
+```js title="eslint.config.js"
 import { ncontiero } from "@ncontiero/eslint-config";
 
 export default ncontiero();
@@ -119,8 +117,7 @@ export default ncontiero();
 
 E é isso! Ou você pode configurar cada integração individualmente, por exemplo:
 
-```js
-// eslint.config.js
+```js title="eslint.config.js"
 import { ncontiero } from "@ncontiero/eslint-config";
 
 export default ncontiero({
@@ -145,10 +142,9 @@ export default ncontiero({
 });
 ```
 
-A função de fábrica `ncontiero` também aceita qualquer número de substituições de configuração personalizadas arbitrárias:
+A função `ncontiero` também aceita qualquer número de substituições de configuração personalizadas arbitrárias:
 
-```js
-// eslint.config.js
+```js title="eslint.config.js"
 import { ncontiero } from "@ncontiero/eslint-config";
 
 export default ncontiero(
@@ -172,8 +168,7 @@ export default ncontiero(
 
 Certas regras seriam ativadas apenas em arquivos específicos, por exemplo, as regras `ts/*` seriam ativadas apenas em `.ts`. Também fornecemos as opções de substituição em cada integração para facilitar:
 
-```js
-// eslint.config.js
+```js title="eslint.config.js"
 import { ncontiero } from "@ncontiero/eslint-config";
 
 export default ncontiero({
@@ -200,8 +195,7 @@ Fornecemos algumas configurações opcionais para casos de uso específicos, que
 
 Para ativar o suporte ao TanStack Query, você precisa ter o pacote instalado ou ativá-lo explicitamente:
 
-```js
-// eslint.config.js
+```js title="eslint.config.js"
 import { ncontiero } from "@ncontiero/eslint-config";
 
 export default ncontiero({
@@ -211,7 +205,7 @@ export default ncontiero({
 
 Para funcionar, o pacote [`@tanstack/eslint-plugin-query`](https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query) deve ser instalado:
 
-```bash
+```bash title="terminal"
 npm i -D @tanstack/eslint-plugin-query
 ```
 
@@ -224,4 +218,4 @@ npm i -D @tanstack/eslint-plugin-query
 
 ## Licença
 
-Este projeto está licenciado sob a Licença **MIT** - consulte o arquivo [LICENSE](https://github.com/ncontiero/ncontiero.me/blob/master/LICENSE) para obter detalhes
+Este projeto está licenciado sob a Licença **MIT** - consulte o arquivo [LICENSE](https://github.com/ncontiero/ncontiero.me/blob/master/LICENSE) para obter detalhes.
