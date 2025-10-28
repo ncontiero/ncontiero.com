@@ -27,3 +27,12 @@ Formspree
 quoteless
 mdlg
 rehype
+trixie
+gnupg
+powerline
+postgres
+PGPORT
+devguide
+initdb
+Rslib
+booleanos
