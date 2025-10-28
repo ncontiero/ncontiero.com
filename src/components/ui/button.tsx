@@ -1,9 +1,10 @@
 "use client";
 
-import type { ComponentProps, MouseEvent } from "react";
+import { type ComponentProps, type MouseEvent, useState } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { type VariantProps, cva } from "class-variance-authority";
 
+import { Copy } from "lucide-react";
 import { cn, createRipple } from "@/lib/utils";
 
 const buttonVariants = cva(
@@ -18,17 +19,21 @@ const buttonVariants = cva(
         default:
           "bg-primary/80 text-primary-foreground dark:bg-primary/60 hover:not-disabled:bg-primary",
         destructive: `
-          bg-destructive focus-visible:ring-destructive [&>.ripple]:bg-background/20
-          hover:not-disabled:bg-destructive/90
+          bg-destructive/80 text-primary-foreground focus-visible:ring-destructive [&>.ripple]:bg-background/20
+          hover:not-disabled:bg-destructive
         `,
         outline: `
-          border-primary/80 border bg-transparent hover:text-primary-foreground focus-visible:bg-primary/80
-          focus-visible:text-primary-foreground hover:not-disabled:bg-primary/80
+          border-primary/80 text-foreground border bg-transparent hover:text-primary-foreground
+          focus-visible:bg-primary/80 focus-visible:text-primary-foreground hover:not-disabled:bg-primary/80
         `,
         secondary:
           "bg-secondary focus-visible:ring-ring hover:not-disabled:bg-secondary/80 [&>.ripple]:bg-white/20",
         ghost:
           "not-disabled:hover:bg-accent not-disabled:hover:text-accent-foreground",
+        success: `
+          bg-success/80 text-primary-foreground dark:text-foreground focus-visible:ring-success
+          [&>.ripple]:bg-background/20 hover:not-disabled:bg-success
+        `,
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -92,5 +97,39 @@ export function Button({
       }
       {...props}
     />
+  );
+}
+
+export function CopyCodeButton({
+  code,
+  children,
+  className,
+  ...props
+}: ButtonProps & { readonly code: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <Button
+      title={copied ? "Copied!" : "Copy Code"}
+      aria-label={copied ? "Copied!" : "Copy Code"}
+      variant={copied ? "success" : "outline"}
+      size={copied ? "default" : "icon"}
+      className={cn(
+        "absolute top-2 right-2 z-50 opacity-0 duration-200 group-hover:opacity-100 focus-visible:opacity-100",
+        className,
+      )}
+      onClick={handleCopy}
+      disabled={copied}
+      {...props}
+    >
+      {copied ? "Copied!" : <Copy />}
+      {children}
+    </Button>
   );
 }

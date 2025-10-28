@@ -3,11 +3,11 @@ import {
   defineDocumentType,
   makeSource,
 } from "contentlayer2/source-files";
-import rehypePrettyCode from "rehype-pretty-code";
+import rehypePrettyCode, {
+  type Options as PrettyCodeOptions,
+} from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-
-import { MDX_CODE_THEME } from "./src/data";
 
 const computedFields: ComputedFields = {
   path: {
@@ -43,11 +43,28 @@ export const Project = defineDocumentType(() => ({
   computedFields,
 }));
 
+const prettyCodeOptions: PrettyCodeOptions = {
+  theme: { light: "min-light", dark: "dracula" },
+  keepBackground: false,
+  onVisitLine(node) {
+    if (node.children.length === 0) {
+      node.children = [{ type: "text", value: " " }];
+    }
+  },
+  transformers: [
+    {
+      pre(node) {
+        node.properties["data-content"] = this.source;
+      },
+    },
+  ],
+};
+
 export default makeSource({
   contentDirPath: "./src/data",
   documentTypes: [Project],
   mdx: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeSlug, [rehypePrettyCode, { theme: MDX_CODE_THEME }]],
+    rehypePlugins: [rehypeSlug, [rehypePrettyCode, prettyCodeOptions]],
   },
 });

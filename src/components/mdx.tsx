@@ -7,6 +7,7 @@ import { Link as LinkIcon } from "lucide-react";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import NextLink from "next/link";
 import { cn } from "@/lib/utils";
+import { CopyCodeButton } from "./ui/button";
 import { Link } from "./ui/link";
 
 function AnchorLink({
@@ -146,7 +147,10 @@ export const components = {
   blockquote: ({ className, ...props }: HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
       className={cn(
-        "border-border text-foreground/60 mt-6 border-l-2 pl-3 font-normal *:text-foreground/60",
+        `
+          border-border text-foreground/60 mt-6 border-l-2 pl-3 font-normal *:text-foreground/60
+          *:first-of-type:before:content-[''] *:first-of-type:after:content-['']
+        `,
         className,
       )}
       {...props}
@@ -174,7 +178,7 @@ export const components = {
   tr: ({ className, ...props }: HTMLAttributes<HTMLTableRowElement>) => (
     <tr
       className={cn(
-        "border-border border-b duration-200 even:bg-primary/5 focus-within:bg-primary/30 hover:bg-primary/20",
+        `even:bg-primary/5 focus-within:bg-primary/30 hover:bg-primary/20 duration-200`,
         className,
       )}
       {...props}
@@ -183,7 +187,10 @@ export const components = {
   th: ({ className, ...props }: HTMLAttributes<HTMLTableCellElement>) => (
     <th
       className={cn(
-        "h-12 border p-4 text-left align-middle font-bold [[align=center]]:text-center [[align=right]]:text-right",
+        `
+          dark:border-border/60 h-12 border p-4 text-left align-middle font-bold [[align=center]]:text-center
+          [[align=right]]:text-right
+        `,
         className,
       )}
       {...props}
@@ -192,25 +199,33 @@ export const components = {
   td: ({ className, ...props }: HTMLAttributes<HTMLTableCellElement>) => (
     <td
       className={cn(
-        "border p-4 text-left align-middle font-medium [[align=center]]:text-center [[align=right]]:text-right",
+        `
+          dark:border-border/60 border p-4 text-left align-middle font-medium [[align=center]]:text-center
+          [[align=right]]:text-right
+        `,
         className,
       )}
       {...props}
     />
   ),
-  pre: ({ className, ...props }: HTMLAttributes<HTMLPreElement>) => (
-    <pre
-      className={cn(
-        "bg-background/80 mt-6 mb-4 overflow-x-auto rounded-lg px-0 py-4",
-        className,
-      )}
-      {...props}
-    />
+  pre: ({ className, children, ...props }: HTMLAttributes<HTMLPreElement>) => (
+    <div className="bg-background group relative my-4 overflow-x-auto">
+      <pre
+        className={cn(
+          "bg-background group relative my-0! px-0 py-4",
+          className,
+        )}
+        {...props}
+      >
+        {children}
+      </pre>
+      <CopyCodeButton code={(props as any)["data-content"]} />
+    </div>
   ),
   code: ({ className, ...props }: HTMLAttributes<HTMLPreElement>) => (
     <code
       className={cn(
-        "bg-secondary/20 relative rounded-sm px-1.5 py-1 font-mono text-inherit",
+        "bg-secondary-foreground/10 relative rounded-sm px-1.5 py-1 font-mono",
         className,
       )}
       {...props}

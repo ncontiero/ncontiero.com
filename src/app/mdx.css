@@ -1,10 +1,14 @@
 [data-rehype-pretty-code-figure] {
-  @apply m-0;
+  @apply border rounded-lg dark:border-border/40 overflow-hidden;
 }
 [data-rehype-pretty-code-figure] code {
-  @apply grid w-full break-words rounded-none border-0 bg-transparent p-0 text-base text-white;
+  @apply grid w-full wrap-break-word rounded-none border-0 bg-background p-0 text-base;
   counter-reset: line;
   box-decoration-break: clone;
+}
+code[data-theme],
+code[data-theme] span {
+  @apply bg-(--shiki-light-bg) text-(--shiki-light) dark:bg-(--shiki-dark-bg) dark:text-(--shiki-dark);
 }
 [data-rehype-pretty-code-figure] [data-line] {
   @apply border-l-2 border-transparent px-4;
@@ -21,18 +25,16 @@
   text-align: right;
   color: gray;
 } */
-[data-rehype-pretty-code-figure] .line--highlighted {
-  @apply border-l-2 border-primary bg-background/30;
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  @apply border-l-2 border-primary bg-secondary dark:bg-secondary;
 }
-[data-rehype-pretty-code-figure] .line--highlighted span {
+[data-rehype-pretty-code-figure] [data-highlighted-line] span {
   @apply relative;
 }
 [data-rehype-pretty-code-figure] [data-highlighted-chars] {
-  @apply rounded-sm bg-background/40 shadow-[0_0_0_4px_var(--background)/0.4];
+  @apply rounded-sm bg-secondary shadow-[0_0_0_4px_var(--secondary)];
 }
-[data-rehype-pretty-code-title] {
-  @apply mt-4 px-4 py-2 text-sm font-medium;
-}
-[data-rehype-pretty-code-title] + pre {
-  @apply mt-0;
+[data-rehype-pretty-code-title],
+[data-rehype-pretty-code-caption] {
+  @apply mt-0 px-4 py-3 text-sm font-medium text-secondary-foreground bg-secondary;
 }
