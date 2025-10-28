@@ -1,0 +1,89 @@
+---
+title: "Python DEV"
+description: Uma imagem Python com algumas configurações de terminal.
+githubUrl: https://github.com/ncontiero/python_dev
+siteUrl: https://hub.docker.com/r/dkshs/python_dev
+lastModified: "2025-10-27"
+---
+
+# Python Dev <img src="https://raw.githubusercontent.com/docker-library/docs/01c12653951b2fe592c1f93a13b4e289ada0e3a1/python/logo.png" alt="Imagem do Python" width="30px" />
+
+[![Build Status](https://img.shields.io/github/actions/workflow/status/ncontiero/python_dev/build.yml?branch=master)](https://github.com/ncontiero/python_dev/actions/workflows/build.yml?query=branch%3Amaster)
+[![Docker Pulls](https://img.shields.io/docker/pulls/dkshs/python_dev?style=flat-square&color=7c3aed)](https://hub.docker.com/r/dkshs/python_dev)
+
+Uma imagem Python com [uv](https://github.com/astral-sh/uv), zsh, [Oh My Zsh](https://ohmyz.sh/), git, gpg, gnupg,
+gpg-agent, socat, curl, wget, fonts-powerline; usando o tema [PowerLevel10k](https://github.com/romkatv/powerlevel10k)
+e plugins: git, git-flow, [fast-syntax-highlighting](https://github.com/zdharma-continuum/fast-syntax-highlighting),
+[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions),
+[zsh-completions](https://github.com/zsh-users/zsh-completions).
+
+## 🏷 Tags
+
+Para usar uma combinação específica de Python, veja a seguinte tabela de tags de imagem disponíveis.
+
+| Tag                     | Versão do Python | Distro        |
+| ----------------------- | ---------------- | ------------- |
+| `3.14.0-slim-bookworm`  | 3.14.0         | slim-bookworm |
+| `3.14.0-slim-trixie`    | 3.14.0         | slim-trixie   |
+| `3.13.9-slim-bookworm`  | 3.13.9         | slim-bookworm |
+| `3.13.9-slim-trixie`    | 3.13.9         | slim-trixie   |
+| `3.12.12-slim-bookworm` | 3.12.12        | slim-bookworm |
+| `3.12.12-slim-trixie`   | 3.12.12        | slim-trixie   |
+| `3.11.14-slim-bookworm` | 3.11.14        | slim-bookworm |
+| `3.11.14-slim-trixie`   | 3.11.14        | slim-trixie   |
+| `3.10.19-slim-bookworm` | 3.10.19        | slim-bookworm |
+| `3.10.19-slim-trixie`   | 3.10.19        | slim-trixie   |
+
+[Veja mais](https://hub.docker.com/r/dkshs/python_dev/tags)
+
+## Versões suportadas
+
+| Versão do Python | Início     | Fim     |
+| ---------------- | ---------- | ------- |
+| 3.14             | 2025-10-07 | 2030-10 |
+| 3.13             | 2024-10-07 | 2029-10 |
+| 3.12             | 2023-10-02 | 2028-10 |
+| 3.11             | 2022-10-24 | 2027-10 |
+| 3.10             | 2021-10-04 | 2026-10 |
+
+As versões são mantidas atualizadas usando fontes oficiais. Para o Python, extraímos a tabela _Supported Versions_ em [devguide.python.org/versions](https://devguide.python.org/versions/#supported-versions).
+
+## Como usar esta imagem
+
+### Crie um Dockerfile no seu projeto de aplicativo Python
+
+```dockerfile title="Dockerfile"
+FROM dkshs/python_dev:latest
+
+USER ${USERNAME}
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY --chown=${USERNAME}:${USERNAME} . .
+```
+
+Você pode então construir e executar a imagem Docker:
+
+```bash title="terminal"
+docker build -t my-python-app .
+docker run -it --rm my-python-app
+```
+
+### Execute um único script Python
+
+Para muitos projetos simples de arquivo único, pode ser inconveniente escrever um Dockerfile completo. Nesses casos, você pode executar um script Python usando a imagem Docker do Python diretamente:
+
+```bash title="terminal"
+docker run -it --rm -v "$PWD":/home/dev-user/app -u dev-user dkshs/python_dev
+```
+
+Todas as imagens têm um usuário padrão `dev-user` com uid 1000 e gid 1000.
+
+## Aviso Legal
+
+> Esta imagem destina-se apenas para uso em desenvolvimento. Use por sua conta e risco!
+
+## Licença
+
+Este projeto está sob a licença [MIT](https://github.com/ncontiero/python_dev/blob/master/LICENSE).

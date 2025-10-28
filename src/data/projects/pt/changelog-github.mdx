@@ -1,0 +1,88 @@
+---
+title: "Changelog Github"
+description: Um gerador de changelog para changeset no GitHub com links para commits, PRs e opcionalmente usuários.
+githubUrl: https://github.com/ncontiero/changelog-github
+lastModified: "2025-10-27"
+---
+
+<div align="center">
+
+# `@ncontiero/changelog-github`
+
+Um gerador de changelog para [changeset](https://github.com/changesets/changesets) no GitHub com links para commits, PRs e opcionalmente usuários.
+
+[![license mit](https://img.shields.io/badge/licence-MIT-7c3aed)](https://github.com/ncontiero/changelog-github/blob/main/LICENSE)
+[![NPM version][npm-image]][npm-url]
+
+</div>
+
+[npm-url]: https://www.npmjs.com/package/@ncontiero/changelog-github
+[npm-image]: https://img.shields.io/npm/v/@ncontiero/changelog-github?color=7c3aed&logoColor=7c3aed
+
+## Começando
+
+Primeiro instale o pacote:
+
+```bash title="terminal"
+npm i --save-dev @ncontiero/changelog-github
+```
+
+E use-o em `.changeset/config.json`:
+
+```json title=".changeset/config.json"
+{
+  // ...
+  "changelog": ["@ncontiero/changelog-github", { "repo": "<org>/<repo>" }]
+  // ...
+}
+```
+
+Há também uma opção opcional, que é `exclude`, um objeto e pode ter as chaves `user`, `pr` e `commit` e seus valores sendo booleanos.
+
+```json title=".changeset/config.json"
+{
+  // ...
+  "changelog": [
+    "@ncontiero/changelog-github",
+    {
+      "repo": "<org>/<repo>",
+      "exclude": { "user": true }
+    }
+  ]
+  // ...
+}
+```
+
+Esta opção não adiciona o comentário: "Thanks &lt;@user&gt;!".
+
+E você pode usar para remover os pull releases:
+
+```json title=".changeset/config.json"
+{
+  // ...
+  "changelog": [
+    "@ncontiero/changelog-github",
+    {
+      "repo": "<org>/<repo>",
+      "exclude": { "pr": true }
+    }
+  ]
+  // ...
+}
+```
+
+E para remover os commits:
+
+```json title=".changeset/config.json"
+{
+  // ...
+  "changelog": [
+    "@ncontiero/changelog-github",
+    {
+      "repo": "<org>/<repo>",
+      "exclude": { "commit": true }
+    }
+  ]
+  // ...
+}
+```

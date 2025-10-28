@@ -1,0 +1,75 @@
+---
+title: "Postgres SSL"
+description: Imagem Postgres habilitada para SSL.
+githubUrl: https://github.com/ncontiero/postgres-ssl
+siteUrl: https://github.com/ncontiero/postgres-ssl/pkgs/container/postgres-ssl
+lastModified: "2025-10-27"
+---
+
+Este projeto contém a lógica para construir imagens Postgres habilitadas para SSL.
+
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/postgresql?referralCode=7y-eBI)
+
+<Notes level="IMPORTANT" levelLabel="IMPORTANTE">
+**Observação sobre a alteração do ponto de montagem do volume para PostgreSQL 18+**
+
+Para imagens baseadas no **PostgreSQL 18 ou mais recente**, o ponto de montagem do volume foi alterado de `/var/lib/postgresql/data` para `/var/lib/postgresql`.
+
+- **PostgreSQL 18+**: Use `-v my-volume:/var/lib/postgresql`
+- **PostgreSQL 17 e anteriores**: Use `-v my-volume:/var/lib/postgresql/data`
+
+O [template do Railway](https://railway.com/deploy/postgresql?referralCode=7y-eBI) usa a versão 18 por padrão, então esta nota é especialmente relevante para usuários dessa plataforma.
+</Notes>
+
+## Como funciona?
+
+Os Dockerfiles contidos neste repositório começam com a imagem oficial do Postgres
+como base. Em seguida, o script `init-ssl.sh` é copiado para o diretório
+`docker-entrypoint-initdb.d/` para ser executado na inicialização.
+
+## Expiração do certificado
+
+Por padrão, a expiração do certificado é definida para 820 dias. Você pode controlar isso
+configurando a variável de ambiente `SSL_CERT_DAYS` conforme necessário.
+
+## Renovação de certificado
+
+Quando uma reimplantação ou reinicialização é feita, a expiração dos certificados é verificada, se tiver
+expirado ou expirará em 30 dias, um novo certificado é gerado automaticamente.
+
+## Tags de imagem disponíveis
+
+As imagens são construídas automaticamente semanalmente e marcadas com vários níveis de versão
+para flexibilidade:
+
+- **Tags de versão principal** (ex: `:17`, `:16`, `:15`): Sempre aponta para a
+  versão secundária mais recente para essa versão principal
+- **Tags de versão secundária** (ex: `:17.6`, `:16.10`): Fixa em uma versão secundária específica
+  para estabilidade
+- **Tag mais recente** (`:latest`): Atualmente aponta para a versão mais recente do PostgreSQL
+
+Exemplo de uso:
+
+```bash title="terminal"
+# Atualização automática para as versões secundárias mais recentes (recomendado para desenvolvimento)
+docker run ghcr.io/ncontiero/postgres-ssl:17
+
+# Fixar em uma versão secundária específica (recomendado para produção)
+docker run ghcr.io/ncontiero/postgres-ssl:17.6
+```
+
+## Uma nota sobre as portas
+
+Por padrão, esta imagem está codificada para escutar na porta `5432`, independentemente do que
+está definido na variável de ambiente `PGPORT`. Fizemos isso para permitir conexões
+com o serviço postgres através da `RAILWAY_TCP_PROXY_PORT`. Se você precisar
+alterar este comportamento, sinta-se à vontade para construir sua própria imagem sem passar o
+parâmetro `--port` para o comando `CMD` no Dockerfile.
+
+## Referências e inspirações
+
+- https://github.com/railwayapp-templates/postgres-ssl
+
+## Licença
+
+Este projeto está licenciado sob a Licença **MIT** - veja o arquivo [LICENSE](https://github.com/ncontiero/postgres-ssl/blob/main/LICENSE) para mais detalhes

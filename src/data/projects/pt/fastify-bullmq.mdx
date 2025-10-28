@@ -1,0 +1,81 @@
+---
+title: "BullMQ com BullBoard"
+description: Um template para implantar um sistema de enfileiramento BullMQ e Redis.
+githubUrl: https://github.com/ncontiero/fastify-bullmq
+siteUrl: https://railway.com/template/0s3-xR?referralCode=7y-eBI
+lastModified: "2025-10-27"
+---
+
+[![license mit](https://img.shields.io/badge/licence-MIT-6C47FF)](https://github.com/ncontiero/fastify-bullmq/blob/main/LICENSE)
+
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/template/0s3-xR?referralCode=7y-eBI)
+
+## ✨ Recursos
+
+- Sistema de enfileiramento com [BullMQ](https://docs.bullmq.io/) e Redis;
+- Dashboard construído com [bull-board](https://github.com/felixmosh/bull-board) e [Fastify](https://fastify.dev/);
+- Executar serviços através do [pm2](https://pm2.keymetrics.io/).
+
+## Explicações
+
+Esta aplicação utiliza **BullMQ**, um sistema de enfileiramento baseado em Redis, e **Bull-Board**, um painel para monitorar e gerenciar essas filas, servido por um servidor **Fastify**. Ambos os serviços são construídos usando [Rslib](https://rslib.rs/) e gerenciados por **PM2**.
+
+Existem três maneiras distintas de iniciar os serviços:
+
+1.  **Execução Unificada:** Para iniciar ambos os serviços simultaneamente, use o comando `pnpm start`. Esta é a opção mais simples para o desenvolvimento local.
+
+2.  **Execução Separada:** Para iniciar o worker e o servidor Fastify individualmente, use os comandos `pnpm start:worker` e `pnpm start:server`, respectivamente. Essa abordagem oferece maior controle e é usada no [template do Railway](https://railway.com/template/0s3-xR?referralCode=7y-eBI), mas pode ser facilmente adaptada às suas necessidades.
+
+3.  **Execução Direta com Node.js:** Para projetos simples que não requerem os recursos do PM2, a execução direta com Node.js pode resultar em menor consumo de recursos. Use `node ./dist/worker.js` para o worker e `node ./dist/server.js` para o servidor Fastify.
+
+O PM2 também suporta o [Bun](https://bun.sh/). Se desejar, você pode substituir o gerenciador de pacotes do projeto pelo Bun e executar os arquivos TypeScript diretamente (o Bun tem suporte nativo para TypeScript), eliminando a necessidade de uma compilação. No entanto, esteja ciente de que o Bun não é totalmente compatível com o Node.js, o que pode resultar em problemas de execução.
+
+**Escalabilidade (PM2):** Ambos os serviços suportam escalonamento horizontal através das variáveis de ambiente `WORKER_INSTANCES` e `SERVER_INSTANCES`. Defina essas variáveis para o número desejado de instâncias para aumentar a capacidade de processamento do worker e do servidor, respectivamente. **Essas variáveis só terão efeito se o PM2 estiver sendo usado.**
+
+## Instalar e executar o projeto
+
+### Dependências Globais
+
+Você precisa ter a seguinte dependência principal instalada:
+
+- Node.js LTS v18 (ou qualquer versão superior)
+
+Você usa `nvm`? Então você pode executar `nvm install` na pasta do projeto para instalar e usar a versão mais apropriada do Node.js.
+
+### Dependências Locais
+
+Após clonar o repositório, instale as dependências locais do projeto:
+
+```bash title="terminal"
+pnpm install
+```
+
+### Variáveis de ambiente
+
+Crie um arquivo `.env` semelhante a [`.env.example`](https://github.com/ncontiero/fastify-bullmq/blob/main/.env.example).
+
+```env title=".env"
+# Redis
+REDIS_HOST="localhost"
+REDIS_PORT=6379
+REDIS_USER=""
+REDIS_PASSWORD=""
+```
+
+### Executar o projeto
+
+Para executar o projeto localmente, basta executar o comando abaixo:
+
+```bash title="terminal"
+pnpm dev
+```
+
+- acesse http://127.0.0.1:3000/ui para ver o painel.
+
+## Referências e inspirações
+
+- https://github.com/railwayapp-templates/fastify-bullmq
+
+## Licença
+
+Este projeto está licenciado sob a Licença **MIT** - veja o arquivo [LICENSE](https://github.com/ncontiero/fastify-bullmq/blob/main/LICENSE) para mais detalhes.
