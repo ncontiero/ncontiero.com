@@ -35,20 +35,21 @@ export default async function ProjectsPage({
 
   const t = await getTranslations("sections.projects");
 
-  const topProjects = data.topProjects.map((top) =>
-    allProjects.find(
-      (project) => project.slug === top && project.locale === locale,
-    ),
-  ) as Project[];
-  const otherProjects = allProjects.filter(
-    (project) => !topProjects.includes(project) && project.locale === locale,
+  const localeProjects = allProjects
+    .filter((project) => project.locale === locale)
+    .sort((a, b) => {
+      return (
+        new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime()
+      );
+    });
+
+  const topProjects = data.topProjects
+    .map((top) => localeProjects.find((project) => project.slug === top))
+    .filter((project): project is Project => !!project);
+
+  const otherProjects = localeProjects.filter(
+    (project) => !topProjects.includes(project),
   );
-  const sortedProjects = otherProjects.sort((a, b) => {
-    return (
-      new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime()
-    );
-  });
-  const projects = [...topProjects, ...sortedProjects];
 
   return (
     <MotionDiv
@@ -76,34 +77,25 @@ export default async function ProjectsPage({
       </div>
       <div className="bg-border h-px w-full" />
       <div className="mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 lg:mx-0">
-        <div className="grid h-fit grid-cols-1 gap-4">
-          {projects
-            .filter((_, i) => i % 2 === 0)
-            .map((project) => (
-              <MotionDiv
-                key={project._id}
-                variants={projectsItem}
-                transition={{ duration: 0.5 }}
-                className="h-fit"
-              >
-                <ProjectCard shouldAddHFit {...project} />
-              </MotionDiv>
-            ))}
-        </div>
-        <div className="grid h-fit grid-cols-1 gap-4">
-          {projects
-            .filter((_, i) => i % 2 === 1)
-            .map((project) => (
-              <MotionDiv
-                key={project._id}
-                variants={projectsItem}
-                transition={{ duration: 0.5 }}
-                className="h-fit"
-              >
-                <ProjectCard shouldAddHFit {...project} />
-              </MotionDiv>
-            ))}
-        </div>
+        {topProjects.map((project) => (
+          <MotionDiv
+            key={project._id}
+            variants={projectsItem}
+            transition={{ duration: 0.5 }}
+          >
+            <ProjectCard {...project} />
+          </MotionDiv>
+        ))}
+        {otherProjects.length > 0 &&
+          otherProjects.map((project) => (
+            <MotionDiv
+              key={project._id}
+              variants={projectsItem}
+              transition={{ duration: 0.5 }}
+            >
+              <ProjectCard {...project} />
+            </MotionDiv>
+          ))}
       </div>
     </MotionDiv>
   );
