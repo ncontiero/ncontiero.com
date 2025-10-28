@@ -319,10 +319,11 @@ export const components = {
     children,
     className,
     level = "INFO",
+    levelLabel,
     ...props
   }: HTMLAttributes<HTMLDivElement> & {
     readonly level: "INFO" | "IMPORTANT";
-    readonly levelLabel: string;
+    readonly levelLabel?: string;
   }) => (
     <div
       {...props}
@@ -345,7 +346,7 @@ export const components = {
             level === "IMPORTANT" && "text-primary! dark:text-primary!",
           )}
         >
-          {props.levelLabel || level}
+          {levelLabel || level}
         </p>
       </div>
       {children}
