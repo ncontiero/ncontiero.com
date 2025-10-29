@@ -4,9 +4,7 @@ import { ArrowUpRight, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CardContainer, CardDescription, CardRoot, CardTitle } from "./Card";
 
-interface ProjectCardProps extends ProjectType {
-  readonly shouldAddHFit?: boolean;
-}
+interface ProjectCardProps extends ProjectType {}
 
 export function ProjectCard({
   title,
@@ -14,10 +12,9 @@ export function ProjectCard({
   githubUrl,
   siteUrl,
   path,
-  shouldAddHFit,
 }: ProjectCardProps) {
   return (
-    <CardRoot className={shouldAddHFit ? "h-fit" : ""} radialWidth={512}>
+    <CardRoot radialWidth={512}>
       <CardContainer projectUrl={path}>
         <div className="h-1/2 w-full">
           <CardTitle>{title}</CardTitle>
