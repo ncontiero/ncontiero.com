@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 import NextLink from "next/link";
 import { notFound } from "next/navigation";
-import { Mdx } from "@/components/mdx";
+import { Mdx } from "@/components/MDX";
 import { Button } from "@/components/ui/button";
 import { Link } from "@/components/ui/link";
 import { getLanguages } from "@/i18n/utils";
