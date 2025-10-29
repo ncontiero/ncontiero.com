@@ -1,8 +1,8 @@
 import type { HTMLAttributes, ImgHTMLAttributes } from "react";
-import { CopyCodeButton } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { AnchorLink } from "./AnchorLink";
 import { CodeTitleOrCaption } from "./CodeTitleOrCaption";
+import { CopyCodeButton } from "./CopyCodeButton";
 import { type HeadingProps, HeadingLinked } from "./HeadingLinked";
 import { Notes } from "./Notes";
 
@@ -148,10 +148,7 @@ export const components = {
   pre: ({ className, children, ...props }: HTMLAttributes<HTMLPreElement>) => (
     <div className="bg-background group relative my-4 overflow-x-auto">
       <pre
-        className={cn(
-          "bg-background group relative my-0! px-0 py-4",
-          className,
-        )}
+        className={cn("bg-background relative my-0! px-0 py-4", className)}
         {...props}
       >
         {children}

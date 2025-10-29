@@ -1,10 +1,9 @@
 "use client";
 
-import { type ComponentProps, type MouseEvent, useState } from "react";
+import type { ComponentProps, MouseEvent } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { type VariantProps, cva } from "class-variance-authority";
 
-import { Copy } from "lucide-react";
 import { cn, createRipple } from "@/lib/utils";
 
 const buttonVariants = cva(
@@ -97,39 +96,5 @@ export function Button({
       }
       {...props}
     />
-  );
-}
-
-export function CopyCodeButton({
-  code,
-  children,
-  className,
-  ...props
-}: ButtonProps & { readonly code: string }) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(code);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  return (
-    <Button
-      title={copied ? "Copied!" : "Copy Code"}
-      aria-label={copied ? "Copied!" : "Copy Code"}
-      variant={copied ? "success" : "outline"}
-      size={copied ? "default" : "icon"}
-      className={cn(
-        "absolute top-2 right-2 z-50 opacity-0 duration-200 group-hover:opacity-100 focus-visible:opacity-100",
-        className,
-      )}
-      onClick={handleCopy}
-      disabled={copied}
-      {...props}
-    >
-      {copied ? "Copied!" : <Copy />}
-      {children}
-    </Button>
   );
 }
