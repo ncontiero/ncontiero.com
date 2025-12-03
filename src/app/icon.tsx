@@ -11,11 +11,9 @@ export default function Icon() {
   const lastNameLetter = splittedName[1]![0];
 
   return new ImageResponse(
-    (
-      <div tw="flex h-full w-full items-center justify-center rounded-full bg-black text-3xl font-bold text-white">
-        {`${firstNameLetter}${lastNameLetter}`}
-      </div>
-    ),
+    <div tw="flex h-full w-full items-center justify-center rounded-full bg-black text-3xl font-bold text-white">
+      {`${firstNameLetter}${lastNameLetter}`}
+    </div>,
     { ...size },
   );
 }

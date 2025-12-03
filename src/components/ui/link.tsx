@@ -49,8 +49,7 @@ const linkVariants = cva(
 );
 
 export interface LinkProps
-  extends ComponentProps<"a">,
-    VariantProps<typeof linkVariants> {
+  extends ComponentProps<"a">, VariantProps<typeof linkVariants> {
   readonly asChild?: boolean;
 }
 

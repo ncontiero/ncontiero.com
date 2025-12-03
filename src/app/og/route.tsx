@@ -36,37 +36,35 @@ export async function GET(request: NextRequest) {
     const { title, description, isProject } = ogSchema.parse(params);
 
     return new ImageResponse(
-      (
+      <div
+        tw="flex h-full w-full flex-col items-center justify-center bg-[#270B5B] text-center text-white"
+        style={{
+          backgroundImage: "radial-gradient(circle, #270B5B 0%, #000000 95%)",
+        }}
+      >
         <div
-          tw="flex h-full w-full flex-col items-center justify-center bg-[#270B5B] text-center text-white"
-          style={{
-            backgroundImage: "radial-gradient(circle, #270B5B 0%, #000000 95%)",
-          }}
+          tw={`flex flex-col ${
+            isProject ? "pt-52" : "pt-40"
+          } h-full w-full items-center text-white`}
         >
-          <div
-            tw={`flex flex-col ${
-              isProject ? "pt-52" : "pt-40"
-            } h-full w-full items-center text-white`}
+          <h1
+            tw={`${
+              isProject ? "text-8xl" : "text-[164px]"
+            } font-semibold tracking-tighter`}
           >
-            <h1
+            {title}
+          </h1>
+          <div tw="mx-auto flex max-w-[1280px]">
+            <p
               tw={`${
-                isProject ? "text-8xl" : "text-[164px]"
-              } font-semibold tracking-tighter`}
+                isProject ? "text-4xl" : "text-5xl"
+              } text-center font-medium tracking-tight`}
             >
-              {title}
-            </h1>
-            <div tw="mx-auto flex max-w-[1280px]">
-              <p
-                tw={`${
-                  isProject ? "text-4xl" : "text-5xl"
-                } text-center font-medium tracking-tight`}
-              >
-                {description}
-              </p>
-            </div>
+              {description}
+            </p>
           </div>
         </div>
-      ),
+      </div>,
       {
         width: 1686,
         height: 882,

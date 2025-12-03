@@ -72,8 +72,7 @@ const buttonVariants = cva(
 );
 
 export interface ButtonProps
-  extends ComponentProps<"button">,
-    VariantProps<typeof buttonVariants> {
+  extends ComponentProps<"button">, VariantProps<typeof buttonVariants> {
   readonly asChild?: boolean;
 }
 

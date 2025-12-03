@@ -58,8 +58,7 @@ const SectionTitle = forwardRef<HTMLHeadingElement, SectionTitleProps>(
 );
 SectionTitle.displayName = "Section.Title";
 
-interface SectionDescriptionProps
-  extends HTMLAttributes<HTMLParagraphElement> {}
+interface SectionDescriptionProps extends HTMLAttributes<HTMLParagraphElement> {}
 
 const SectionDescription = forwardRef<
   HTMLParagraphElement,
