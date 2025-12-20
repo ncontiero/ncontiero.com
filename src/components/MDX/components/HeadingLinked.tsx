@@ -21,9 +21,9 @@ export function HeadingLinked({
         href={`#${id}`}
         aria-label="Link to section"
         className={`
-          group ring-offset-background flex w-fit items-center rounded-md no-underline underline-offset-4 duration-200
-          focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden
-          hover:underline active:opacity-70
+          group ring-offset-background focus-visible:ring-ring flex w-fit items-center rounded-md no-underline
+          underline-offset-4 duration-200 hover:underline focus-visible:ring-2 focus-visible:ring-offset-2
+          focus-visible:outline-hidden active:opacity-70
         `}
       >
         {children}

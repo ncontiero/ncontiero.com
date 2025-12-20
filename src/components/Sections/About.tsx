@@ -91,8 +91,8 @@ export function AboutSection({
                     variants={animation.item}
                     transition={{ delay: i * 0.5, duration: 0.5 }}
                     className={`
-                      bg-foreground/5 mr-4 mb-4 rounded-md px-5 py-2.5 duration-200 hover:bg-foreground/10
-                      dark:bg-secondary/20 dark:hover:bg-secondary/40
+                      bg-foreground/5 hover:bg-foreground/10 dark:bg-secondary/20 dark:hover:bg-secondary/40 mr-4 mb-4
+                      rounded-md px-5 py-2.5 duration-200
                     `}
                     key={skill}
                   >

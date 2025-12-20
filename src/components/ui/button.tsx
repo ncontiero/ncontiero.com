@@ -8,8 +8,8 @@ import { cn, createRipple } from "@/lib/utils";
 
 const buttonVariants = cva(
   `
-    ring-offset-background relative inline-flex items-center justify-center overflow-hidden font-medium duration-200
-    focus-visible:ring-ring focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden
+    ring-offset-background focus-visible:ring-ring relative inline-flex items-center justify-center overflow-hidden
+    font-medium duration-200 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden
     active:not-disabled:scale-95 active:not-disabled:opacity-70 disabled:cursor-not-allowed disabled:opacity-50
   `,
   {
@@ -22,8 +22,8 @@ const buttonVariants = cva(
           hover:not-disabled:bg-destructive
         `,
         outline: `
-          border-primary/80 text-foreground border bg-transparent hover:text-primary-foreground
-          focus-visible:bg-primary/80 focus-visible:text-primary-foreground hover:not-disabled:bg-primary/80
+          border-primary/80 text-foreground hover:text-primary-foreground focus-visible:bg-primary/80
+          focus-visible:text-primary-foreground hover:not-disabled:bg-primary/80 border bg-transparent
         `,
         secondary:
           "bg-secondary focus-visible:ring-ring hover:not-disabled:bg-secondary/80 [&>.ripple]:bg-white/20",

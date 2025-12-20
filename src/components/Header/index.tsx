@@ -73,7 +73,7 @@ export async function Header({ locale }: { readonly locale: Locale }) {
               >
                 <Link
                   className={`
-                    ring-ring rounded-full p-4 underline-offset-4 duration-200 hover:text-primary hover:underline
+                    ring-ring hover:text-primary rounded-full p-4 underline-offset-4 duration-200 hover:underline
                     focus:outline-hidden focus-visible:opacity-100 focus-visible:ring-2 active:opacity-60
                   `}
                   href={`/#${value.id}`}
@@ -104,7 +104,7 @@ export async function Header({ locale }: { readonly locale: Locale }) {
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 className={`
-                  border-border/60 bg-background/60 shadow-secondary/10 shadow-xl backdrop-blur-md dark:bg-background/80
+                  border-border/60 bg-background/60 shadow-secondary/10 dark:bg-background/80 shadow-xl backdrop-blur-md
                   md:w-48
                 `}
               >

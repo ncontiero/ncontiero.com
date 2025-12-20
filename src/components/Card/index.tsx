@@ -57,10 +57,10 @@ function CardRoot({
       ref={ref}
       className={cn(
         `
-          group border-border/80 bg-background/60 relative h-full overflow-hidden rounded-xl border duration-700
-          focus-within:border-ring focus-within:bg-background/10 hover:border-ring/60 hover:bg-background/30
-          dark:border-border/10 dark:hover:border-ring/60 dark:focus-within:border-ring/80
-          dark:focus-within:bg-background/30 md:gap-8
+          group border-border/80 bg-background/60 focus-within:border-ring focus-within:bg-background/10
+          hover:border-ring/60 hover:bg-background/30 dark:border-border/10 dark:hover:border-ring/60
+          dark:focus-within:border-ring/80 dark:focus-within:bg-background/30 relative h-full overflow-hidden rounded-xl
+          border duration-700 md:gap-8
         `,
         className,
       )}
@@ -126,7 +126,7 @@ function CardTitle({ className, asChild, ...props }: CardTitleProps) {
   return (
     <Comp
       className={cn(
-        "text-foreground/80 text-xl font-bold duration-200 group-hover:text-foreground",
+        "text-foreground/80 group-hover:text-foreground text-xl font-bold duration-200",
         className,
       )}
       {...props}
@@ -140,7 +140,7 @@ function CardDescription({ className, ...props }: CardDescriptionProps) {
   return (
     <p
       className={cn(
-        "text-foreground/60 mt-2 leading-8 duration-200 group-hover:text-foreground/80",
+        "text-foreground/60 group-hover:text-foreground/80 mt-2 leading-8 duration-200",
         className,
       )}
       {...props}

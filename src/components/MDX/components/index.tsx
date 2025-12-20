@@ -85,7 +85,7 @@ export const components = {
     <blockquote
       className={cn(
         `
-          border-border text-foreground/60 mt-6 border-l-2 pl-3 font-normal *:text-foreground/60
+          border-border text-foreground/60 *:text-foreground/60 mt-6 border-l-2 pl-3 font-normal
           *:first-of-type:before:content-[''] *:first-of-type:after:content-['']
         `,
         className,
@@ -97,7 +97,7 @@ export const components = {
     // eslint-disable-next-line nextjs/no-img-element
     <img
       className={cn(
-        "border-border shadow-primary/10 my-0! rounded-md border shadow-xl dark:border-border/40",
+        "border-border shadow-primary/10 dark:border-border/40 my-0! rounded-md border shadow-xl",
         className,
       )}
       alt={alt}
