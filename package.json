@@ -43,7 +43,7 @@
     "react-toastify": "^11.0.5",
     "shiki": "^3.20.0",
     "tailwind-merge": "^3.4.0",
-    "zod": "^4.2.1"
+    "zod": "^4.3.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.2.0",
