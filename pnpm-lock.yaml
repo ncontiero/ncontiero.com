@@ -33,7 +33,7 @@ importers:
         specifier: ^0.5.8
         version: 0.5.8(esbuild@0.25.11)
       framer-motion:
-        specifier: ^12.27.0
+        specifier: ^12.27.1
         version: 12.27.5(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       lucide-react:
         specifier: ^0.562.0
