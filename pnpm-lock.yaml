@@ -45,7 +45,7 @@ importers:
         specifier: ^0.5.8
         version: 0.5.8(contentlayer2@0.5.8(esbuild@0.25.11))(esbuild@0.25.11)(next@16.1.6(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       next-intl:
-        specifier: ^4.8.0
+        specifier: ^4.8.1
         version: 4.8.1(next@16.1.6(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       next-themes:
         specifier: ^0.4.6
