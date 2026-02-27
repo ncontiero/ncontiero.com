@@ -100,8 +100,8 @@ importers:
         specifier: 19.2.3
         version: 19.2.3(@types/react@19.2.14)
       case-police:
-        specifier: 2.1.1
-        version: 2.1.1
+        specifier: 2.2.0
+        version: 2.2.0
       concurrently:
         specifier: ^9.2.1
         version: 9.2.1
@@ -2386,8 +2386,8 @@ packages:
   caniuse-lite@1.0.30001761:
     resolution: {integrity: sha512-JF9ptu1vP2coz98+5051jZ4PwQgd2ni8A+gYSN7EA7dPKIMf0pDlSUxhdmVOaV3/fYK5uWBkgSXJaRLr4+3A6g==}
 
-  case-police@2.1.1:
-    resolution: {integrity: sha512-b7ntnoig2aVgKDi/OiziUPmbUQO4lVS0qxspY4Fu+U/N8q2iOU2TpsJjHu94S3GDWEjYnmOOQH7PAgt2ColTPQ==}
+  case-police@2.2.0:
+    resolution: {integrity: sha512-bFGvJl/w6+X2DoFB0HTFGxbIk/dClWxM7S0fiIQ63Xg00fL4dw7G+MOAGgVgHlfIda4YmHeRh9mp13xFqxz3hg==}
     hasBin: true
 
   ccount@2.0.1:
@@ -7276,7 +7276,7 @@ snapshots:
 
   caniuse-lite@1.0.30001761: {}
 
-  case-police@2.1.1: {}
+  case-police@2.2.0: {}
 
   ccount@2.0.1: {}
 
