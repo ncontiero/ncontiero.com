@@ -58,7 +58,7 @@
     "case-police": "2.2.0",
     "concurrently": "^9.2.1",
     "cspell": "9.7.0",
-    "eslint": "^9.39.3",
+    "eslint": "^10.0.2",
     "husky": "^9.1.7",
     "lint-staged": "^16.3.0",
     "postcss": "^8.5.6",
