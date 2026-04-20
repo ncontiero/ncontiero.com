@@ -1,5 +1,4 @@
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 import { data } from "@/data";
 import { Button } from "./ui/button";
 
@@ -27,13 +26,7 @@ export async function Footer() {
                     rel="noreferrer"
                     aria-label={key}
                   >
-                    <Image
-                      src={value.icon}
-                      alt={key}
-                      width={24}
-                      height={24}
-                      className={`size-6 rounded-full ${!key.startsWith("linkedin") ? "invert dark:invert-0" : ""}`}
-                    />
+                    {value.icon}
                   </a>
                 </Button>
               ))}
