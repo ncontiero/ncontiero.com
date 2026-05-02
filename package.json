@@ -61,7 +61,7 @@
     "eslint": "^9.39.4",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
-    "postcss": "^8.5.12",
+    "postcss": "^8.5.13",
     "rehype-pretty-code": "^0.14.3",
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
