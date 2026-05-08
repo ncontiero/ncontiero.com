@@ -36,3 +36,6 @@ devguide
 initdb
 Rslib
 booleanos
+dkmovie
+allauth
+compilemessages
