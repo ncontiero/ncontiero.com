@@ -17,7 +17,7 @@ My personal website, built with [Next.js](https://nextjs.org/), [Tailwind CSS](h
 
 You need to have a main dependency installed:
 
-- Node.js LTS v20 (or any higher version)
+- Node.js LTS v22 (or any higher version)
 
 Do you use `nvm`? Then you can run `nvm install` in the project folder to install and use the most appropriate version of Node.js.
 
