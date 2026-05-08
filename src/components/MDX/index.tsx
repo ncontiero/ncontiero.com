@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { getMDXComponent } from "next-contentlayer2/hooks";
 import { components } from "./components";
 
@@ -6,7 +7,7 @@ interface MdxProps {
 }
 
 function MdxComponent({ code }: MdxProps) {
-  return getMDXComponent(code)({ components });
+  return getMDXComponent(code)({ components }) as JSX.Element;
 }
 
 export function Mdx({ code }: MdxProps) {

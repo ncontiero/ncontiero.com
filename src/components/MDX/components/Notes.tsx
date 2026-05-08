@@ -36,7 +36,7 @@ export function Notes({
             level === "IMPORTANT" && "text-primary! dark:text-primary!",
           )}
         >
-          {levelLabel || level}
+          {levelLabel ?? level}
         </p>
       </div>
       {children}

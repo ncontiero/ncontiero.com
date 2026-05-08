@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { cookies } from "next/headers";
 
 export default async function manifest(): Promise<MetadataRoute.Manifest> {
-  const locale = (await cookies()).get("NEXT_LOCALE")?.value || "en";
+  const locale = (await cookies()).get("NEXT_LOCALE")?.value ?? "en";
   const t = await getTranslations({ locale, namespace: "manifest" });
 
   return {

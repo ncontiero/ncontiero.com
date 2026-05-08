@@ -14,7 +14,7 @@ export function CopyCodeButton({
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(code);
+    navigator.clipboard.writeText(code).catch(console.error);
     setCopied(true);
     setTimeout(setCopied, 2000, false);
   };

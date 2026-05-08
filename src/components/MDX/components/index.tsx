@@ -145,17 +145,24 @@ export const components = {
       {...props}
     />
   ),
-  pre: ({ className, children, ...props }: HTMLAttributes<HTMLPreElement>) => (
-    <div className="bg-background group relative my-4 overflow-x-auto">
-      <pre
-        className={cn("bg-background relative my-0! px-0 py-4", className)}
-        {...props}
-      >
-        {children}
-      </pre>
-      <CopyCodeButton code={(props as any)["data-content"]} />
-    </div>
-  ),
+  pre: ({
+    className,
+    children,
+    ...props
+  }: HTMLAttributes<HTMLPreElement> & { "data-content"?: string }) => {
+    const dataContent = props["data-content"];
+    return (
+      <div className="bg-background group relative my-4 overflow-x-auto">
+        <pre
+          className={cn("bg-background relative my-0! px-0 py-4", className)}
+          {...props}
+        >
+          {children}
+        </pre>
+        {dataContent != null ? <CopyCodeButton code={dataContent} /> : null}
+      </div>
+    );
+  },
   code: ({ className, ...props }: HTMLAttributes<HTMLPreElement>) => (
     <code
       className={cn(

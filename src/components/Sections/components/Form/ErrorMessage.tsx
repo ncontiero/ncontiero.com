@@ -9,7 +9,7 @@ export function ErrorMessage({
 }) {
   return (
     <AnimatePresence mode="wait">
-      {error ? (
+      {error != null ? (
         <motion.span
           key={error}
           initial={{ opacity: 0 }}

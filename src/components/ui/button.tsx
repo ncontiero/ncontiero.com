@@ -1,6 +1,6 @@
 "use client";
 
-import type { ComponentProps, MouseEvent } from "react";
+import type { ComponentProps } from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { type VariantProps, cva } from "class-variance-authority";
 
@@ -90,9 +90,7 @@ export function Button({
   return (
     <Comp
       className={cn(buttonVariants({ variant, size, radius, className }))}
-      onMouseDown={(e) =>
-        createRipple(e as MouseEvent<HTMLButtonElement>, onMouseDown)
-      }
+      onMouseDown={(e) => createRipple(e, onMouseDown)}
       {...props}
     />
   );

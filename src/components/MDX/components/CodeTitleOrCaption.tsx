@@ -1,9 +1,11 @@
-import type { HTMLAttributes } from "react";
+import type { ComponentProps } from "react";
 import { FileJson, Settings, Terminal } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-interface CodeTitleOrCaptionProps extends HTMLAttributes<HTMLElement> {
-  readonly as: "div" | "figcaption";
+interface CodeTitleOrCaptionProps extends ComponentProps<"div"> {
+  as: "div" | "figcaption";
+  "data-language"?: string;
+  "data-rehype-pretty-code-title"?: string;
 }
 
 export function CodeTitleOrCaption({
@@ -12,10 +14,10 @@ export function CodeTitleOrCaption({
   as = "figcaption",
   ...props
 }: CodeTitleOrCaptionProps) {
-  const language = (props as any)["data-language"] as string | undefined;
+  const language = props["data-language"];
   const Comp = as;
 
-  if (!language) {
+  if (language == null) {
     return (
       <Comp className={className} {...props}>
         {children}
@@ -23,7 +25,7 @@ export function CodeTitleOrCaption({
     );
   }
 
-  const isTitle = (props as any)["data-rehype-pretty-code-title"] === "";
+  const isTitle = props["data-rehype-pretty-code-title"] === "";
 
   const baseClassName =
     "text-secondary-foreground bg-secondary mt-0 px-4 py-3 text-sm font-medium";

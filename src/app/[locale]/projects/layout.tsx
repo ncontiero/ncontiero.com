@@ -46,6 +46,6 @@ export async function generateMetadata(
 
 export default function ProjectsLayout({
   children,
-}: LayoutProps<"/[locale]/projects">) {
+}: LayoutProps<"/[locale]/projects">): LayoutProps<"/[locale]/projects">["children"] {
   return children;
 }

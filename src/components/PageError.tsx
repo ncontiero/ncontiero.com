@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { Link as IntlLink } from "@/i18n/navigation";
 import { Link } from "./ui/link";
@@ -7,7 +8,7 @@ interface PageErrorProps {
   readonly description: string;
 }
 
-function LinkToHome() {
+function LinkToHome(): ReactNode {
   const t = useTranslations("pageError");
 
   return t.rich("goBackToHome", {

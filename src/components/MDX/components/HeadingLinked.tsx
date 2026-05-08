@@ -15,7 +15,7 @@ export function HeadingLinked({
 }: HeadingLinkedProps) {
   const Comp = as;
 
-  return id ? (
+  return id != null ? (
     <Comp id={id} {...props}>
       <NextLink
         href={`#${id}`}

@@ -29,7 +29,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   }
 
   const image =
-    project.image ||
+    project.image ??
     `/og?title=${project.title}&description=${project.description}&isProject=true`;
   const imageAlt = `${project.title} - ${project.description}`;
 
@@ -101,7 +101,7 @@ export default async function ProjectPage(props: Props) {
               className="duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
           </Link>
-          {project.siteUrl ? (
+          {project.siteUrl != null ? (
             <Link
               href={project.siteUrl}
               target="_blank"
