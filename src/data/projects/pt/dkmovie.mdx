@@ -1,0 +1,124 @@
+---
+title: "DkMovie"
+description: Uma plataforma de streaming de vídeo full-stack.
+githubUrl: https://github.com/ncontiero/dkmovie
+lastModified: "2026-05-08"
+---
+
+DkMovie é uma plataforma de streaming de vídeo full-stack. Construída com foco em desempenho e escalabilidade,
+ela apresenta streaming de taxa de bits adaptável (HLS), suporte multilíngue para áudio e legendas,
+e controle de concorrência rigoroso.
+
+## 🚀 Principais Recursos
+
+- **Streaming Adaptativo (HLS)**: Ajusta automaticamente a qualidade do vídeo (1080p, 720p, 480p) com base na largura de banda do usuário usando transcodificação FFmpeg.
+- **Gerenciamento de Mídia**: Suporte para filmes e séries (temporadas e episódios).
+- **Áudio e Legendas**: Suporte a múltiplas trilhas com extração automática e gerenciamento separado para diferentes idiomas.
+- **Controle de Concorrência**: Limita o número de telas ativas simultâneas por usuário com monitoramento de heartbeat.
+- **Armazenamento Seguro**: Armazenamento de objetos privado (Cloudflare R2/MinIO) com URLs assinadas para proteção de conteúdo.
+- **UI/UX Moderna**: Interface responsiva com suporte a modo claro/escuro e um player de vídeo personalizado avançado.
+
+## 🛠️ Tecnologias Utilizadas
+
+### Backend
+
+- **Framework**: [Django 5.2](https://www.djangoproject.com/) & [Django Ninja](https://django-ninja.dev).
+- **Banco de Dados**: [PostgreSQL](https://www.postgresql.org).
+- **Fila de Tarefas**: [Celery](https://docs.celeryq.dev/en/stable/) com [Redis](https://redis.io) (para processamento de vídeo e tarefas em segundo plano).
+- **Processamento de Vídeo**: [FFmpeg](https://ffmpeg.org) (segmentação HLS, transcodificação, geração de miniaturas).
+- **Armazenamento**: [Cloudflare R2](https://www.cloudflare.com/developer-platform/products/r2/) / [MinIO](https://github.com/minio/minio) (via [`django-storages`](https://github.com/jschneier/django-storages)).
+- **Autenticação**: [`django-allauth`](https://allauth.org) (Sessão e OAuth).
+- **E-mails**: [React Email](https://react.email/).
+
+### Frontend
+
+- **Framework**: [React](https://react.dev/) (TypeScript).
+- **Ferramenta de Build**: [Rspack](https://rspack.rs).
+- **Estado e Roteamento**: [TanStack Query](https://tanstack.com/query) & [TanStack Router](https://tanstack.com/router).
+- **Estilização**: [Tailwind CSS](https://tailwindcss.com), [Radix UI](https://www.radix-ui.com) & [Shadcn/ui](https://ui.shadcn.com).
+- **Player**: [ReactPlayer](https://github.com/cookpete/react-player) (integração [hls.js](https://github.com/video-dev/hls.js)) com controles de sobreposição personalizados.
+
+### Infraestrutura
+
+- **Conteinerização**: [Docker](https://www.docker.com) & [Docker Compose](https://docs.docker.com/compose/).
+- **Proxy Reverso**: [Traefik](https://doc.traefik.io/traefik/) (Produção).
+- **Armazenamento de Objetos**: Cloudflare R2 (Produção) / MinIO (Desenvolvimento local).
+
+## ⚡ Primeiros Passos
+
+Este projeto é totalmente conteinerizado. Você só precisa do Docker para executá-lo localmente.
+
+### Pré-requisitos
+
+- [Docker](https://docs.docker.com/get-docker/) instalado e em execução.
+- [Git](https://git-scm.com/) (opcional, para clonar o repositório).
+
+### Instalação
+
+#### Clonar o repositório
+
+```bash
+git clone https://github.com/ncontiero/dkmovie.git
+cd dkmovie
+```
+
+#### Configurar Variáveis de Ambiente
+
+Copie a pasta de configuração de ambiente de exemplo para a ativa.
+
+```bash
+cp -r .envs.example .envs
+```
+
+_Observação: As credenciais padrão em `.envs/.local/` são pré-configuradas para desenvolvimento local com Docker._
+
+#### Build e Inicialização
+
+Execute o projeto usando a configuração docker-compose local.
+
+```bash
+docker compose -f docker-compose.local.yml up --build
+```
+
+_Isso pode levar alguns minutos na primeira execução, pois reconstrói as imagens e instala as dependências (incluindo o FFmpeg)._
+
+#### Acessar a Aplicação
+
+- **Frontend**: http://localhost:3000
+- **API Backend**: http://localhost:3000/api/docs
+- **Admin do Django**: http://localhost:3000/admin/
+- **Console do MinIO**: http://localhost:9001 (Usuário/Senha: `minioAccessKey`/`minioSecretKey`)
+- **Mailpit (E-mail)**: http://localhost:8025
+
+### Pós-Instalação (Opcional)
+
+Para criar um superusuário para o Admin do Django:
+
+```bash
+docker compose -f docker-compose.local.yml run --rm django python manage.py createsuperuser
+```
+
+Para executar as migrações do banco de dados manualmente (geralmente tratadas automaticamente):
+
+```bash
+docker compose -f docker-compose.local.yml run --rm django python manage.py migrate
+```
+
+Para compilar mensagens (suporte a i18n):
+
+```bash
+docker compose -f docker-compose.local.yml run --rm django python manage.py compilemessages
+```
+
+## 📦 Fluxo de Upload e Processamento de Vídeo
+
+1. Crie um título (filme/série) através do Admin do Django.
+2. Faça o upload de um arquivo de vídeo para o título.
+3. O sistema aciona automaticamente uma tarefa do Celery.
+4. O **FFmpeg** converte o vídeo para o formato HLS (múltiplas resoluções) e extrai as trilhas de áudio/legenda disponíveis.
+5. Os arquivos são enviados para o bucket S3 privado.
+6. Uma vez concluído, o vídeo fica disponível para streaming no frontend.
+
+## 📝 Licença
+
+Este projeto está licenciado sob a [Licença MIT](https://github.com/ncontiero/dkmovie/blob/main/LICENSE).

@@ -7,7 +7,7 @@ export const data = {
   github: info.github,
   twitter: info.twitter,
   social: info.social,
-  topProjects: ["ncontiero.com", "dkcutter", "sbily", "dkcutter-django"],
+  topProjects: ["ncontiero.com", "dkcutter", "dkmovie", "dkcutter-django"],
 };
 
 export type DataType = typeof data;
