@@ -1,8 +1,8 @@
-type AboutParagraphProps = {
+interface AboutParagraphProps {
   readonly text: string;
   readonly i: number;
   readonly contentLength: number;
-};
+}
 
 export function AboutParagraph({
   text,

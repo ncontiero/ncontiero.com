@@ -2,6 +2,9 @@ import { ncontiero } from "@ncontiero/eslint-config";
 
 export default ncontiero(
   {
+    jsx: {
+      a11y: true,
+    },
     tailwindcss: {
       overrides: {
         "tailwindcss/no-unknown-classes": "off",

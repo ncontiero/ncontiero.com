@@ -2,6 +2,8 @@ import { getTranslations } from "next-intl/server";
 import { data } from "@/data";
 import { Button } from "./ui/button";
 
+const fullYear = new Date().getFullYear();
+
 export async function Footer() {
   const t = await getTranslations();
   const social = Object.entries(data.social);
@@ -42,7 +44,7 @@ export async function Footer() {
         <div className="border-border border-t py-7 md:py-10">
           <p className="text-foreground/80 text-center align-middle text-base">
             <span className="mr-1 align-middle">&copy;</span>
-            {data.name} {new Date().getFullYear()}
+            {data.name} {fullYear}
           </p>
           <p className="text-foreground/80 text-center text-base">
             {t("footer.rightsReserved")}

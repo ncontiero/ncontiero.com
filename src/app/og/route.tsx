@@ -1,5 +1,4 @@
 /* eslint-disable react-refresh/only-export-components */
-/* eslint-disable react/no-unknown-property */
 import type { NextRequest } from "next/server";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";

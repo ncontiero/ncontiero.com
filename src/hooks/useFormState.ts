@@ -11,13 +11,13 @@ export interface FormState<T extends ZodType> {
 
 export type ActionResult<T extends ZodType> = Promise<FormState<T>>;
 
-export type UseFormStateProps<T extends ZodType> = {
+export interface UseFormStateProps<T extends ZodType> {
   schema: T;
   action: (data: z.infer<T>) => ActionResult<T>;
   onSuccess?: (message?: string | null) => void;
   onError?: (message?: string | null, errors?: FormState<T>["errors"]) => void;
   initialState?: FormState<T>;
-};
+}
 
 export function useFormState<T extends ZodType>(props: UseFormStateProps<T>) {
   const t = useTranslations("sections.contact.form");
