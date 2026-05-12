@@ -70,12 +70,12 @@ export default async function ProjectsPage({
         <MotionP
           variants={projectsItem}
           transition={{ duration: 0.5 }}
-          className="text-foreground/70 mt-4"
+          className="mt-4 text-foreground/70"
         >
           {t("description")}
         </MotionP>
       </div>
-      <div className="bg-border h-px w-full" />
+      <div className="h-px w-full bg-border" />
       <div className="mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 lg:mx-0">
         {topProjects.map((project) => (
           <MotionDiv

@@ -8,30 +8,30 @@ import { cn, createRipple } from "@/lib/utils";
 
 const buttonVariants = cva(
   `
-    ring-offset-background focus-visible:ring-ring relative inline-flex items-center justify-center overflow-hidden
-    font-medium duration-200 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden
+    relative inline-flex items-center justify-center overflow-hidden font-medium ring-offset-background duration-200
+    focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-hidden
     active:not-disabled:scale-95 active:not-disabled:opacity-70 disabled:cursor-not-allowed disabled:opacity-50
   `,
   {
     variants: {
       variant: {
         default:
-          "bg-primary/80 text-primary-foreground dark:bg-primary/60 hover:not-disabled:bg-primary",
+          "bg-primary/80 text-primary-foreground hover:not-disabled:bg-primary dark:bg-primary/60",
         destructive: `
-          bg-destructive/80 text-primary-foreground focus-visible:ring-destructive [&>.ripple]:bg-background/20
-          hover:not-disabled:bg-destructive
+          bg-destructive/80 text-primary-foreground hover:not-disabled:bg-destructive focus-visible:ring-destructive
+          [&>.ripple]:bg-background/20
         `,
         outline: `
-          border-primary/80 text-foreground hover:text-primary-foreground focus-visible:bg-primary/80
-          focus-visible:text-primary-foreground hover:not-disabled:bg-primary/80 border bg-transparent
+          border border-primary/80 bg-transparent text-foreground hover:text-primary-foreground
+          hover:not-disabled:bg-primary/80 focus-visible:bg-primary/80 focus-visible:text-primary-foreground
         `,
         secondary:
-          "bg-secondary focus-visible:ring-ring hover:not-disabled:bg-secondary/80 [&>.ripple]:bg-white/20",
+          "bg-secondary hover:not-disabled:bg-secondary/80 focus-visible:ring-ring [&>.ripple]:bg-white/20",
         ghost:
           "not-disabled:hover:bg-accent not-disabled:hover:text-accent-foreground",
         success: `
-          bg-success/80 text-primary-foreground dark:text-foreground focus-visible:ring-success
-          [&>.ripple]:bg-background/20 hover:not-disabled:bg-success
+          bg-success/80 text-primary-foreground hover:not-disabled:bg-success focus-visible:ring-success
+          dark:text-foreground [&>.ripple]:bg-background/20
         `,
       },
       size: {

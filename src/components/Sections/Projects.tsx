@@ -39,7 +39,7 @@ export function ProjectsSection({
         <SectionContainer>
           <SectionTitle>{title}</SectionTitle>
           <SectionDescription>{description}</SectionDescription>
-          <div className="mdlg:grid-cols-2 mdlg:px-0 grid gap-6 px-2 md:px-10">
+          <div className="grid gap-6 px-2 md:px-10 mdlg:grid-cols-2 mdlg:px-0">
             {projects.map((project) => (
               <MotionDiv
                 key={project._id}

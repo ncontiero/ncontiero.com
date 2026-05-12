@@ -104,7 +104,7 @@ export default async function RootLayout({
               autoClose={3000}
               limit={3}
               theme="dark"
-              className="bg-background font-merriweather-sans text-foreground z-99999!"
+              className="z-99999! bg-background font-merriweather-sans text-foreground"
               toastClassName="bg-background z-99999! font-merriweather-sans font-medium text-foreground backdrop-blur-xs"
               closeOnClick
               stacked
@@ -112,14 +112,14 @@ export default async function RootLayout({
             <Header locale={locale} />
             <div
               className={`
-                from-foreground/10 dark:from-secondary/30 absolute inset-0 -z-10 size-full bg-radial from-10%
-                to-transparent to-10% bg-size-[16px_16px]
+                absolute inset-0 -z-10 size-full bg-radial from-foreground/10 from-10% to-transparent to-10%
+                bg-size-[16px_16px] dark:from-secondary/30
               `}
             />
             <div
               className={`
-                dark:border-border/40 absolute inset-0 -z-10 mx-auto hidden size-full max-w-[1690px] border-x-2
-                border-dashed px-4 md:flex
+                absolute inset-0 -z-10 mx-auto hidden size-full max-w-[1690px] border-x-2 border-dashed px-4 md:flex
+                dark:border-border/40
               `}
             />
             {children}

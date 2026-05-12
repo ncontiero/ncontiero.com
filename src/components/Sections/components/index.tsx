@@ -26,8 +26,8 @@ function SectionTitle({
     <Comp
       className={cn(
         `
-          after:bg-primary relative mb-10 block text-center text-4xl font-bold tracking-wide after:absolute
-          after:top-[calc(100%+1rem)] after:left-1/2 after:h-1.25 after:w-12 after:-translate-x-1/2 after:rounded-md
+          relative mb-10 block text-center text-4xl font-bold tracking-wide after:absolute after:top-[calc(100%+1rem)]
+          after:left-1/2 after:h-1.25 after:w-12 after:-translate-x-1/2 after:rounded-md after:bg-primary
           after:content-['']
         `,
         className,
@@ -41,7 +41,7 @@ function SectionDescription({ className, ...props }: ComponentProps<"p">) {
   return (
     <p
       className={cn(
-        "text-foreground/80 mx-auto mb-16 block max-w-xl text-center text-lg font-normal md:mb-20",
+        "mx-auto mb-16 block max-w-xl text-center text-lg font-normal text-foreground/80 md:mb-20",
         className,
       )}
       {...props}

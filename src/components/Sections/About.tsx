@@ -40,7 +40,7 @@ export function AboutSection({
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="mdlg:grid-cols-2 mdlg:gap-40 grid gap-14"
+            className="grid gap-14 mdlg:grid-cols-2 mdlg:gap-40"
           >
             <div>
               <MotionH3
@@ -91,8 +91,8 @@ export function AboutSection({
                     variants={animation.item}
                     transition={{ delay: i * 0.5, duration: 0.5 }}
                     className={`
-                      bg-foreground/5 hover:bg-foreground/10 dark:bg-secondary/20 dark:hover:bg-secondary/40 mr-4 mb-4
-                      rounded-md px-5 py-2.5 duration-200
+                      mr-4 mb-4 rounded-md bg-foreground/5 px-5 py-2.5 duration-200 hover:bg-foreground/10
+                      dark:bg-secondary/20 dark:hover:bg-secondary/40
                     `}
                     key={skill}
                   >

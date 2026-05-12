@@ -17,7 +17,7 @@ export function CodeTitleOrCaption({
   const language = props["data-language"];
   const Comp = as;
 
-  if (language == null) {
+  if (!language) {
     return (
       <Comp className={className} {...props}>
         {children}

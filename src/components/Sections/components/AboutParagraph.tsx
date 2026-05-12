@@ -15,7 +15,7 @@ export function AboutParagraph({
     <p
       className={`${
         isLast ? "mb-10" : "mb-2.5"
-      } text-foreground/80 max-w-xl text-base leading-loose`}
+      } max-w-xl text-base/loose text-foreground/80`}
     >
       {text}
     </p>

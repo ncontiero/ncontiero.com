@@ -9,14 +9,14 @@ export function ErrorMessage({
 }) {
   return (
     <AnimatePresence mode="wait">
-      {error != null ? (
+      {error ? (
         <motion.span
           key={error}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="text-destructive text-sm"
+          className="text-sm text-destructive"
         >
           {error}
         </motion.span>

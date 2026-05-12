@@ -72,12 +72,12 @@ export default async function ProjectPage(props: Props) {
       <div className="relative mx-auto max-w-5xl">
         <div className="flex flex-col items-center px-6 text-center lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight">{project.title}</h1>
-          <p className="text-foreground/80 mt-4 max-w-xl leading-8">
+          <p className="mt-4 max-w-xl leading-8 text-foreground/80">
             {project.description}
           </p>
           <time
             dateTime={project.lastModified}
-            className="text-foreground/60 mt-2 text-sm"
+            className="mt-2 text-sm text-foreground/60"
           >
             {t("lastUpdated", {
               date: Intl.DateTimeFormat(locale, {
@@ -101,7 +101,7 @@ export default async function ProjectPage(props: Props) {
               className="duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
           </Link>
-          {project.siteUrl != null ? (
+          {project.siteUrl ? (
             <Link
               href={project.siteUrl}
               target="_blank"
@@ -116,10 +116,10 @@ export default async function ProjectPage(props: Props) {
             </Link>
           ) : null}
         </div>
-        <div className="bg-border mt-16 h-px w-full" />
+        <div className="mt-16 h-px w-full bg-border" />
         <div
           className={`
-            prose dark:prose-invert mx-auto px-4 pt-6 sm:pt-10 [&_code]:before:content-[''] [&_code]:after:content-['']
+            mx-auto prose px-4 pt-6 sm:pt-10 dark:prose-invert [&_code]:before:content-[''] [&_code]:after:content-['']
           `}
         >
           <Mdx code={project.body.code} />

@@ -20,7 +20,7 @@ export const components = {
     <HeadingLinked
       as="h2"
       className={cn(
-        `border-b-border mt-10 w-full scroll-m-20 border-b pb-1 text-3xl font-semibold tracking-tight first:mt-0`,
+        `mt-10 w-full scroll-m-20 border-b border-b-border pb-1 text-3xl font-semibold tracking-tight first:mt-0`,
         className,
       )}
       {...props}
@@ -77,7 +77,7 @@ export const components = {
   ),
   li: ({ className, ...props }: HTMLAttributes<HTMLLIElement>) => (
     <li
-      className={cn("marker:text-foreground/80 my-1", className)}
+      className={cn("my-1 marker:text-foreground/80", className)}
       {...props}
     />
   ),
@@ -85,7 +85,7 @@ export const components = {
     <blockquote
       className={cn(
         `
-          border-border text-foreground/60 *:text-foreground/60 mt-6 border-l-2 pl-3 font-normal
+          mt-6 border-l-2 border-border pl-3 font-normal text-foreground/60 *:text-foreground/60
           *:first-of-type:before:content-[''] *:first-of-type:after:content-['']
         `,
         className,
@@ -97,7 +97,7 @@ export const components = {
     // eslint-disable-next-line nextjs/no-img-element
     <img
       className={cn(
-        "border-border shadow-primary/10 dark:border-border/40 my-0! rounded-md border shadow-xl",
+        "my-0! rounded-md border border-border shadow-xl shadow-primary/10 dark:border-border/40",
         className,
       )}
       alt={alt}
@@ -105,7 +105,7 @@ export const components = {
     />
   ),
   hr: ({ ...props }) => (
-    <hr className="border-border my-4 md:my-8" {...props} />
+    <hr className="my-4 border-border md:my-8" {...props} />
   ),
   table: ({ className, ...props }: HTMLAttributes<HTMLTableElement>) => (
     <div className="w-full overflow-y-auto">
@@ -115,7 +115,7 @@ export const components = {
   tr: ({ className, ...props }: HTMLAttributes<HTMLTableRowElement>) => (
     <tr
       className={cn(
-        `even:bg-primary/5 focus-within:bg-primary/30 hover:bg-primary/20 duration-200`,
+        `duration-200 even:bg-primary/5 focus-within:bg-primary/30 hover:bg-primary/20`,
         className,
       )}
       {...props}
@@ -125,7 +125,7 @@ export const components = {
     <th
       className={cn(
         `
-          dark:border-border/60 h-12 border p-4 text-left align-middle font-bold [[align=center]]:text-center
+          h-12 border p-4 text-left align-middle font-bold dark:border-border/60 [[align=center]]:text-center
           [[align=right]]:text-right
         `,
         className,
@@ -137,7 +137,7 @@ export const components = {
     <td
       className={cn(
         `
-          dark:border-border/60 border p-4 text-left align-middle font-medium [[align=center]]:text-center
+          border p-4 text-left align-middle font-medium dark:border-border/60 [[align=center]]:text-center
           [[align=right]]:text-right
         `,
         className,
@@ -152,21 +152,21 @@ export const components = {
   }: HTMLAttributes<HTMLPreElement> & { "data-content"?: string }) => {
     const dataContent = props["data-content"];
     return (
-      <div className="bg-background group relative my-4 overflow-x-auto">
+      <div className="group relative my-4 overflow-x-auto bg-background">
         <pre
-          className={cn("bg-background relative my-0! px-0 py-4", className)}
+          className={cn("relative my-0! bg-background px-0 py-4", className)}
           {...props}
         >
           {children}
         </pre>
-        {dataContent != null ? <CopyCodeButton code={dataContent} /> : null}
+        {dataContent ? <CopyCodeButton code={dataContent} /> : null}
       </div>
     );
   },
   code: ({ className, ...props }: HTMLAttributes<HTMLPreElement>) => (
     <code
       className={cn(
-        "bg-secondary-foreground/10 relative rounded-sm px-1.5 py-1 font-mono",
+        "relative rounded-sm bg-secondary-foreground/10 px-1.5 py-1 font-mono",
         className,
       )}
       {...props}

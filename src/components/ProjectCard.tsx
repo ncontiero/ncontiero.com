@@ -39,7 +39,7 @@ export function ProjectCard({
               </svg>
             </a>
           </Button>
-          {siteUrl != null ? (
+          {siteUrl ? (
             <Button className="z-20 flex items-center gap-1" asChild>
               <a
                 href={siteUrl}

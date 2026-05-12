@@ -35,7 +35,7 @@ function CardRoot({
     currentTarget,
     clientX,
     clientY,
-  }: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) {
+  }: MouseEvent<HTMLDivElement>) {
     const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
@@ -57,10 +57,10 @@ function CardRoot({
       ref={ref}
       className={cn(
         `
-          group border-border/80 bg-background/60 focus-within:border-ring focus-within:bg-background/10
-          hover:border-ring/60 hover:bg-background/30 dark:border-border/10 dark:hover:border-ring/60
-          dark:focus-within:border-ring/80 dark:focus-within:bg-background/30 relative h-full overflow-hidden rounded-xl
-          border duration-700 md:gap-8
+          group relative h-full overflow-hidden rounded-xl border border-border/80 bg-background/60 duration-700
+          focus-within:border-ring focus-within:bg-background/10 hover:border-ring/60 hover:bg-background/30 md:gap-8
+          dark:border-border/10 dark:focus-within:border-ring/80 dark:focus-within:bg-background/30
+          dark:hover:border-ring/60
         `,
         className,
       )}
@@ -70,7 +70,7 @@ function CardRoot({
         <div className="absolute inset-0 z-0 mask-[linear-gradient(black,transparent)] duration-1000" />
         <motion.div
           className={`
-            via-primary/30 absolute inset-0 z-10 bg-linear-to-br opacity-70 duration-1000 group-hover:opacity-60
+            absolute inset-0 z-10 bg-linear-to-br via-primary/30 opacity-70 duration-1000 group-hover:opacity-60
             dark:opacity-50 dark:group-hover:opacity-40
           `}
           style={style}
@@ -126,7 +126,7 @@ function CardTitle({ className, asChild, ...props }: CardTitleProps) {
   return (
     <Comp
       className={cn(
-        "text-foreground/80 group-hover:text-foreground text-xl font-bold duration-200",
+        "text-xl font-bold text-foreground/80 duration-200 group-hover:text-foreground",
         className,
       )}
       {...props}
@@ -140,7 +140,7 @@ function CardDescription({ className, ...props }: CardDescriptionProps) {
   return (
     <p
       className={cn(
-        "text-foreground/60 group-hover:text-foreground/80 mt-2 leading-8 duration-200",
+        "mt-2 leading-8 text-foreground/60 duration-200 group-hover:text-foreground/80",
         className,
       )}
       {...props}

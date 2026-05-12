@@ -26,7 +26,7 @@ export function ContactForm({ formTranslations }: ContactFormProps) {
       error: (iss) => {
         const defaultError = formTranslations.invalidData;
         const path = iss.path?.join(".");
-        if (path == null) return { message: defaultError };
+        if (!path) return { message: defaultError };
 
         const message = {
           name: formTranslations.name.error,
@@ -56,7 +56,6 @@ export function ContactForm({ formTranslations }: ContactFormProps) {
   }
 
   return (
-    // eslint-disable-next-line ts/no-misused-promises
     <form onSubmit={form.handleSubmit(onSubmit)}>
       <Form.Fieldset>
         <Label className="text-base font-bold" htmlFor="name">

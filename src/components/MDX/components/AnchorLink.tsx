@@ -3,8 +3,7 @@ import { type LinkProps, Link } from "@/components/ui/link";
 import { cn } from "@/lib/utils";
 
 export function AnchorLink({ href, children, className, ...props }: LinkProps) {
-  const isInside =
-    href != null ? href.startsWith("#") || href.startsWith("/") : false;
+  const isInside = href?.startsWith("#") || href?.startsWith("/");
 
   return (
     <Link
