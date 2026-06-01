@@ -46,8 +46,8 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@commitlint/cli": "^21.0.1",
-    "@commitlint/config-conventional": "^21.0.1",
+    "@commitlint/cli": "^21.0.2",
+    "@commitlint/config-conventional": "^21.0.2",
     "@cspell/dict-pt-br": "^2.4.2",
     "@ncontiero/eslint-config": "8.2.1",
     "@tailwindcss/postcss": "^4.3.0",
