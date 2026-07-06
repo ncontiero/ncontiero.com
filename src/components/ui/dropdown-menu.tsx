@@ -1,17 +1,43 @@
 "use client";
 
 import type { ComponentProps } from "react";
-import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { CircleIcon } from "lucide-react";
+import { DropdownMenu as DropdownMenuPrimitive } from "radix-ui";
 import { cn } from "@/lib/utils";
 
-const DropdownMenu = DropdownMenuPrimitive.Root;
+function DropdownMenu(
+  props: ComponentProps<typeof DropdownMenuPrimitive.Root>,
+) {
+  return <DropdownMenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
+}
+function DropdownMenuPortal(
+  props: ComponentProps<typeof DropdownMenuPrimitive.Portal>,
+) {
+  return (
+    <DropdownMenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />
+  );
+}
+function DropdownMenuTrigger(
+  props: ComponentProps<typeof DropdownMenuPrimitive.Trigger>,
+) {
+  return (
+    <DropdownMenuPrimitive.Trigger
+      data-slot="dropdown-menu-trigger"
+      {...props}
+    />
+  );
+}
 
-const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
-
-const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
-
-const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
+function DropdownMenuRadioGroup(
+  props: ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>,
+) {
+  return (
+    <DropdownMenuPrimitive.RadioGroup
+      data-slot="dropdown-menu-radio-group"
+      {...props}
+    />
+  );
+}
 
 function DropdownMenuContent({
   className,

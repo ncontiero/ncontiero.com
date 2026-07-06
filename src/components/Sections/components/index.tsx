@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
-import { Slot } from "@radix-ui/react-slot";
+import { Slot } from "radix-ui";
 import { cn } from "@/lib/utils";
 
 function SectionRoot({ className, ...props }: ComponentProps<"section">) {
@@ -21,7 +21,7 @@ function SectionTitle({
   asChild = false,
   ...props
 }: SectionTitleProps) {
-  const Comp = asChild ? Slot : "h2";
+  const Comp = asChild ? Slot.Root : "h2";
   return (
     <Comp
       className={cn(

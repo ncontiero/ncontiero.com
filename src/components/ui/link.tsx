@@ -1,6 +1,6 @@
 import type { ComponentProps } from "react";
-import { Slot } from "@radix-ui/react-slot";
 import { type VariantProps, cva } from "class-variance-authority";
+import { Slot } from "radix-ui";
 
 import { cn } from "@/lib/utils";
 
@@ -61,7 +61,7 @@ export function Link({
   className,
   ...props
 }: LinkProps) {
-  const Comp = asChild ? Slot : "a";
+  const Comp = asChild ? Slot.Root : "a";
 
   return (
     <Comp

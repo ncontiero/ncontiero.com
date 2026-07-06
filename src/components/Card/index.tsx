@@ -7,9 +7,9 @@ import {
   useEffect,
   useRef,
 } from "react";
-import { Slot } from "@radix-ui/react-slot";
 import { motion, useMotionTemplate, useSpring } from "motion/react";
 import { useTranslations } from "next-intl";
+import { Slot } from "radix-ui";
 
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -120,7 +120,7 @@ interface CardTitleProps extends ComponentProps<"h1"> {
 }
 
 function CardTitle({ className, asChild, ...props }: CardTitleProps) {
-  const Comp = asChild ? Slot : "h3";
+  const Comp = asChild ? Slot.Root : "h3";
 
   return (
     <Comp
