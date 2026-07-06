@@ -1,6 +1,6 @@
 "use client";
 
-import { type HTMLMotionProps, motion } from "framer-motion";
+import { type HTMLMotionProps, motion } from "motion/react";
 
 import { cn } from "@/lib/utils";
 import { homeAnimation } from "../../animationVariants";

@@ -8,7 +8,7 @@ import {
   useRef,
 } from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { motion, useMotionTemplate, useSpring } from "framer-motion";
+import { motion, useMotionTemplate, useSpring } from "motion/react";
 import { useTranslations } from "next-intl";
 
 import { Link } from "@/i18n/navigation";
