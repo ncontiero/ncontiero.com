@@ -30,8 +30,8 @@ const buttonVariants = cva(
         ghost:
           "not-disabled:hover:bg-accent not-disabled:hover:text-accent-foreground",
         success: `
-          bg-success/80 text-primary-foreground hover:not-disabled:bg-success focus-visible:ring-success
-          dark:text-foreground [&>.ripple]:bg-background/20
+          bg-success/80 text-primary-foreground hover:not-disabled:bg-success focus-visible:ring-success dark:text-foreground
+          [&>.ripple]:bg-background/20
         `,
       },
       size: {

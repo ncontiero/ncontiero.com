@@ -38,9 +38,7 @@ export function ChangeLocale({ navbarLocale, locale }: ChangeLocaleProps) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className={`
-          border-border/60 bg-background/60 shadow-xl shadow-secondary/20 backdrop-blur-md dark:bg-background/80
-        `}
+        className={`border-border/60 bg-background/60 shadow-xl shadow-secondary/20 backdrop-blur-md dark:bg-background/80`}
       >
         <DropdownMenuRadioGroup
           value={locale}
