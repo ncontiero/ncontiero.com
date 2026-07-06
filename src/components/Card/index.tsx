@@ -59,8 +59,7 @@ function CardRoot({
         `
           group relative h-full overflow-hidden rounded-xl border border-border/80 bg-background/60 duration-700
           focus-within:border-ring focus-within:bg-background/10 hover:border-ring/60 hover:bg-background/30 md:gap-8
-          dark:border-border/10 dark:focus-within:border-ring/80 dark:focus-within:bg-background/30
-          dark:hover:border-ring/60
+          dark:border-border/10 dark:focus-within:border-ring/80 dark:focus-within:bg-background/30 dark:hover:border-ring/60
         `,
         className,
       )}

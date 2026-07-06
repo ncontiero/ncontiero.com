@@ -80,7 +80,7 @@ export default async function ProjectPage(props: Props) {
             className="mt-2 text-sm text-foreground/60"
           >
             {t("lastUpdated", {
-              date: Intl.DateTimeFormat(locale, {
+              date: new Intl.DateTimeFormat(locale, {
                 year: "numeric",
                 month: "long",
                 day: "numeric",

@@ -7,8 +7,8 @@ import { cn } from "@/lib/utils";
 const linkVariants = cva(
   `
     inline-flex items-center justify-center font-medium underline-offset-4 ring-offset-background duration-200
-    hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2
-    focus-visible:outline-hidden active:opacity-70
+    hover:underline focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:outline-hidden
+    active:opacity-70
   `,
   {
     variants: {
