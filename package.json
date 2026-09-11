@@ -71,6 +71,6 @@
     "node": ">=22"
   },
   "lint-staged": {
-    "*": "pnpm lint:fix"
+    "*": ["pnpm check:spell lint --file", "pnpm check:case", "eslint --fix"]
   }
 }
