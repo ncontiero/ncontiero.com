@@ -43,6 +43,8 @@ function CardRoot({
   const maskImage = useMotionTemplate`radial-gradient(${radialWidth}px at ${mouseX}px ${mouseY}px, ${radialColor}, transparent)`;
   const style = { maskImage, backgroundImage: maskImage };
 
+  // MotionValue.set() mutates an external animation value intentionally.
+  /* eslint-disable react/immutability */
   useEffect(() => {
     if (ref.current) {
       const { height, width } = ref.current.getBoundingClientRect();
@@ -50,6 +52,7 @@ function CardRoot({
       mouseX.set(Math.random() * width);
     }
   }, [mouseY, mouseX]);
+  /* eslint-enable react/immutability */
 
   return (
     <div
