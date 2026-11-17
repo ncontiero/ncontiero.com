@@ -50,7 +50,7 @@
     "@ncontiero/eslint-config": "8.6.2",
     "@tailwindcss/postcss": "4.3.5",
     "@tailwindcss/typography": "0.5.20",
-    "@types/node": "25.9.9",
+    "@types/node": "26.6.6",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "case-police": "2.2.1",
@@ -68,7 +68,7 @@
     "typescript": "6.0.3"
   },
   "engines": {
-    "node": ">=22"
+    "node": ">=24"
   },
   "lint-staged": {
     "*": ["pnpm check:spell lint --file", "pnpm check:case", "eslint --fix"]
